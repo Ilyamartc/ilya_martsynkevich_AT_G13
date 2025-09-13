@@ -17,8 +17,6 @@ public class SparklingWater extends Water {
         bubbles = new Bubble[0];
     }
 }
-
-
 //-- создать класс SparklingWater, являющийся дочерним Water +
 //-- у газировки есть пузырьки +
 //-- вода заполняется пузырьками при упаковке на заводе, для этого у нее есть метод pump(Bubble[] bubbles) (pump) +
