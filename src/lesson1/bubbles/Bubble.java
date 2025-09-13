@@ -6,6 +6,9 @@ public class Bubble {
     public String getGas() {
         return gas;
     }
+    public void pop() {
+        System.out.println("Cramp! " + gas);
+    }
     public Bubble (String gas) {
         this.gas = gas;
     }
