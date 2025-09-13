@@ -23,7 +23,6 @@ public class Bottle {
         water.pump(bubbles);
     }
 }
-
 //-- создать класс Bottle +
 //-- у него есть объем +
 //-- есть вода +
