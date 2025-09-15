@@ -9,12 +9,12 @@ public class SparklingWater extends Water {
         this.bubbles = bubbles;
     }
     public void degas() {
-        int i = 0;
-        while (i < bubbles.length) {
-            bubbles[i].pop();
-            i++;
+        if (bubbles != null) {
+            for (Bubble b : bubbles) {
+                b.pop();
+            }
+            bubbles = null;
         }
-        bubbles = new Bubble[0];
     }
 }
 //-- создать класс SparklingWater, являющийся дочерним Water +

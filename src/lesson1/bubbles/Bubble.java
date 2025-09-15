@@ -3,6 +3,9 @@ package lesson1.bubbles;
 public class Bubble {
     private final double volume = 0.3;
     private String gas;
+    public double getVolume() {
+        return volume;
+    }
     public String getGas() {
         return gas;
     }
