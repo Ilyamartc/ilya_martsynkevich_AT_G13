@@ -1,4 +1,4 @@
-package lesson1.page44;
+package homework.day1.page44;
 
 class TestFoo {
     public void foo() {
