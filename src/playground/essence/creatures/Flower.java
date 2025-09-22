@@ -1,4 +1,5 @@
 package playground.essence.creatures;
 
-abstract class Flower extends Plant {
+public abstract class Flower extends Plant {
+
 }

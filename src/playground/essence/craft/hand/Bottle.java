@@ -1,4 +1,5 @@
 package playground.essence.craft.hand;
 
-abstract class Bottle extends Container {
+public class Bottle extends Container implements Storable {
+    @Override public void store() { System.out.println(name + " is storing"); }
 }

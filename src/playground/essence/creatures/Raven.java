@@ -1,4 +1,5 @@
 package playground.essence.creatures;
 
-public class Raven {
+public class Raven extends Vertebrata {
+
 }

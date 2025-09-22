@@ -1,4 +1,10 @@
 package playground.essence.craft.field;
 
-abstract class Motorbike extends Vehicle {
+import playground.essence.craft.Transportable;
+import playground.essence.craft.Rideable;
+
+
+public class Motorbike extends Vehicle implements Transportable, Rideable {
+    @Override public void move() { System.out.println(name + " is moving"); }
+    @Override public void ride() { System.out.println(name + " is being ridden"); }
 }
