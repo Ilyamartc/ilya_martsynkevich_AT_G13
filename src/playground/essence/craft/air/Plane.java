@@ -4,6 +4,19 @@ import playground.essence.Flyable;
 import playground.essence.craft.Transportable;
 
 public class Plane extends Aircraft implements Flyable, Transportable {
-    @Override public void fly() { System.out.println(name + " is flying"); }
-    @Override public void move() { System.out.println(name + " is moving"); }
+
+    public Plane(int mass, String name) {
+        super(mass, name);
+    }
+
+    @Override
+    public void fly(String direction) {
+        System.out.printf("I am %s, my name is %s and I am flying to %s%n",
+                getClass().getSimpleName(), name, direction);
+    }
+
+    @Override
+    public void move() {
+        System.out.println(name + " is moving");
+    }
 }
