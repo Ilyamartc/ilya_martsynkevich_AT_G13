@@ -1,6 +1,11 @@
 package playground.essence.creatures;
 
 public class Beetle extends Insect implements Crawlable {
+
+    public Beetle(int mass, String name) {
+        super(mass, name); // вызываем конструктор родителя
+    }
+
     @Override
     public void crawl() {
         System.out.println(name + " is crawling");
