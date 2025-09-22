@@ -1,11 +1,7 @@
 package playground.essence.creatures;
 
-abstract class Vertebrata {
-    public Vertebrata(String name, int mass) {
-        super(name, mass);
-    }
-
+public abstract class Vertebrata extends Animal {
     public void eat(Insect food) {
-        System.out.println("I am " + this.name + " and I am eating " + food.getName());
+        System.out.printf("I am %s and I am eating %s%n", name, food.getName());
     }
 }

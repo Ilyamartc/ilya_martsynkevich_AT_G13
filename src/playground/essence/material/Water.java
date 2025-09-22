@@ -1,4 +1,7 @@
 package playground.essence.material;
 
-public class Water {
+import playground.essence.Matter;
+
+public class Water extends Matter implements Pourable {
+    @Override public void pour() { System.out.println("Pouring water"); }
 }
