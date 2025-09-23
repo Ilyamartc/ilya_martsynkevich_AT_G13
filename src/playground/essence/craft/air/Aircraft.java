@@ -9,9 +9,17 @@ public abstract class Aircraft {
         this.name = name;
     }
 
-    public int getMass() { return mass; }
-    public void setMass(int mass) { this.mass = mass; }
+    public int getMass() {
+        return mass;
+    }
+    public void setMass(int mass) {
+        this.mass = mass;
+    }
 
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
 }

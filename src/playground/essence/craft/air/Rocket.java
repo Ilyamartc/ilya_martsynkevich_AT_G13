@@ -1,9 +1,9 @@
 package playground.essence.craft.air;
 
-import playground.essence.Flyable;
 import playground.essence.craft.Transportable;
+import playground.essence.Flyable;
 
-public class Rocket extends Aircraft implements Flyable, Transportable {
+public class Rocket extends Aircraft implements Transportable, Flyable {
 
     public Rocket(int mass, String name) {
         super(mass, name);
@@ -16,7 +16,9 @@ public class Rocket extends Aircraft implements Flyable, Transportable {
     }
 
     @Override
-    public void move() {
-        System.out.println(name + " is moving");
+    public int move(int pointA, int pointB) {
+        System.out.printf("I am %s, my name is %s and I am moving from point %d to point %d%n",
+                getClass().getSimpleName(), name, pointA, pointB);
+        return pointB - pointA;
     }
 }

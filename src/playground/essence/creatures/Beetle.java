@@ -15,7 +15,8 @@ public class Beetle extends Insect implements Crawlable {
         int familyMembers = home.getMass() / this.mass;
         if (this.mass < home.getMass()) {
             System.out.printf("I am %s and I will nest there with %d my family members!%n", name, familyMembers);
-        } else {
+        }
+        else {
             System.out.println("This carrot is too small for nesting :(");
         }
     }
