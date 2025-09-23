@@ -41,7 +41,6 @@ public class TransportableProcessorRunner {
         Moped aMoped = new Moped(12, "Honda EM1 Moped");
         Motorbike aMotorbike = new Motorbike(12, "Suzuki GSX-R1000 Motorbike");
 
-        // Запуск через processor
         processor.runTransportable(transportableCopter);
         processor.runTransportable(transportablePlane);
         processor.runTransportable(transportableRocket);
