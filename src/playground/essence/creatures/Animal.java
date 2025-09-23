@@ -9,14 +9,18 @@ public abstract class Animal {
         this.mass = mass;
         this.name = name;
     }
-
-    public int getMass() { return mass; }
-    public void setMass(int mass) { this.mass = mass; }
-
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
-
-    // Метод eat(Plant food) для всех животных
+    public int getMass() {
+        return mass;
+    }
+    public void setMass(int mass) {
+        this.mass = mass;
+    }
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
     public void eat(Plant food) {
         System.out.printf("I am %s and I am eating %s%n", name, food.getName());
     }

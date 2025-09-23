@@ -1,5 +1,5 @@
 package playground.essence.craft;
 
 public interface Rideable {
-    void ride();
+    int ride(int pointA, int pointB);
 }
