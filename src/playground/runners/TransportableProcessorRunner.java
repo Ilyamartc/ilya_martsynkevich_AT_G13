@@ -11,7 +11,6 @@ public class TransportableProcessorRunner {
     public static void main(String[] args) {
         TransportableProcessor processor = new TransportableProcessor();
 
-        // Создание объектов
         Transportable transportableCopter = new Copter(223, "AW109 Transportable");
         Transportable transportablePlane = new Plane(3452, "Airbus a380 Transportable");
         Transportable transportableRocket = new Rocket(7623, "Soyuz-FG Transportable");
@@ -50,13 +49,6 @@ public class TransportableProcessorRunner {
         processor.runTransportable(transportableMoped);
         processor.runTransportable(transportableMotorbike);
 
-        // Следующие объекты НЕ Transportable напрямую, поэтому нельзя:
-        // processor.runTransportable(aircraftCopter); // Aircraft не реализует Transportable
-        // processor.runTransportable(vehicleCar); // Vehicle не реализует Transportable
-        // processor.runTransportable(flyableCopter); // Flyable не является Transportable
-        // processor.runTransportable(rideableCar); // Rideable не является Transportable
-
-        // Эти объекты конкретных классов можно:
         processor.runTransportable(aCopter);
         processor.runTransportable(aPlane);
         processor.runTransportable(aRocket);
@@ -64,7 +56,6 @@ public class TransportableProcessorRunner {
         processor.runTransportable(aMoped);
         processor.runTransportable(aMotorbike);
 
-        // Тест с конкретными точками
         processor.runTransportable(transportableCopter, 23, 242);
         processor.runTransportable(transportableCar, 93, 7);
     }
