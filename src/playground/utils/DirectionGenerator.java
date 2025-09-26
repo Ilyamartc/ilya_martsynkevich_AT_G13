@@ -1,11 +1,13 @@
 package playground.utils;
 
-import java.util.concurrent.ThreadLocalRandom;
+import java.util.Random;
 
 public class DirectionGenerator {
 
+    private static final Random random = new Random();
+
     public static String generateDirection() {
-        int rand = ThreadLocalRandom.current().nextInt(1, 40);
+        int rand = random.nextInt(39) + 1;
         if (rand >= 1 && rand <= 9) {
             return "NORTH";
         } else if (rand >= 10 && rand <= 19) {
