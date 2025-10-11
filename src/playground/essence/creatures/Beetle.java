@@ -1,23 +1,20 @@
 package playground.essence.creatures;
 
-public class Beetle extends Insect implements Crawlable {
+import playground.essence.Crawlable;
+
+public class Beetle implements Crawlable {
+    private int mass;
+    private String name;
 
     public Beetle(int mass, String name) {
-        super(mass, name); // вызываем конструктор родителя
+        this.mass = mass;
+        this.name = name;
     }
 
     @Override
-    public void crawl() {
-        System.out.println(name + " is crawling");
-    }
-
-    public void nest(Carrot home) {
-        int familyMembers = home.getMass() / this.mass;
-        if (this.mass < home.getMass()) {
-            System.out.printf("I am %s and I will nest there with %d my family members!%n", name, familyMembers);
-        }
-        else {
-            System.out.println("This carrot is too small for nesting :(");
-        }
+    public void crawl(String direction, int distance) {
+        System.out.printf("I am %s, my name is %s and I am crawling to %s for %d units%n",
+                this.getClass().getSimpleName(), name, direction, distance);
+        System.out.println("vz-vz-vzz-zz..");
     }
 }
