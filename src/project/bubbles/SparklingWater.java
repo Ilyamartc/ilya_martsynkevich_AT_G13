@@ -1,4 +1,4 @@
-package lesson1.bubbles;
+package project.bubbles;
 
 public class SparklingWater extends Water {
     public SparklingWater(String color, String transparency, String smell, double temperature) {

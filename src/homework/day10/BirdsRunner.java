@@ -1,17 +1,17 @@
-package homework.day9;
+package homework.day10;
 
 import java.util.Arrays;
+import java.util.stream.Stream;
 
 public class BirdsRunner {
     public static void main(String[] args) {
-        Arrays.asList("Чайка", "Дрозд", "Бусел", "Голубь", "Воробей", "Цапля")
-                .stream()
-                .map(bird -> bird.replace('о', 'а')) // заменить "о" на "а"
-                .map(String::toLowerCase) // всё в нижний регистр
-                .reduce((a, b) -> a + b) // собрать все слова в одну строку
+        Stream.of("Чайка", "Дрозд", "Бусел", "Голубь", "Воробей", "Цапля")
+                .map(bird -> bird.replace('о', 'а'))
+                .map(String::toLowerCase)
+                .reduce((a, b) -> a + b)
                 .ifPresent(result -> Arrays.stream(
-                                result.replace("ь", "") // убрать мягкий знак
-                                        .split("б")) // разбить по "б"
+                                result.replace("ь", "")
+                                        .split("б"))
                         .forEach(part -> System.out.println("--" + part + "--")));
     }
 }
