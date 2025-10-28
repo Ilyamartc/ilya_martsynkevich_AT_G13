@@ -18,11 +18,6 @@ public class NumbersModRunner {
                 '9', "nine"
         );
         System.out.println("Результат:");
-        numbersMod.map(String::valueOf)
-                .filter(s -> s.contains("3"))
-                .flatMap(s -> s.chars()
-                        .mapToObj(c -> digitToWord.get((char) c)))
-                .distinct().sorted(Comparator.reverseOrder())
-                .forEach(System.out::println);
+        numbersMod.map(String::valueOf).filter(s -> s.contains("3")).flatMap(s -> s.chars().mapToObj(c -> digitToWord.get((char) c))).distinct().sorted(Comparator.reverseOrder()).forEach(System.out::println);
     }
 }
