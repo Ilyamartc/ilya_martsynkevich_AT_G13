@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GenericMethodsInGenericClassT.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">ProjectNew</a> &gt; <a href="index.source.html" class="el_package">homework.day6</a> &gt; <span class="el_source">GenericMethodsInGenericClassT.java</span></div><h1>GenericMethodsInGenericClassT.java</h1><pre class="source lang-java linenums">package homework.day6;
+
+public class GenericMethodsInGenericClassT&lt;T&gt; {
+    private T value;
+
+<span class="nc" id="L6">    public GenericMethodsInGenericClassT(T value) {</span>
+<span class="nc" id="L7">        this.value = value;</span>
+<span class="nc" id="L8">    }</span>
+
+    public T getValue() {
+<span class="nc" id="L11">        return value;</span>
+    }
+
+    public void setValue(T value) {
+<span class="nc" id="L15">        this.value = value;</span>
+<span class="nc" id="L16">    }</span>
+
+    public &lt;U&gt; void genericMethodOneGenArg(U value) {
+<span class="nc" id="L19">        System.out.println(&quot;I am an object of &quot; + value.getClass().getSimpleName() + &quot; class&quot;);</span>
+<span class="nc" id="L20">    }</span>
+
+    public &lt;U, V&gt; String genericMethodTwoGenArgs(U value1, V value2) {
+<span class="nc" id="L23">        return &quot;We are objects of &quot; + value1.getClass().getSimpleName() + &quot; class and &quot; + value2.getClass().getSimpleName() + &quot; class&quot;;</span>
+    }
+
+    public &lt;F&gt; void genericMethodHalfGenArgs(F value, String str) {
+<span class="nc" id="L27">        System.out.println(&quot;I got an object of &quot; + value.getClass().getSimpleName() +</span>
+<span class="nc" id="L28">                &quot; class and string with &quot; + str.length() + &quot; characters&quot;);</span>
+<span class="nc" id="L29">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

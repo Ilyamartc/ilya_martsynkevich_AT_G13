@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>StringObjectRunner.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">ProjectNew</a> &gt; <a href="index.source.html" class="el_package">homework.day5</a> &gt; <span class="el_source">StringObjectRunner.java</span></div><h1>StringObjectRunner.java</h1><pre class="source lang-java linenums">package homework.day5;
+
+<span class="nc" id="L3">public class StringObjectRunner {</span>
+    public static void main(String[] args) {
+
+<span class="nc" id="L6">        Column column = new Column();</span>
+<span class="nc" id="L7">        column.column(new String[]{});</span>
+
+<span class="nc" id="L9">        Duplicates duplicates = new Duplicates();</span>
+<span class="nc" id="L10">        duplicates.printDuplicates(&quot;hello world hello&quot;);</span>
+
+<span class="nc" id="L12">        Digits digits = new Digits();</span>
+<span class="nc" id="L13">        digits.printDigits(&quot;Test 123 number 456&quot;);</span>
+
+<span class="nc" id="L15">        LogAnalyzer logAnalyzer = new LogAnalyzer();</span>
+<span class="nc" id="L16">        String log = &quot;&quot;&quot;</span>
+                access_log.2020.09.07 212.168.101.5 granted
+                access_log.2020.09.07 212.168.101.6 denied
+                access_log.2020.09.07 212.168.101.6 denied
+                access_log.2020.09.07 212.168.122.6 denied
+                access_log.2020.09.07 212.168.101.5 granted
+                access_log.2020.09.07 212.168.101.5 denied&quot;&quot;&quot;;
+<span class="nc" id="L23">        logAnalyzer.analyzeLog(log);</span>
+
+<span class="nc" id="L25">        DateTimePrinter.printCurrentDateTime();</span>
+
+<span class="nc" id="L27">        DateTimeFormatterExample.formatDateTime(&quot;22.00 07.09.2020&quot;); // 1.6 - форматирование даты</span>
+
+<span class="nc" id="L29">        VowelLetters.generateVowelDate(&quot;Привет, как дела?&quot;); // 1.7 - гласная дата</span>
+<span class="nc" id="L30">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

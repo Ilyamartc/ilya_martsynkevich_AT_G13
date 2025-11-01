@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ElementsRunner.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">ProjectNew</a> &gt; <a href="index.source.html" class="el_package">homework.day8</a> &gt; <span class="el_source">ElementsRunner.java</span></div><h1>ElementsRunner.java</h1><pre class="source lang-java linenums">package homework.day8;
+
+import java.util.HashMap;
+import java.util.Map;
+
+<span class="nc" id="L6">public class ElementsRunner {</span>
+    public static void main(String[] args) {
+<span class="nc" id="L8">        Map&lt;Integer, String&gt; elements = new HashMap&lt;&gt;();</span>
+
+<span class="nc" id="L10">        elements.put(1, &quot;Silicon&quot;);</span>
+<span class="nc" id="L11">        elements.put(2, &quot;Sulfur&quot;);</span>
+<span class="nc" id="L12">        elements.put(3, &quot;Argon&quot;);</span>
+<span class="nc" id="L13">        elements.put(4, &quot;Calcium&quot;);</span>
+<span class="nc" id="L14">        elements.put(5, &quot;Chromium&quot;);</span>
+<span class="nc" id="L15">        elements.put(6, &quot;Iron&quot;);</span>
+<span class="nc" id="L16">        elements.put(7, &quot;Zinc&quot;);</span>
+
+<span class="nc bnc" id="L18" title="All 2 branches missed.">        for (String value : elements.values()) {</span>
+<span class="nc" id="L19">            System.out.print(value + &quot; &quot;);</span>
+<span class="nc" id="L20">        }</span>
+<span class="nc" id="L21">        System.out.println();</span>
+
+<span class="nc" id="L23">        int count = 0;</span>
+<span class="nc bnc" id="L24" title="All 2 branches missed.">        for (String value : elements.values()) {</span>
+<span class="nc bnc" id="L25" title="All 2 branches missed.">            if (value.toLowerCase().contains(&quot;u&quot;)) {</span>
+<span class="nc" id="L26">                count++;</span>
+            }
+<span class="nc" id="L28">        }</span>
+<span class="nc" id="L29">        System.out.println(&quot;Количество элементов с 'u': &quot; + count);</span>
+
+<span class="nc bnc" id="L31" title="All 2 branches missed.">        for (Map.Entry&lt;Integer, String&gt; entry : elements.entrySet()) {</span>
+<span class="nc" id="L32">            System.out.println(entry.getKey() + &quot; - &quot; + entry.getValue());</span>
+<span class="nc" id="L33">        }</span>
+
+<span class="nc" id="L35">        elements.put(4, &quot;Selenium&quot;);</span>
+
+<span class="nc" id="L37">        elements.remove(2);</span>
+
+<span class="nc" id="L39">        System.out.println(&quot;\nПосле изменений:&quot;);</span>
+<span class="nc bnc" id="L40" title="All 2 branches missed.">        for (Map.Entry&lt;Integer, String&gt; entry : elements.entrySet()) {</span>
+<span class="nc" id="L41">            System.out.println(entry.getKey() + &quot; - &quot; + entry.getValue());</span>
+<span class="nc" id="L42">        }</span>
+<span class="nc" id="L43">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

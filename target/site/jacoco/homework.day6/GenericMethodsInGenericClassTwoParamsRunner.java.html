@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GenericMethodsInGenericClassTwoParamsRunner.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">ProjectNew</a> &gt; <a href="index.source.html" class="el_package">homework.day6</a> &gt; <span class="el_source">GenericMethodsInGenericClassTwoParamsRunner.java</span></div><h1>GenericMethodsInGenericClassTwoParamsRunner.java</h1><pre class="source lang-java linenums">package homework.day6;
+
+import playground.essence.Flyable;
+import playground.essence.craft.air.Copter;
+import playground.essence.craft.air.Plane;
+import playground.essence.craft.air.Rocket;
+import playground.essence.craft.field.Car;
+import playground.essence.craft.field.Moped;
+import playground.essence.craft.hand.Bottle;
+
+<span class="nc" id="L11">public class GenericMethodsInGenericClassTwoParamsRunner {</span>
+    public static void main(String[] args) {
+
+<span class="nc" id="L14">        GenericMethodsInGenericClassTwoParams&lt;String, String&gt; g1 =</span>
+                new GenericMethodsInGenericClassTwoParams&lt;&gt;(&quot;Hello&quot;, &quot;World&quot;);
+<span class="nc" id="L16">        System.out.println(g1.genericMethodGenArgs(&quot;Hello&quot;));</span>
+<span class="nc" id="L17">        System.out.println(g1.genericMethodGenArgs(&quot;Hello&quot;, &quot;World&quot;));</span>
+<span class="nc" id="L18">        g1.genericMethodHalfGenArgsForX(&quot;HelloX&quot;, &quot;TestStringX&quot;);</span>
+<span class="nc" id="L19">        g1.genericMethodHalfGenArgsForY(&quot;HelloY&quot;, &quot;TestStringY&quot;);</span>
+
+<span class="nc" id="L21">        GenericMethodsInGenericClassTwoParams&lt;String, Integer&gt; g2 =</span>
+<span class="nc" id="L22">                new GenericMethodsInGenericClassTwoParams&lt;&gt;(&quot;Age&quot;, 42);</span>
+<span class="nc" id="L23">        System.out.println(g2.genericMethodGenArgs(&quot;Age&quot;));</span>
+<span class="nc" id="L24">        System.out.println(g2.genericMethodGenArgs(&quot;Age&quot;, 42));</span>
+<span class="nc" id="L25">        g2.genericMethodHalfGenArgsForX(&quot;AgeX&quot;, &quot;TestX&quot;);</span>
+<span class="nc" id="L26">        g2.genericMethodHalfGenArgsForY(42, &quot;TestY&quot;);</span>
+
+        // Примеры с типами из playground.essence
+<span class="nc" id="L29">        Copter copter = new Copter(1, &quot;CopterOne&quot;);</span>
+<span class="nc" id="L30">        Plane plane = new Plane(2, &quot;PlaneOne&quot;);</span>
+<span class="nc" id="L31">        Rocket rocket = new Rocket(3, &quot;RocketOne&quot;);</span>
+<span class="nc" id="L32">        Car car = new Car(4, &quot;BMW&quot;);</span>
+<span class="nc" id="L33">        Moped moped = new Moped(1, &quot;Honda&quot;);</span>
+<span class="nc" id="L34">        Bottle bottle = new Bottle(); // без аргументов</span>
+
+<span class="nc" id="L36">        GenericMethodsInGenericClassTwoParams&lt;Flyable, Flyable&gt; g3 =</span>
+                new GenericMethodsInGenericClassTwoParams&lt;&gt;(copter, plane);
+<span class="nc" id="L38">        System.out.println(g3.genericMethodGenArgs(copter));</span>
+<span class="nc" id="L39">        System.out.println(g3.genericMethodGenArgs(copter, plane));</span>
+<span class="nc" id="L40">        g3.genericMethodHalfGenArgsForX(copter, &quot;CopterString&quot;);</span>
+<span class="nc" id="L41">        g3.genericMethodHalfGenArgsForY(plane, &quot;PlaneString&quot;);</span>
+
+<span class="nc" id="L43">        GenericMethodsInGenericClassTwoParams&lt;Car, Moped&gt; g4 =</span>
+                new GenericMethodsInGenericClassTwoParams&lt;&gt;(car, moped);
+<span class="nc" id="L45">        System.out.println(g4.genericMethodGenArgs(car));</span>
+<span class="nc" id="L46">        System.out.println(g4.genericMethodGenArgs(car, moped));</span>
+<span class="nc" id="L47">        g4.genericMethodHalfGenArgsForX(car, &quot;CarString&quot;);</span>
+<span class="nc" id="L48">        g4.genericMethodHalfGenArgsForY(moped, &quot;MopedString&quot;);</span>
+
+<span class="nc" id="L50">        GenericMethodsInGenericClassTwoParams&lt;Bottle, Rocket&gt; g5 =</span>
+                new GenericMethodsInGenericClassTwoParams&lt;&gt;(bottle, rocket);
+<span class="nc" id="L52">        System.out.println(g5.genericMethodGenArgs(bottle));</span>
+<span class="nc" id="L53">        System.out.println(g5.genericMethodGenArgs(bottle, rocket));</span>
+<span class="nc" id="L54">        g5.genericMethodHalfGenArgsForX(bottle, &quot;BottleString&quot;);</span>
+<span class="nc" id="L55">        g5.genericMethodHalfGenArgsForY(rocket, &quot;RocketString&quot;);</span>
+<span class="nc" id="L56">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>
