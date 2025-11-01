@@ -19,7 +19,6 @@
 
     <dependencies>
 
-        <!-- ✅ JUnit 4 -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -27,7 +26,6 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- ✅ TestNG -->
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
@@ -40,7 +38,6 @@
     <build>
         <plugins>
 
-            <!-- ✅ Компилятор (Java 23) -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -51,7 +48,6 @@
                 </configuration>
             </plugin>
 
-            <!-- ✅ Maven Surefire (запуск JUnit и TestNG вместе) -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -64,7 +60,6 @@
                 </configuration>
             </plugin>
 
-            <!-- ✅ JaCoCo (покрытие тестами) -->
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
