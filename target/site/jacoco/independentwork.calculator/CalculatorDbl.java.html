@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CalculatorDbl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">ProjectNew</a> &gt; <a href="index.source.html" class="el_package">independentwork.calculator</a> &gt; <span class="el_source">CalculatorDbl.java</span></div><h1>CalculatorDbl.java</h1><pre class="source lang-java linenums">package independentwork.calculator;
+
+public class CalculatorDbl {
+    public int[] array;
+
+<span class="nc" id="L6">    public CalculatorDbl(int[] array) {</span>
+<span class="nc" id="L7">        this.array = array;</span>
+<span class="nc" id="L8">    }</span>
+
+    public int countEvenMultiplications() {
+<span class="nc" id="L11">        int dbl = 0;</span>
+
+<span class="nc bnc" id="L13" title="All 2 branches missed.">        for (int i = 0; i &lt; array.length; i++) {</span>
+<span class="nc bnc" id="L14" title="All 2 branches missed.">            for (int j = i + 1; j &lt; array.length; j++) {</span>
+<span class="nc" id="L15">                int product = array[i] * array[j];</span>
+
+<span class="nc bnc" id="L17" title="All 2 branches missed.">                if (product % 2 == 0) {</span>
+<span class="nc" id="L18">                    dbl++;</span>
+<span class="nc" id="L19">                    System.out.println(array[i] + &quot; * &quot; + array[j] + &quot; = &quot; + product + &quot; ✅&quot;);</span>
+                }
+            }
+        }
+
+<span class="nc" id="L24">        return dbl;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DeserializeObjectTask.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">ProjectNew</a> &gt; <a href="index.source.html" class="el_package">homework.day7</a> &gt; <span class="el_source">DeserializeObjectTask.java</span></div><h1>DeserializeObjectTask.java</h1><pre class="source lang-java linenums">package homework.day7;
+
+import java.io.*;
+
+<span class="nc" id="L5">public class DeserializeObjectTask {</span>
+
+    public void readObjectAndSaveToFile(String inputFilePath, String outputFilePath) {
+        try (
+<span class="nc" id="L9">                ObjectInputStream ois = new ObjectInputStream(new FileInputStream(inputFilePath));</span>
+<span class="nc" id="L10">                BufferedWriter writer = new BufferedWriter(new FileWriter(outputFilePath))</span>
+        ) {
+<span class="nc" id="L12">            Object obj = ois.readObject();</span>
+
+<span class="nc" id="L14">            writer.write(obj.toString());</span>
+
+<span class="nc" id="L16">            System.out.println(&quot;Объект прочитан из файла и записан в текстовый файл: &quot; + outputFilePath);</span>
+
+<span class="nc" id="L18">        } catch (IOException | ClassNotFoundException e) {</span>
+<span class="nc" id="L19">            e.printStackTrace();</span>
+<span class="nc" id="L20">        }</span>
+<span class="nc" id="L21">    }</span>
+
+    public static void main(String[] args) {
+<span class="nc" id="L24">        DeserializeObjectTask task = new DeserializeObjectTask();</span>
+<span class="nc" id="L25">        task.readObjectAndSaveToFile(&quot;bottle_object.ser&quot;, &quot;bottle_toString.txt&quot;);</span>
+<span class="nc" id="L26">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

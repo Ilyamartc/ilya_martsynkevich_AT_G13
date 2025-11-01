@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ChairRunner.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">ProjectNew</a> &gt; <a href="index.source.html" class="el_package">homework.day10</a> &gt; <span class="el_source">ChairRunner.java</span></div><h1>ChairRunner.java</h1><pre class="source lang-java linenums">package homework.day10;
+
+import project.bubbles.Bubble;
+import java.util.*;
+import java.util.stream.*;
+import java.io.*;
+
+<span class="nc" id="L8">public class ChairRunner {</span>
+    public static void main(String[] args) {
+<span class="nc" id="L10">        Random random = new Random();</span>
+
+<span class="nc" id="L12">        Stream&lt;Chair&gt; furniture = Stream.of(</span>
+                new Chair(120, 40),
+                new Chair(90, 30),
+                new Chair(100, 50),
+                new Chair(110, 45)
+        );
+
+<span class="nc" id="L19">        List&lt;Chair&gt; filteredSorted = furniture</span>
+<span class="nc bnc" id="L20" title="All 4 branches missed.">                .filter(c -&gt; c.getHeight() &gt;= 100 &amp;&amp; c.getWidth() &gt;= 50)</span>
+<span class="nc" id="L21">                .sorted(Comparator.comparingInt(Chair::getHeight)</span>
+<span class="nc" id="L22">                        .thenComparing(Comparator.comparingInt(Chair::getWidth)</span>
+<span class="nc" id="L23">                                .reversed())).toList();</span>
+
+<span class="nc" id="L25">        List&lt;Chair&gt; modifiedChairs = filteredSorted.stream()</span>
+<span class="nc" id="L26">                .map(c -&gt; new Chair(c.getHeight() / 2, c</span>
+<span class="nc" id="L27">                        .getWidth() * (random.nextInt(6) + 3))).toList();</span>
+
+<span class="nc" id="L29">        OptionalInt maxValue = modifiedChairs.stream()</span>
+<span class="nc" id="L30">                .mapToInt(c -&gt; c.getHeight() * c.getWidth())</span>
+<span class="nc" id="L31">                .distinct()</span>
+<span class="nc" id="L32">                .max();</span>
+
+<span class="nc bnc" id="L34" title="All 2 branches missed.">        if (maxValue.isPresent()) {</span>
+<span class="nc" id="L35">            int value = maxValue.getAsInt();</span>
+
+<span class="nc" id="L37">            String name = Arrays.stream(String.valueOf(value).split(&quot;&quot;)).map(ChairRunner::digitToWord).collect(Collectors.joining(&quot; &quot;));</span>
+
+<span class="nc" id="L39">            Bubble resultBubble = new Bubble(value, name);</span>
+
+<span class="nc" id="L41">            try (PrintWriter writer = new PrintWriter(&quot;chairBubble.txt&quot;, &quot;UTF-8&quot;)) {</span>
+<span class="nc" id="L42">                writer.println(resultBubble);</span>
+<span class="nc" id="L43">                System.out.println(&quot;Bubble записан в chairBubble.txt&quot;);</span>
+<span class="nc" id="L44">            } catch (IOException e) {</span>
+<span class="nc" id="L45">                System.err.println(&quot;Ошибка записи в файл: &quot; + e.getMessage());</span>
+<span class="nc" id="L46">            }</span>
+        }
+<span class="nc" id="L48">    }</span>
+    private static String digitToWord(String digit) {
+<span class="nc bnc" id="L50" title="All 11 branches missed.">        return switch (digit) {</span>
+<span class="nc" id="L51">            case &quot;0&quot; -&gt; &quot;zero&quot;;</span>
+<span class="nc" id="L52">            case &quot;1&quot; -&gt; &quot;one&quot;;</span>
+<span class="nc" id="L53">            case &quot;2&quot; -&gt; &quot;two&quot;;</span>
+<span class="nc" id="L54">            case &quot;3&quot; -&gt; &quot;three&quot;;</span>
+<span class="nc" id="L55">            case &quot;4&quot; -&gt; &quot;four&quot;;</span>
+<span class="nc" id="L56">            case &quot;5&quot; -&gt; &quot;five&quot;;</span>
+<span class="nc" id="L57">            case &quot;6&quot; -&gt; &quot;six&quot;;</span>
+<span class="nc" id="L58">            case &quot;7&quot; -&gt; &quot;seven&quot;;</span>
+<span class="nc" id="L59">            case &quot;8&quot; -&gt; &quot;eight&quot;;</span>
+<span class="nc" id="L60">            case &quot;9&quot; -&gt; &quot;nine&quot;;</span>
+<span class="nc" id="L61">            default -&gt; &quot;&quot;;</span>
+        };
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

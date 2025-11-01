@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>BubblesRunner.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">ProjectNew</a> &gt; <a href="index.source.html" class="el_package">homework.day10</a> &gt; <span class="el_source">BubblesRunner.java</span></div><h1>BubblesRunner.java</h1><pre class="source lang-java linenums">package homework.day10;
+
+import project.bubbles.Bubble;
+import java.util.*;
+import java.util.stream.*;
+
+<span class="nc" id="L7">public class BubblesRunner {</span>
+    public static void main(String[] args) {
+<span class="nc" id="L9">        Random random = new Random();</span>
+
+<span class="nc" id="L11">        Stream&lt;Double&gt; doubles = Stream.of(33.42, 34.3, 0.79, 2.3426, 6.8, 13.24, 5.5, 769.9);</span>
+
+<span class="nc" id="L13">        List&lt;Bubble&gt; bubbles = doubles.map(Math::round)</span>
+<span class="nc" id="L14">                .flatMap(n -&gt; random.ints(n.intValue(), 0, n.intValue() + 1)</span>
+<span class="nc" id="L15">                        .distinct()</span>
+<span class="nc" id="L16">                        .limit(n.intValue())</span>
+<span class="nc" id="L17">                        .boxed())</span>
+<span class="nc" id="L18">                .flatMap(num -&gt; IntStream.range(0, num).mapToObj(i -&gt; new Bubble(num.doubleValue(), &quot;Bubble vol-&quot; + num)))</span>
+<span class="nc" id="L19">                .peek(System.out::println)</span>
+<span class="nc" id="L20">                .toList();</span>
+
+<span class="nc" id="L22">        long totalBubbles = bubbles.size();</span>
+<span class="nc" id="L23">        System.out.println(&quot;Total bubbles: &quot; + totalBubbles);</span>
+
+<span class="nc" id="L25">        double totalVolume = bubbles.stream()</span>
+<span class="nc" id="L26">                .mapToDouble(Bubble::getVolume)</span>
+<span class="nc" id="L27">                .sum();</span>
+<span class="nc" id="L28">        System.out.println(&quot;Total volume: &quot; + totalVolume);</span>
+<span class="nc" id="L29">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

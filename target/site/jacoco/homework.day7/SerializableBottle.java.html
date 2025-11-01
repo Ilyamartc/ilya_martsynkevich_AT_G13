@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SerializableBottle.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">ProjectNew</a> &gt; <a href="index.source.html" class="el_package">homework.day7</a> &gt; <span class="el_source">SerializableBottle.java</span></div><h1>SerializableBottle.java</h1><pre class="source lang-java linenums">package homework.day7;
+
+import playground.essence.craft.hand.Bottle;
+import java.io.*;
+
+class SerializableBottle implements Serializable {
+    private String model;
+    private int size;
+
+<span class="nc" id="L10">    public SerializableBottle(Bottle bottle) {</span>
+<span class="nc" id="L11">        this.model = &quot;default&quot;;</span>
+<span class="nc" id="L12">        this.size = 0;</span>
+<span class="nc" id="L13">    }</span>
+
+    @Override
+    public String toString() {
+<span class="nc" id="L17">        return &quot;SerializableBottle{model='&quot; + model + &quot;', size=&quot; + size + &quot;}&quot;;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

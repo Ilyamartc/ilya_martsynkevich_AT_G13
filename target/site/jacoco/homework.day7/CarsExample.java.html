@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CarsExample.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">ProjectNew</a> &gt; <a href="index.source.html" class="el_package">homework.day7</a> &gt; <span class="el_source">CarsExample.java</span></div><h1>CarsExample.java</h1><pre class="source lang-java linenums">package homework.day7;
+
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+<span class="nc" id="L9">public class CarsExample {</span>
+    public static void main(String[] args) {
+<span class="nc" id="L11">        List&lt;String&gt; cars = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L12">        cars.add(&quot;Мерс&quot;);</span>
+<span class="nc" id="L13">        cars.add(&quot;Ауди&quot;);</span>
+<span class="nc" id="L14">        cars.add(&quot;Жигуль&quot;);</span>
+<span class="nc" id="L15">        cars.add(&quot;Рено&quot;);</span>
+<span class="nc" id="L16">        cars.add(&quot;Жигуль&quot;);</span>
+<span class="nc" id="L17">        cars.add(&quot;Жигуль&quot;);</span>
+<span class="nc" id="L18">        cars.add(&quot;Ауди&quot;);</span>
+
+        try {
+<span class="nc bnc" id="L21" title="All 2 branches missed.">            for (String car : cars) {</span>
+<span class="nc" id="L22">                System.out.println(&quot;\&quot;&quot; + car + &quot;\&quot;\n&quot;);</span>
+<span class="nc" id="L23">            }</span>
+<span class="nc" id="L24">        } catch (Exception e) {</span>
+<span class="nc" id="L25">            e.printStackTrace();</span>
+<span class="nc" id="L26">        }</span>
+
+<span class="nc" id="L28">        Iterator&lt;String&gt; iterator = cars.iterator();</span>
+
+<span class="nc bnc" id="L30" title="All 2 branches missed.">        while (iterator.hasNext()) {</span>
+<span class="nc" id="L31">            String car = iterator.next();</span>
+<span class="nc bnc" id="L32" title="All 2 branches missed.">            if (car.length() &gt; 4) {</span>
+<span class="nc" id="L33">                iterator.remove();</span>
+            }
+<span class="nc" id="L35">        }</span>
+<span class="nc" id="L36">        System.out.println(&quot;Оставшиеся авто:&quot;);</span>
+<span class="nc bnc" id="L37" title="All 2 branches missed.">        for (String car : cars) {</span>
+<span class="nc" id="L38">            System.out.print(car + &quot; &quot;);</span>
+<span class="nc" id="L39">        }</span>
+<span class="nc" id="L40">        System.out.println();</span>
+<span class="nc" id="L41">        }</span>
+    }
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>
