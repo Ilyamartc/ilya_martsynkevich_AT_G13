@@ -3,10 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <title>Страница 1</title>
+  <style>
+H1 {
+
+font-size: 120%;
+font-family: Verdana, Arial, Helvetica, sans-serif;
+color: #333366;
+}
+</style>
 </head>
 <body>
   <h1>Это первая страница</h1>
   <p>Добро пожаловать на страницу 1!</p>
   <a href="2.html">Перейти на страницу 2</a>
+  <p style="color: #ff0000; font-size:12px"> это параграф с
+индивидуальным стилем</p>
 </body>
+<input id="elem" type="button" value="Нажми меня!">
+<script>
+
+elem.onclick = function() {
+alert('Спасибо');
+
+};
+</script>
 </html>

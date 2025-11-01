@@ -65,14 +65,12 @@
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>0.8.12</version>
                 <executions>
-                    <!-- подключение агента -->
                     <execution>
                         <goals>
                             <goal>prepare-agent</goal>
                         </goals>
                     </execution>
 
-                    <!-- генерация отчета -->
                     <execution>
                         <id>report</id>
                         <phase>verify</phase>
@@ -81,7 +79,6 @@
                         </goals>
                     </execution>
 
-                    <!-- проверка покрытия (опционально) -->
                     <execution>
                         <id>check</id>
                         <goals>
