@@ -56,6 +56,7 @@ classwork\MyClass.class
 playground\utils\CoordinatesGenerator.class
 lesson1\basetask\TrainMethodsStringRunner.class
 classwork\Zadacha2.class
+people\AutomatedEngineer.class
 NoodlesExample.class
 homework\day7\WaterRunner.class
 lesson1\basetask\Pineapple.class
@@ -74,6 +75,8 @@ classwork\day10\ChildClass7$Sex.class
 classwork\ChildClass3.class
 homework\day7\BubblesExample.class
 lesson1\library\Runner.class
+classwork\day16\TestSelenium1.class
+people\ManualEngineer.class
 playground\essence\material\Diesel.class
 lesson1\basetask\TrainMethodsReturn.class
 lesson1\cycletask\List7.class
@@ -90,6 +93,7 @@ classwork\ChildClass4.class
 lesson1\cycletask\List6.class
 playground\essence\craft\field\Motorbike.class
 homework\day10\BubblesVolumeRunner.class
+homework\day16\TestSeleniumNoTry.class
 lesson1\cycletask\List5.class
 lesson1\basetask\TrainMethodsObjects.class
 lesson1\cycletask\List10.class
@@ -168,6 +172,7 @@ playground\essence\people\Engineer.class
 playground\essence\people\ManualEngineer.class
 classwork\ChildClass1.class
 playground\runners\CitiesRunner.class
+classwork\day16\TestSelenium.class
 lesson1\cycletask\List2.class
 playground\processors\TransportableProcessor.class
 playground\essence\creatures\Crawlable.class
@@ -203,6 +208,7 @@ homework\day7\RemoveVowelsTaskSimple.class
 homework\day5\Column.class
 project\bubbles\Bubble.class
 homework\day8\separatePack\FruitRunner.class
+people\Engineer.class
 lesson1\tripleTask\Book.class
 homework\day10\SandRunner.class
 playground\runners\CrawlableProcessorRunner.class
@@ -219,6 +225,7 @@ homework\day7\SerializeObjectTask.class
 playground\utils\DistanceGenerator.class
 classwork\Tteesstt.class
 lesson1\pretask\NumberPrinting.class
+classwork\day16\SeleniumTest.class
 classwork\Runner.class
 lesson1\pretask\ConditionalExample.class
 homework\day4\sum\SumArray.class

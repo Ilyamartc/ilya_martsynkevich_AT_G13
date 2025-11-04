@@ -1,18 +1,18 @@
-package tests.junit;
+package tests.testng.people;
 
-import org.junit.Test;
+import org.testng.annotations.Test;
 import playground.essence.people.AutomatedEngineer;
 
-import static org.junit.Assert.*;
+import static org.testng.Assert.*;
 
 public class AutomatedEngineerTest {
 
     @Test
     public void testConstructorAndGetters() {
         AutomatedEngineer eng = new AutomatedEngineer(25, 4);
-        assertEquals(25, eng.getAge());
-        assertEquals(4, eng.getExperience());
-        assertEquals(12, eng.getSkill()); // experience * 3
+        assertEquals(eng.getAge(), 25);
+        assertEquals(eng.getExperience(), 4);
+        assertEquals(eng.getSkill(), 12);
     }
 
     @Test
@@ -21,8 +21,8 @@ public class AutomatedEngineerTest {
         eng.setAge(35);
         eng.setExperience(10);
         eng.setSkill(50);
-        assertEquals(35, eng.getAge());
-        assertEquals(10, eng.getExperience());
-        assertEquals(50, eng.getSkill());
+        assertEquals(eng.getAge(), 35);
+        assertEquals(eng.getExperience(), 10);
+        assertEquals(eng.getSkill(), 50);
     }
 }
