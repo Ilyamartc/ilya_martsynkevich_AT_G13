@@ -9,5 +9,5 @@ import org.junit.runners.Suite;
         ManualEngineerTest.class
 })
 public class JUnitTestSuite {
-    // пусто, просто указывает JUnit, какие классы запускать
+
 }
