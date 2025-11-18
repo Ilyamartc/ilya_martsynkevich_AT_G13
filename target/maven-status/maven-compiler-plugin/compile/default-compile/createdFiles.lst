@@ -5,6 +5,7 @@ lesson1\library\Library.class
 lesson1\tripleTask\Runner.class
 playground\essence\craft\Transportable.class
 lesson1\carShowroom\Runner.class
+classwork\day17\BookingLondonTest.class
 homework\day10\BirdsRunner.class
 lesson1\pretask\MathOperatorsExample.class
 homework\day10\Person.class
@@ -27,6 +28,7 @@ lesson1\basetask\TrainMethodsReturnRunner.class
 playground\processors\FlyableProcessor.class
 homework\day7\ConsoleFileTask.class
 playground\runners\RideableProcessorRunner.class
+classwork\day17\BookingPragueRatingTest.class
 homework\day6\GenericMethodsInGenericClassTRunner.class
 homework\day6\GenericMethodsInGenericClassTwoParamsRunner.class
 homework\day1\page44\TestFoo.class
@@ -79,6 +81,7 @@ classwork\day16\TestSelenium1.class
 people\ManualEngineer.class
 playground\essence\material\Diesel.class
 lesson1\basetask\TrainMethodsReturn.class
+classwork\day17\DemoQASelectMenuTest.class
 lesson1\cycletask\List7.class
 homework\day10\WaterRunner.class
 homework\day7\DeserializeObjectTask.class
@@ -86,6 +89,8 @@ playground\essence\Flyable.class
 playground\essence\craft\air\Rocket.class
 classwork\day10\ChildClass7.class
 lesson1\basetask\Obstacle.class
+classwork\day17\BookingParisTest.class
+classwork\day17\BookingCurrencyExtractTest.class
 homework\day7\CountCharactersTask.class
 playground\runners\FlyableProcessorRunner.class
 homework\day8\separatePack\Book.class
@@ -95,6 +100,7 @@ playground\essence\craft\field\Motorbike.class
 homework\day10\BubblesVolumeRunner.class
 homework\day16\TestSeleniumNoTry.class
 lesson1\cycletask\List5.class
+homework\day17\W3SchoolsGoogleTest.class
 lesson1\basetask\TrainMethodsObjects.class
 lesson1\cycletask\List10.class
 playground\processors\CrawlableProcessor.class
@@ -221,6 +227,7 @@ playground\runners\TransportableProcessorRunner.class
 playground\runners\CrawlableProcessorRunner$2.class
 homework\day8\separatePack\BookRunner.class
 playground\essence\people\AutomatedEngineer.class
+classwork\day17\BookingParisTest1.class
 homework\day7\SerializeObjectTask.class
 playground\utils\DistanceGenerator.class
 classwork\Tteesstt.class
