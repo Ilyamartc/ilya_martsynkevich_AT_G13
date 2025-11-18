@@ -9,7 +9,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import org.openqa.selenium.TimeoutException;
 
-public class BookingParisTest {
+public class BookingParisTest1 {
     public static void main(String[] args) throws InterruptedException {
 
         ChromeOptions opt = new ChromeOptions();
@@ -34,15 +34,9 @@ public class BookingParisTest {
         d.get("https://www.booking.com");
         System.out.println("Открыл Booking.com");
 
-        try {
-            w.until(ExpectedConditions.elementToBeClickable(By.id("onetrust-accept-btn-handler"))).click();
-        } catch (TimeoutException ignored) {}
+        waitAndClickWithTimeout(d, w, By.id("onetrust-accept-btn-handler"), 10, "Куки приняты");
 
-        try {
-            w.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button[aria-label='Dismiss sign-in info.']"))).click();
-        } catch (TimeoutException ignored) {
-            System.out.println("Окно Genius не появилось или было закрыто.");
-        }
+        waitAndClickWithTimeout(d, w, By.cssSelector("button[aria-label='Dismiss sign-in info.']"), 5, "Окно Genius закрыто");
 
         WebElement input = d.findElement(By.cssSelector("input[placeholder='Where are you going?']"));
         input.click();
@@ -86,12 +80,12 @@ public class BookingParisTest {
         );
 
         WebElement adultsPlusButton = w.until(ExpectedConditions.elementToBeClickable(adultsIncreaseLocator));
-        adultsPlusButton.click(); // 2 -> 3
-        adultsPlusButton.click(); // 3 -> 4
+        adultsPlusButton.click();
+        adultsPlusButton.click();
         System.out.println("Взрослых: 4 выбрано.");
 
         WebElement roomsPlusButton = w.until(ExpectedConditions.elementToBeClickable(roomsIncreaseLocator));
-        roomsPlusButton.click(); // 1 -> 2
+        roomsPlusButton.click();
         System.out.println("Номеров: 2 выбрано.");
 
         w.until(ExpectedConditions.elementToBeClickable(By.xpath("//button/span[text()='Done']"))).click();
@@ -106,7 +100,6 @@ public class BookingParisTest {
         System.out.println("Карточки отелей прогружены.");
 
         By fiveStarsFilterLocator = By.xpath("//div[@data-filters-group='class']//div[text()='5 stars']");
-
         WebElement fiveStarsFilter = w.until(ExpectedConditions.presenceOfElementLocated(fiveStarsFilterLocator));
 
         js.executeScript("arguments[0].scrollIntoView(true);", fiveStarsFilter);
@@ -116,27 +109,12 @@ public class BookingParisTest {
         System.out.println("Выбран фильтр: 5 звезд (клик через JS)!");
 
         System.out.println("Ожидание завершения AJAX-загрузки после применения фильтра...");
-        try {
-            w.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.b2b4d455c1")));
-        } catch (TimeoutException ignored) {
-            System.out.println("Лоадер может быть уже невидим.");
-        }
-        w.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("div.b2b4d455c1")));
+        waitForLoaderDisappear(d, w);
         System.out.println("AJAX-загрузка завершена. Фильтр 5 звезд применен.");
-
-        try {
-            w.until(ExpectedConditions.presenceOfElementLocated(
-                    By.xpath("//div[text()='5 stars']/ancestor::*[@aria-checked='true']")
-            ));
-            System.out.println("Фильтр 5 звезд активен (чекбокс отмечен).");
-        } catch (TimeoutException e) {
-            System.out.println("Предупреждение: не удалось подтвердить активность фильтра, но продолжаем...");
-        }
 
         Thread.sleep(1000);
 
         By currentSortLocator = By.xpath("//span[contains(@class,'a9918d47bf') and contains(text(), 'Sort by:')]/..");
-
         WebElement currentSortDisplay = w.until(ExpectedConditions.elementToBeClickable(currentSortLocator));
         currentSortDisplay.click();
         System.out.println("Нажата текущая сортировка, открыто выпадающее меню.");
@@ -148,53 +126,74 @@ public class BookingParisTest {
         System.out.println("Выбрана сортировка: Рейтинг объекта (от низкого к высокому).");
 
         System.out.println("Ожидание завершения AJAX-загрузки после сортировки...");
-
-        try {
-            w.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.b2b4d455c1")));
-        } catch (TimeoutException ignored) {
-            System.out.println("Лоадер может быть уже невидим после сортировки.");
-        }
-
-        w.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("div.b2b4d455c1")));
+        waitForLoaderDisappear(d, w);
         w.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[data-testid='property-card']")));
         System.out.println("Сортировка завершена, результаты загружены.");
 
         Thread.sleep(1000);
 
-        try {
-            By assertionLocator = By.xpath(
-                    "(//div[@data-testid='property-card'])[1]//div[@aria-label='5 out of 5']"
-            );
+        By assertionLocator = By.xpath(
+                "(//div[@data-testid='property-card'])[1]//div[@aria-label='5 out of 5']"
+        );
 
-            w.until(ExpectedConditions.presenceOfElementLocated(assertionLocator));
+        boolean assertionPassed = isElementPresent(d, assertionLocator, 5);
 
+        if (assertionPassed) {
             System.out.println("\n✅ ПРОВЕРКА УСПЕШНА: Первый отель в списке имеет рейтинг 5 звезд!");
-
-        } catch (TimeoutException | NoSuchElementException e) {
-
-            WebElement firstHotelName = null;
-            try {
-                firstHotelName = d.findElement(By.xpath("(//div[@data-testid='property-card'])[1]//div[@data-testid='title']"));
-            } catch (Exception ignored) {}
-
-            String errorMessage = "\n❌ ПРОВЕРКА НЕУДАЧНА: Первый отель не имеет ожидаемого рейтинга 5 звезд.";
+        } else {
+            WebElement firstHotelName = getElementIfPresent(d, By.xpath("(//div[@data-testid='property-card'])[1]//div[@data-testid='title']"));
+            System.err.println("\n❌ ПРОВЕРКА НЕУДАЧНА: Первый отель не имеет ожидаемого рейтинга 5 звезд.");
             if (firstHotelName != null) {
-                errorMessage += "\nИмя первого отеля: " + firstHotelName.getText();
-            }
-            try {
-                WebElement filterChecked = d.findElement(By.xpath("//div[@data-filters-group='class']//div[text()='5 stars']/ancestor::*[@aria-checked='true']"));
-                if (filterChecked.isDisplayed()) {
-                    errorMessage += "\n(Но фильтр 5 звезд на боковой панели остается активным)";
-                }
-            } catch (Exception ignored) {
-                errorMessage += "\n(Фильтр 5 звезд на боковой панели, кажется, сбросился)";
+                System.err.println("Имя первого отеля: " + firstHotelName.getText());
             }
 
-            System.err.println(errorMessage);
+            WebElement filterChecked = getElementIfPresent(d, By.xpath("//div[@data-filters-group='class']//div[text()='5 stars']/ancestor::*[@aria-checked='true']"));
+            if (filterChecked != null) {
+                System.err.println("(Но фильтр 5 звезд на боковой панели остается активным)");
+            } else {
+                System.err.println("(Фильтр 5 звезд на боковой панели, кажется, сбросился)");
+            }
         }
 
         System.out.println("\n--- ФИНАЛ СЦЕНАРИЯ ТЕСТА ---");
-
         d.quit();
+    }
+
+    private static void waitAndClickWithTimeout(WebDriver d, WebDriverWait w, By locator, int timeoutSeconds, String message) {
+        WebDriverWait shortWait = new WebDriverWait(d, Duration.ofSeconds(timeoutSeconds));
+        try {
+            shortWait.until(ExpectedConditions.elementToBeClickable(locator)).click();
+            System.out.println(message);
+        } catch (TimeoutException e) {
+        }
+    }
+
+    private static boolean isElementPresent(WebDriver d, By locator, int timeoutSeconds) {
+        WebDriverWait wait = new WebDriverWait(d, Duration.ofSeconds(timeoutSeconds));
+        try {
+            wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+            return true;
+        } catch (TimeoutException e) {
+            return false;
+        }
+    }
+
+    private static WebElement getElementIfPresent(WebDriver d, By locator) {
+        try {
+            return d.findElement(locator);
+        } catch (NoSuchElementException e) {
+            return null;
+        }
+    }
+
+    private static void waitForLoaderDisappear(WebDriver d, WebDriverWait w) {
+        By loaderLocator = By.cssSelector("div.b2b4d455c1");
+
+        WebDriverWait shortWait = new WebDriverWait(d, Duration.ofSeconds(3));
+        try {
+            shortWait.until(ExpectedConditions.visibilityOfElementLocated(loaderLocator));
+            w.until(ExpectedConditions.invisibilityOfElementLocated(loaderLocator));
+        } catch (TimeoutException e) {
+        }
     }
 }

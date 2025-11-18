@@ -18,26 +18,16 @@
     </properties>
 
     <dependencies>
-        <!-- ✅ Selenium -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>4.23.0</version>
         </dependency>
 
-        <!-- ✅ WebDriverManager (автоматическая установка драйверов Chrome/Firefox и т.д.) -->
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
             <version>5.9.2</version>
-        </dependency>
-
-        <!-- ✅ TestNG -->
-        <dependency>
-            <groupId>org.testng</groupId>
-            <artifactId>testng</artifactId>
-            <version>7.10.2</version>
-            <scope>test</scope>
         </dependency>
 
         <dependency>
@@ -46,7 +36,6 @@
             <version>2.0.13</version>
         </dependency>
 
-        <!-- ✅ JUnit 4 -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -57,7 +46,6 @@
 
     <build>
         <plugins>
-            <!-- ✅ Компиляция под Java 17 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -67,57 +55,19 @@
                 </configuration>
             </plugin>
 
-            <!-- ✅ Surefire для JUnit4 и TestNG -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.2.5</version>
+                <version>3.1.2</version>
                 <configuration>
                     <useSystemClassLoader>false</useSystemClassLoader>
                     <includes>
                         <include>**/*Test.java</include>
                         <include>**/*Tests.java</include>
-                        <include>**/*Suite.java</include>
                     </includes>
-
-                    <!-- Управляем запуском TestNG через профиль -->
-                    <systemPropertyVariables>
-                        <testng.skip>${testng.skip}</testng.skip>
-                    </systemPropertyVariables>
-
-                    <properties>
-                        <property>
-                            <name>listener</name>
-                            <value>org.uncommons.reportng.HTMLReporter,org.uncommons.reportng.JUnitXMLReporter</value>
-                        </property>
-                    </properties>
                 </configuration>
             </plugin>
         </plugins>
     </build>
-
-    <profiles>
-        <!-- 🟦 Профиль для JUnit -->
-        <profile>
-            <id>junit</id>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
-            <properties>
-                <testng.skip>true</testng.skip>
-            </properties>
-        </profile>
-
-        <!-- 🟩 Профиль для TestNG -->
-        <profile>
-            <id>testng</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <properties>
-                <testng.skip>false</testng.skip>
-            </properties>
-        </profile>
-    </profiles>
 
 </project>
