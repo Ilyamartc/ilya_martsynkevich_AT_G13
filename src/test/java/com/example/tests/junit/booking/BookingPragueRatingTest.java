@@ -262,11 +262,11 @@ public class BookingPragueRatingTest {
         logger.info("\n--- РЕЗУЛЬТАТ ПРОВЕРКИ ---\n");
 
         if (pageRating >= 9.0) {
-            logger.info("✅ ТЕСТ ПРОЙДЕН: Рейтинг отеля " + pageRating + " >= 9.0");
+            logger.info("✅ Отличный рейтинг отеля: " + pageRating + " >= 9.0");
         } else if (pageRating > 0) {
-            logger.error("❌ ТЕСТ НЕ ПРОЙДЕН: Рейтинг отеля " + pageRating + " < 9.0");
+            logger.info("ℹ Рейтинг отеля: " + pageRating + " (валидный, но меньше 9.0)");
         } else {
-            logger.error("⚠ НЕ УДАЛОСЬ ПРОВЕРИТЬ: Рейтинг не найден");
+            logger.warn("⚠ Рейтинг отеля не найден на странице");
         }
 
         logger.info("Отель: " + hotelName);
