@@ -27,23 +27,22 @@ public class BookingLondonTest {
         driver = new ChromeDriver(opt);
         wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         js = (JavascriptExecutor) driver;
-        logger.info("=== ТЕСТ BOOKING LONDON ===\n");
+        logger.info("=== BOOKING LONDON TEST ===");
     }
 
     @Test
     public void testBookingLondon() {
         logger.info("Navigating to Booking.com");
         driver.get("https://www.booking.com");
-        logger.info("✓ Открыл Booking.com");
+        logger.info("Opened Booking.com");
 
-        waitAndClickWithTimeout(By.id("onetrust-accept-btn-handler"), 10, "✓ Куки приняты");
-        waitAndClickWithTimeout(By.cssSelector("button[aria-label='Dismiss sign-in info.']"), 5, "✓ Окно Genius закрыто");
+        waitAndClickWithTimeout(By.id("onetrust-accept-btn-handler"), 10, "Cookies accepted");
+        waitAndClickWithTimeout(By.cssSelector("button[aria-label='Dismiss sign-in info.']"), 5, "Genius popup closed");
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDate checkInDate = LocalDate.now().plusDays(3);
         LocalDate checkOutDate = checkInDate.plusDays(7);
 
-        // Выбор города
         WebElement input = driver.findElement(By.cssSelector("input[placeholder='Where are you going?']"));
         input.click();
         input.sendKeys(Keys.CONTROL + "a", Keys.DELETE);
@@ -52,12 +51,11 @@ public class BookingLondonTest {
         wait.until(ExpectedConditions.elementToBeClickable(
                 By.xpath("//div[contains(@class,'efbfd2b849')]//div[text()='London']/..")
         )).click();
-        logger.info("✓ Город LONDON выбран");
+        logger.info("City LONDON selected");
 
         String checkInDateString = checkInDate.format(formatter);
         String checkOutDateString = checkOutDate.format(formatter);
 
-        // Выбор дат
         WebElement dayIn = wait.until(ExpectedConditions.elementToBeClickable(
                 By.cssSelector("[data-date='" + checkInDateString + "']")
         ));
@@ -67,18 +65,16 @@ public class BookingLondonTest {
                 By.cssSelector("[data-date='" + checkOutDateString + "']")
         ));
         dayOut.click();
-        logger.info("✓ Даты выбраны: " + checkInDateString + " – " + checkOutDateString);
+        logger.info("Dates selected: " + checkInDateString + " – " + checkOutDateString);
 
-        // Поиск
         logger.info("Clicking search button");
         wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button[type='submit']"))).click();
-        logger.info("✓ Нажата кнопка Search");
+        logger.info("Search button clicked");
 
-        logger.info(" Ожидаем загрузку отелей...");
+        logger.info("Waiting for hotels to load...");
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[data-testid='property-card']")));
-        logger.info("✓ Отели загружены");
+        logger.info("Hotels loaded");
 
-        // Поиск 10-го отеля с прокруткой
         java.util.List<WebElement> hotelCards = driver.findElements(By.cssSelector("[data-testid='property-card']"));
 
         while (hotelCards.size() < 10 && hotelCards.size() > 0) {
@@ -88,29 +84,28 @@ public class BookingLondonTest {
         }
 
         if (hotelCards.size() < 10) {
-            Assert.fail("❌ Не удалось найти 10 отелей на странице");
+            Assert.fail("Failed to find 10 hotels on page");
         }
 
-        // Работа с 10-м отелем
         logger.info("Scrolling to 10th hotel");
         WebElement tenthHotel = hotelCards.get(9);
         js.executeScript("arguments[0].scrollIntoView(true);", tenthHotel);
-        logger.info("✓ Прокручен к 10-му отелю");
+        logger.info("Scrolled to 10th hotel");
 
         logger.info("Changing hotel background to green");
         js.executeScript("arguments[0].style.backgroundColor = 'green';", tenthHotel);
-        logger.info("✓ Фон 10-го отеля изменен на ЗЕЛЕНЫЙ");
+        logger.info("10th hotel background changed to GREEN");
 
         logger.info("Changing hotel title color to red");
         WebElement hotelTitle = tenthHotel.findElement(By.cssSelector("[data-testid='title']"));
         js.executeScript("arguments[0].style.color = 'red';", hotelTitle);
-        logger.info("✓ Цвет текста названия отеля изменен на КРАСНЫЙ");
+        logger.info("Hotel title color changed to RED");
 
         logger.info("Taking screenshot");
         String screenshotPath = takeScreenshot();
-        logger.info("✓ Скриншот сохранён: " + screenshotPath);
+        logger.info("Screenshot saved: " + screenshotPath);
 
-        logger.info("\n=== ТЕСТ ЗАВЕРШЕН УСПЕШНО ===");
+        logger.info("=== TEST COMPLETED SUCCESSFULLY ===");
     }
 
     @After
@@ -126,7 +121,6 @@ public class BookingLondonTest {
             shortWait.until(ExpectedConditions.elementToBeClickable(locator)).click();
             logger.info(message);
         } catch (TimeoutException e) {
-            // Элемент не найден - допустимо
         }
     }
 
@@ -137,8 +131,8 @@ public class BookingLondonTest {
             FileHandler.copy(screenshot, new File(filePath));
             return filePath;
         } catch (Exception e) {
-            logger.error("Ошибка при создании скриншота: " + e.getMessage(), e);
-            return "Ошибка";
+            logger.error("Error creating screenshot: " + e.getMessage(), e);
+            return "Error";
         }
     }
 }

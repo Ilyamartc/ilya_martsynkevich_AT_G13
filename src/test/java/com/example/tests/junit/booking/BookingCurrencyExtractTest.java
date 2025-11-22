@@ -32,15 +32,12 @@ public class BookingCurrencyExtractTest {
             driver.get("https://www.booking.com");
             logger.info("Page loaded successfully");
 
-            // Принять куки
             waitAndClickWithTimeout(By.id("onetrust-accept-btn-handler"), 10, "Cookies accepted");
             
-            // Закрыть окно Genius
             waitAndClickWithTimeout(By.cssSelector("button[aria-label='Dismiss sign-in info.']"), 5, "Genius popup closed");
 
             logger.info("--- Extracting current currency ---");
 
-            // Извлечение текущей валюты (метод 1 - по классу)
             try {
                 WebElement currencySpan = wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("span.ca2ca5203b")));
                 String currencyCode = currencySpan.getText().trim();
@@ -49,7 +46,6 @@ public class BookingCurrencyExtractTest {
                 logger.error("Currency span with class ca2ca5203b not found", e);
             }
 
-            // Извлечение активной валюты (метод 2 - по active классу)
             try {
                 WebElement activeCurrency = wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("div.CurrencyPicker_currency--active")));
                 String activeCurrencyCode = activeCurrency.getText().trim();
@@ -60,7 +56,6 @@ public class BookingCurrencyExtractTest {
 
             logger.info("--- Attempting to open currency menu ---");
 
-            // Открытие меню валют - используем более гибкий поиск
             boolean currencyMenuOpened = false;
             By[] currencyButtonLocators = {
                 By.xpath("//button[contains(@aria-label, 'currency')]"),
@@ -79,7 +74,6 @@ public class BookingCurrencyExtractTest {
                         currencyMenuOpened = true;
                         logger.info("Currency menu opened successfully");
                         
-                        // Ждём загрузки списка валют
                         try {
                             Thread.sleep(500);
                         } catch (InterruptedException ie) {
@@ -98,7 +92,6 @@ public class BookingCurrencyExtractTest {
 
             logger.info("--- Extracting all available currencies ---");
 
-            // Получение всех доступных валют
             java.util.List<WebElement> currencyOptions = driver.findElements(By.cssSelector("div.CurrencyPicker_currency"));
 
             if (currencyOptions.isEmpty()) {

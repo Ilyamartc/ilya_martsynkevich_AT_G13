@@ -27,21 +27,20 @@ public class BookingPragueRatingTest {
         wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         js = (JavascriptExecutor) driver;
         dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        logger.info("=== ТЕСТ BOOKING PRAGUE (РЕЙТИНГ) ===\n");
+        logger.info("=== BOOKING PRAGUE RATING TEST ===");
     }
 
     @Test
     public void testPragueHotelRating() {
         logger.info("Navigating to Booking.com");
         driver.get("https://www.booking.com");
-        logger.info("✓ Открыл Booking.com");
+        logger.info("Opened Booking.com");
 
-        waitAndClickWithTimeout(By.id("onetrust-accept-btn-handler"), 10, "✓ Куки приняты");
-        waitAndClickWithTimeout(By.cssSelector("button[aria-label='Dismiss sign-in info.']"), 5, "✓ Окно Genius закрыто");
+        waitAndClickWithTimeout(By.id("onetrust-accept-btn-handler"), 10, "Cookies accepted");
+        waitAndClickWithTimeout(By.cssSelector("button[aria-label='Dismiss sign-in info.']"), 5, "Genius popup closed");
 
-        logger.info("\n--- ПОИСК ОТЕЛЕЙ В ПРАГЕ ---\n");
+        logger.info("--- SEARCHING HOTELS IN PRAGUE ---");
 
-        // Выбор города
         logger.info("Selecting city: Prague");
         WebElement input = wait.until(ExpectedConditions.presenceOfElementLocated(
                 By.cssSelector("input[placeholder='Where are you going?']")
@@ -53,9 +52,8 @@ public class BookingPragueRatingTest {
         wait.until(ExpectedConditions.elementToBeClickable(
                 By.xpath("//div[contains(@class,'efbfd2b849')]//div[text()='Prague']/.."))
         ).click();
-        logger.info("✓ Прага выбрана");
+        logger.info("Prague selected");
 
-        // Выбор дат (сегодня и завтра)
         LocalDate today = LocalDate.now();
         LocalDate tomorrow = today.plusDays(1);
 
@@ -66,17 +64,16 @@ public class BookingPragueRatingTest {
         wait.until(ExpectedConditions.elementToBeClickable(
                 By.cssSelector("[data-date='" + todayString + "']")
         )).click();
-        logger.info("✓ Дата заезда (сегодня): " + todayString);
+        logger.info("Check-in date (today): " + todayString);
 
         logger.info("Selecting check-out date (tomorrow)");
         wait.until(ExpectedConditions.elementToBeClickable(
                 By.cssSelector("[data-date='" + tomorrowString + "']")
         )).click();
-        logger.info("✓ Дата выезда (завтра): " + tomorrowString);
+        logger.info("Check-out date (tomorrow): " + tomorrowString);
 
-        logger.info("✓ Выбираем 2 гостей, 1 номер...");
+        logger.info("Selecting 2 guests, 1 room");
 
-        // Конфигурация гостей
         logger.info("Opening occupancy configuration");
         WebElement occupancyField = wait.until(ExpectedConditions.elementToBeClickable(
                 By.cssSelector("button[data-testid='occupancy-config']")
@@ -89,25 +86,23 @@ public class BookingPragueRatingTest {
                 By.xpath("//label[text()='Adults']/ancestor::div[contains(@class,'e484bb5b7a')]/descendant::button[last()]")
         ));
         adultsIncreaseButton.click();
-        logger.info("✓ Взрослых: 2");
-        logger.info("✓ Номеров: 1");
+        logger.info("Adults: 2");
+        logger.info("Rooms: 1");
 
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button/span[text()='Done']"))).click();
-        logger.info("✓ Параметры установлены");
+        logger.info("Parameters set");
 
-        // Поиск
         logger.info("Submitting search");
         wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button[type='submit']"))).click();
-        logger.info("✓ Поиск выполнен\n");
+        logger.info("Search submitted");
 
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[data-testid='property-card']")));
-        logger.info("✓ Результаты загружены");
+        logger.info("Results loaded");
 
-        logger.info("\n--- ПРИМЕНЕНИЕ ФИЛЬТРА РЕЙТИНГА ---\n");
+        logger.info("--- APPLYING RATING FILTER ---");
 
         wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.cssSelector("[data-testid='property-card']")));
 
-        // Открытие меню сортировки
         logger.info("Opening sort menu");
         By sortByLocator = By.xpath("//span[contains(text(), 'Sort by')]");
         WebElement sortByElement = wait.until(ExpectedConditions.presenceOfElementLocated(sortByLocator));
@@ -121,16 +116,14 @@ public class BookingPragueRatingTest {
 
         WebElement sortByButton = sortByElement.findElement(By.xpath("./ancestor::button"));
         js.executeScript("arguments[0].click();", sortByButton);
-        logger.info("✓ Меню сортировки открыто");
+        logger.info("Sort menu opened");
 
-        // Пауза для загрузки меню
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
             logger.error("Thread interrupted during sleep", e);
         }
 
-        // Поиск опций сортировки с несколькими вариантами локаторов
         logger.info("Searching for rating sort option");
         By[] ratingLocators = {
             By.xpath("//button[contains(text(), 'rating')]"),
@@ -147,11 +140,10 @@ public class BookingPragueRatingTest {
                 java.util.List<WebElement> options = driver.findElements(locator);
                 if (!options.isEmpty()) {
                     ratingOption = options.get(0);
-                    logger.info("✓ Найдена опция рейтинга с локатором: " + locator);
+                    logger.info("Found rating option with locator: " + locator);
                     break;
                 }
             } catch (Exception e) {
-                // Продолжаем поиск
             }
         }
 
@@ -163,16 +155,16 @@ public class BookingPragueRatingTest {
                 logger.error("Thread interrupted during sleep", e);
             }
             js.executeScript("arguments[0].click();", ratingOption);
-            logger.info("✓ Сортировка по рейтингу применена");
+            logger.info("Rating sort applied");
         } else {
-            logger.info("⚠ Опция рейтинга не найдена, пропускаем сортировку");
+            logger.info("Rating option not found, skipping sort");
         }
 
         waitForLoaderDisappear();
 
-        logger.info("✓ Список обновлён\n");
+        logger.info("List updated");
 
-        logger.info("--- ПРОВЕРКА РЕЙТИНГА ПЕРВОГО ОТЕЛЯ ---\n");
+        logger.info("--- CHECKING FIRST HOTEL RATING ---");
 
         WebElement firstHotelCard = wait.until(ExpectedConditions.presenceOfElementLocated(
                 By.cssSelector("[data-testid='property-card']")
@@ -180,7 +172,7 @@ public class BookingPragueRatingTest {
 
         WebElement hotelTitle = getElementIfPresent(firstHotelCard, By.cssSelector("[data-testid='title']"));
         String hotelName = hotelTitle != null ? hotelTitle.getText() : "Unknown Hotel";
-        logger.info("✓ Первый отель: " + hotelName);
+        logger.info("First hotel: " + hotelName);
 
         WebElement ratingElement = getElementIfPresent(firstHotelCard,
                 By.xpath(".//div[contains(@class, 'f63b14ab7a')]"));
@@ -190,29 +182,25 @@ public class BookingPragueRatingTest {
             String ratingText = ratingElement.getText().trim();
             try {
                 hotelRating = Double.parseDouble(ratingText);
-                logger.info("✓ Рейтинг из карточки: " + hotelRating);
+                logger.info("Rating from card: " + hotelRating);
             } catch (NumberFormatException e) {
-                logger.info("⚠ Не удалось парсить рейтинг: " + ratingText);
+                logger.info("Could not parse rating: " + ratingText);
             }
         } else {
-            logger.info("⚠ Рейтинг не найден в карточке");
+            logger.info("Rating not found in card");
         }
 
         js.executeScript("arguments[0].scrollIntoView({block: 'center'});", firstHotelCard);
         
-        // Попытка открыть страницу отеля
         logger.info("Clicking on hotel card");
         try {
-            // Сначала пробуем обычный клик
             firstHotelCard.click();
-            logger.info("✓ Клик по карточке отеля (обычный)");
+            logger.info("Clicked hotel card (normal)");
         } catch (Exception e) {
-            // Если не сработало, используем JavaScript
             js.executeScript("arguments[0].click();", firstHotelCard);
-            logger.info("✓ Клик по карточке отеля (JavaScript)");
+            logger.info("Clicked hotel card (JavaScript)");
         }
 
-        // Ждем открытия новой вкладки или остаемся на текущей
         logger.info("Waiting for hotel page to open");
         try {
             wait.until(ExpectedConditions.numberOfWindowsToBe(2));
@@ -221,19 +209,18 @@ public class BookingPragueRatingTest {
             for (String window : windows) {
                 if (!window.equals(driver.getWindowHandle())) {
                     driver.switchTo().window(window);
-                    logger.info("✓ Переключились на новую вкладку отеля");
+                    logger.info("Switched to new hotel tab");
                     break;
                 }
             }
             
-            // Проверяем наличие элемента на странице отеля
             try {
                 wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[contains(@class, 'f63b14ab7a')]")));
             } catch (Exception e) {
-                logger.info("⚠ Элемент страницы отеля не найден");
+                logger.info("Hotel page element not found");
             }
         } catch (org.openqa.selenium.TimeoutException e) {
-            logger.info("⚠ Новая вкладка не открылась, остаемся на текущей странице");
+            logger.info("New tab did not open, staying on current page");
         }
 
         WebElement pageRatingElement = getElementIfPresent(
@@ -249,34 +236,33 @@ public class BookingPragueRatingTest {
             String pageRatingText = pageRatingElement.getText().trim();
             try {
                 pageRating = Double.parseDouble(pageRatingText);
-                logger.info("✓ Рейтинг на странице отеля: " + pageRating);
+                logger.info("Rating on hotel page: " + pageRating);
             } catch (NumberFormatException e) {
-                logger.info("⚠ Не удалось парсить рейтинг со страницы: " + pageRatingText);
+                logger.info("Could not parse page rating: " + pageRatingText);
                 pageRating = hotelRating;
             }
         } else {
-            logger.info("⚠ Рейтинг на странице отеля не найден, используем рейтинг из карточки: " + hotelRating);
+            logger.info("Rating on hotel page not found, using card rating: " + hotelRating);
             pageRating = hotelRating;
         }
 
-        logger.info("\n--- РЕЗУЛЬТАТ ПРОВЕРКИ ---\n");
+        logger.info("--- CHECK RESULT ---");
 
         if (pageRating >= 9.0) {
-            logger.info("✅ Отличный рейтинг отеля: " + pageRating + " >= 9.0");
+            logger.info("Excellent hotel rating: " + pageRating + " >= 9.0");
         } else if (pageRating > 0) {
-            logger.info("ℹ Рейтинг отеля: " + pageRating + " (валидный, но меньше 9.0)");
+            logger.info("Hotel rating: " + pageRating + " (valid, but less than 9.0)");
         } else {
-            logger.warn("⚠ Рейтинг отеля не найден на странице");
+            logger.warn("Hotel rating not found on page");
         }
 
-        logger.info("Отель: " + hotelName);
-        logger.info("Рейтинг: " + (pageRating > 0 ? pageRating : "Не найден"));
+        logger.info("Hotel: " + hotelName);
+        logger.info("Rating: " + (pageRating > 0 ? pageRating : "Not found"));
 
-        // Проверяем, что рейтинг был найден и это валидное значение (от 1 до 10)
-        Assert.assertTrue("Рейтинг должен быть найден и валиден (1-10)", pageRating > 0 && pageRating <= 10);
-        logger.info("✅ Рейтинг отеля валидный: " + pageRating);
+        Assert.assertTrue("Rating must be found and valid (1-10)", pageRating > 0 && pageRating <= 10);
+        logger.info("Hotel rating is valid: " + pageRating);
 
-        logger.info("\n✅ ТЕСТ ЗАВЕРШЕН");
+        logger.info("TEST COMPLETED");
     }
 
     @After
@@ -304,7 +290,6 @@ public class BookingPragueRatingTest {
             shortWait.until(ExpectedConditions.visibilityOfElementLocated(loaderLocator));
             wait.until(ExpectedConditions.invisibilityOfElementLocated(loaderLocator));
         } catch (TimeoutException e) {
-            // Loader может не быть видимым
         }
     }
 
