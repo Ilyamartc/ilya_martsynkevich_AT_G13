@@ -1,5 +1,7 @@
 package com.example.tests.junit.booking;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -10,6 +12,7 @@ import org.openqa.selenium.interactions.Actions;
 import java.time.Duration;
 
 public class W3SchoolsGoogleTest {
+    private static final Logger logger = LogManager.getLogger(W3SchoolsGoogleTest.class);
     private WebDriver driver;
     private WebDriverWait wait;
     private JavascriptExecutor js;
@@ -28,61 +31,65 @@ public class W3SchoolsGoogleTest {
         js = (JavascriptExecutor) driver;
         actions = new Actions(driver);
 
-        System.out.println("=== ТЕСТ W3SCHOOLS → GOOGLE ПОИСК ===\n");
+        logger.info("=== W3SCHOOLS → GOOGLE SEARCH TEST ===");
     }
 
     @Test
     public void testW3SchoolsToGoogleSearch() {
-        System.out.println("--- ШАГ 1: Открытие W3Schools ---\n");
+        logger.info("--- STEP 1: Opening W3Schools ---");
+        logger.info("Navigating to W3Schools Java tutorial");
         driver.get("https://www.w3schools.com/java/");
-        System.out.println("✓ Открыл https://www.w3schools.com/java/");
+        logger.info("Opened https://www.w3schools.com/java/");
 
         closeCookieConsent();
 
-        System.out.println("\n--- ШАГ 2: Выделение слова Tutorial ---\n");
+        logger.info("--- STEP 2: Selecting word Tutorial ---");
 
         By headingLocator = By.xpath("//h1[contains(text(), 'Tutorial') or contains(text(), 'Java')]");
         WebElement heading = wait.until(ExpectedConditions.presenceOfElementLocated(headingLocator));
 
-        System.out.println("✓ Заголовок найден: " + heading.getText());
+        logger.info("Heading found: " + heading.getText());
 
         String copiedText = "Tutorial";
-        System.out.println("✓ Выделенный текст: \"" + copiedText + "\"");
+        logger.info("Selected text: \"" + copiedText + "\"");
 
-        System.out.println("\n--- ШАГ 3: Переход на Google ---\n");
+        logger.info("--- STEP 3: Navigating to Google ---");
 
+        logger.info("Navigating to Google");
         driver.get("https://www.google.com");
-        System.out.println("✓ Открыл https://www.google.com");
+        logger.info("Opened https://www.google.com");
 
         wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//input[@name='q'] | //textarea[@name='q']")));
 
         closeGoogleCookieConsent();
 
-        System.out.println("\n--- ШАГ 4: Вставка текста в поиск ---\n");
+        logger.info("--- STEP 4: Pasting text into search ---");
 
+        logger.info("Finding search box");
         WebElement searchBox = findSearchBox();
 
-        Assert.assertNotNull("❌ Строка поиска Google не найдена", searchBox);
+        Assert.assertNotNull("Google search box not found", searchBox);
 
         searchBox.click();
-        System.out.println("✓ Кликнул на строку поиска");
+        logger.info("Clicked on search box");
 
         searchBox.sendKeys(copiedText);
-        System.out.println("✓ Вставлено в поиск: \"" + copiedText + "\"");
+        logger.info("Pasted into search: \"" + copiedText + "\"");
 
-        System.out.println("\n--- ШАГ 5: Поиск ---\n");
+        logger.info("--- STEP 5: Searching ---");
 
+        logger.info("Submitting search");
         searchBox.sendKeys(Keys.ENTER);
-        System.out.println("✓ Нажата клавиша Enter");
+        logger.info("Pressed Enter key");
 
         wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//h3 | //div[@data-sokoban-container]")));
 
         checkAndHandleRecaptcha();
 
         wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//h3")));
-        System.out.println("✓ Результаты поиска загружены");
+        logger.info("Search results loaded");
 
-        System.out.println("\n--- ШАГ 6: Проверка результатов ---\n");
+        logger.info("--- STEP 6: Checking results ---");
 
         java.util.List<WebElement> searchResults = driver.findElements(By.xpath("//h3"));
 
@@ -90,10 +97,10 @@ public class W3SchoolsGoogleTest {
             searchResults = driver.findElements(By.cssSelector("div[data-sokoban-container] a"));
         }
 
-        System.out.println("Найдено результатов: " + searchResults.size());
+        logger.info("Found results: " + searchResults.size());
 
         if (searchResults.isEmpty()) {
-            Assert.fail("❌ Результаты поиска не найдены");
+            Assert.fail("Search results not found");
         } else {
             int validResults = 0;
             int invalidResults = 0;
@@ -106,30 +113,30 @@ public class W3SchoolsGoogleTest {
                 boolean containsWord = resultText.contains(searchWord);
 
                 if (containsWord) {
-                    System.out.println((i + 1) + ". + " + resultText.substring(0, Math.min(65, resultText.length())));
+                    logger.info((i + 1) + ". + " + resultText.substring(0, Math.min(65, resultText.length())));
                     validResults++;
                 } else {
-                    System.out.println((i + 1) + ". - " + resultText.substring(0, Math.min(65, resultText.length())));
+                    logger.info((i + 1) + ". - " + resultText.substring(0, Math.min(65, resultText.length())));
                     invalidResults++;
                 }
             }
 
-            System.out.println("\n--- РЕЗУЛЬТАТЫ ПРОВЕРКИ ---\n");
-            System.out.println("+ Валидных результатов: " + validResults + "/" + Math.min(searchResults.size(), 10));
-            System.out.println("- Невалидных результатов: " + invalidResults + "/" + Math.min(searchResults.size(), 10));
+            logger.info("--- CHECK RESULTS ---");
+            logger.info("Valid results: " + validResults + "/" + Math.min(searchResults.size(), 10));
+            logger.info("Invalid results: " + invalidResults + "/" + Math.min(searchResults.size(), 10));
 
             if (invalidResults == 0 && validResults > 0) {
-                System.out.println("\n+ ТЕСТ ПРОЙДЕН: Все результаты содержат искомое слово \"" + copiedText + "\"");
+                logger.info("TEST PASSED: All results contain search word \"" + copiedText + "\"");
             } else if (validResults > 0) {
-                System.out.println("\n!!! ТЕСТ ЧАСТИЧНО ПРОЙДЕН: " + validResults + " результатов содержат слово \"" + copiedText + "\"");
+                logger.info("TEST PARTIALLY PASSED: " + validResults + " results contain word \"" + copiedText + "\"");
             } else {
-                Assert.fail("\n- ТЕСТ НЕ ПРОЙДЕН: Результаты не содержат искомое слово");
+                Assert.fail("TEST FAILED: Results do not contain search word");
             }
 
-            Assert.assertTrue("Должны быть валидные результаты", validResults > 0);
+            Assert.assertTrue("There must be valid results", validResults > 0);
         }
 
-        System.out.println("\n+ ТЕСТ ЗАВЕРШЕН");
+        logger.info("TEST COMPLETED");
     }
 
     @After
@@ -153,11 +160,10 @@ public class W3SchoolsGoogleTest {
             try {
                 java.util.List<WebElement> elements = driver.findElements(locator);
                 if (!elements.isEmpty() && elements.get(0).isDisplayed()) {
-                    System.out.println("✓ Строка поиска найдена");
+                    logger.info("Search box found");
                     return elements.get(0);
                 }
             } catch (TimeoutException e) {
-                // Продолжаем поиск
             }
         }
 
@@ -165,7 +171,7 @@ public class W3SchoolsGoogleTest {
     }
 
     private void checkAndHandleRecaptcha() {
-        System.out.println(" Проверяю наличие reCAPTCHA...");
+        logger.info("Checking for reCAPTCHA...");
 
         By recaptchaLocator = By.xpath("//div[contains(@class, 'recaptcha-checkbox-border')]");
 
@@ -173,29 +179,29 @@ public class W3SchoolsGoogleTest {
             java.util.List<WebElement> recaptchas = driver.findElements(recaptchaLocator);
 
             if (!recaptchas.isEmpty() && recaptchas.get(0).isDisplayed()) {
-                System.out.println("!!! Обнаружена reCAPTCHA!");
-                System.out.println(" Ожидаю решения reCAPTCHA (до 15 секунд)...");
+                logger.info("reCAPTCHA detected!");
+                logger.info("Waiting for reCAPTCHA solution (up to 15 seconds)...");
 
                 for (int i = 0; i < 30; i++) {
                     try {
                         java.util.List<WebElement> currentRecaptchas = driver.findElements(recaptchaLocator);
                         if (currentRecaptchas.isEmpty() || !currentRecaptchas.get(0).isDisplayed()) {
-                            System.out.println("✓ reCAPTCHA решена или исчезла");
+                            logger.info("reCAPTCHA solved or disappeared");
                             break;
                         }
                         Thread.sleep(500);
                     } catch (InterruptedException e) {
-                        Thread.currentThread().interrupt();
+                        logger.error("Thread interrupted during reCAPTCHA wait", e);
                         break;
                     } catch (Exception ex) {
                         break;
                     }
                 }
             } else {
-                System.out.println("✓ reCAPTCHA не обнаружена");
+                logger.info("reCAPTCHA not detected");
             }
         } catch (NoSuchElementException e) {
-            System.out.println("✓ reCAPTCHA не обнаружена");
+            logger.info("reCAPTCHA not detected");
         }
     }
 
@@ -213,18 +219,17 @@ public class W3SchoolsGoogleTest {
             try {
                 WebElement cookieButton = wait.until(ExpectedConditions.elementToBeClickable(locator));
                 cookieButton.click();
-                System.out.println("✓ Cookie согласие W3Schools закрыто");
+                logger.info("W3Schools cookie consent closed");
                 return;
             } catch (TimeoutException e) {
-                // Продолжаем поиск
             }
         }
 
-        System.out.println("⚠ Cookie согласие W3Schools не найдено");
+        logger.info("W3Schools cookie consent not found");
     }
 
     private void closeGoogleCookieConsent() {
-        System.out.println(" Ищем Google cookie согласие...");
+        logger.info("Looking for Google cookie consent...");
 
         By[] googleCookieLocators = {
                 By.xpath("//button[contains(text(), 'Accept all')]"),
@@ -261,15 +266,14 @@ public class W3SchoolsGoogleTest {
                             }
                         }
 
-                        System.out.println("✓ Google cookie согласие закрыто");
+                        logger.info("Google cookie consent closed");
                         return;
                     }
                 }
             } catch (Exception e) {
-                // Продолжаем поиск
             }
         }
 
-        System.out.println("⚠ Google cookie согласие не найдено");
+        logger.info("Google cookie consent not found");
     }
 }
