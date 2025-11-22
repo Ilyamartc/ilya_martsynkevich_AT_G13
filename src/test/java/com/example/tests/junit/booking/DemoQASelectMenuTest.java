@@ -19,7 +19,7 @@ public class DemoQASelectMenuTest {
     @Before
     public void setUp() {
         ChromeOptions opt = new ChromeOptions();
-        opt.addArguments("--start-maximized", "--headless");
+        opt.addArguments("--start-maximized");
         driver = new ChromeDriver(opt);
         wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         js = (JavascriptExecutor) driver;

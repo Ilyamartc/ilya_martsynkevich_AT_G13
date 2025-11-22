@@ -297,3 +297,256 @@
 !!! ТЕСТ ЧАСТИЧНО ПРОЙДЕН: 6 результатов содержат слово "Tutorial"
 2025-11-22 10:04:59.490 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - 
 + ТЕСТ ЗАВЕРШЕН
+2025-11-22 10:07:54.143 [main] INFO  com.example.tests.junit.booking.BookingCurrencyExtractTest - === Starting currency extraction test ===
+2025-11-22 10:07:56.266 [main] INFO  com.example.tests.junit.booking.BookingCurrencyExtractTest - WebDriver initialized successfully
+2025-11-22 10:07:56.266 [main] INFO  com.example.tests.junit.booking.BookingCurrencyExtractTest - Navigating to Booking.com
+2025-11-22 10:07:56.918 [main] INFO  com.example.tests.junit.booking.BookingCurrencyExtractTest - Page loaded successfully
+2025-11-22 10:07:59.262 [main] INFO  com.example.tests.junit.booking.BookingCurrencyExtractTest - Cookies accepted
+2025-11-22 10:08:04.591 [main] WARN  com.example.tests.junit.booking.BookingCurrencyExtractTest - Element By.cssSelector: button[aria-label='Dismiss sign-in info.'] not found within 5 seconds
+2025-11-22 10:08:04.592 [main] INFO  com.example.tests.junit.booking.BookingCurrencyExtractTest - --- Extracting current currency ---
+2025-11-22 10:08:04.615 [main] INFO  com.example.tests.junit.booking.BookingCurrencyExtractTest - Current currency code: 
+2025-11-22 10:08:34.787 [main] ERROR com.example.tests.junit.booking.BookingCurrencyExtractTest - Active currency element not found
+org.openqa.selenium.TimeoutException: Expected condition failed: waiting for presence of element located by: By.cssSelector: div.CurrencyPicker_currency--active (tried for 30 second(s) with 500 milliseconds interval)
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84) ~[selenium-support-4.23.0.jar:?]
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228) ~[selenium-support-4.23.0.jar:?]
+	at com.example.tests.junit.booking.BookingCurrencyExtractTest.testExtractCurrency(BookingCurrencyExtractTest.java:54) [test-classes/:?]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59) [junit-4.13.2.jar:4.13.2]
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12) [junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56) [junit-4.13.2.jar:4.13.2]
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17) [junit-4.13.2.jar:4.13.2]
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26) [junit-4.13.2.jar:4.13.2]
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27) [junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306) [junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100) [junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366) [junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103) [junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63) [junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331) [junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79) [junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329) [junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66) [junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293) [junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306) [junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413) [junit-4.13.2.jar:4.13.2]
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137) [junit-4.13.2.jar:4.13.2]
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:69) [junit-rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38) [junit-rt.jar:?]
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11) [idea_rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35) [junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:237) [junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:58) [junit-rt.jar:?]
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"css selector","selector":"div.CurrencyPicker_currency--active"}
+  (Session info: chrome=142.0.7444.163)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.23.0', revision: '4df0a231af'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [59b4830f5a0763cfae852ce833cc6b3e, findElement {value=div.CurrencyPicker_currency--active, using=css selector}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 142.0.7444.163, chrome: {chromedriverVersion: 142.0.7444.59 (4b8153ab58d3..., userDataDir: C:\Users\ILYA~1.MAR\AppData...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:1895}, goog:processID: 22188, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:1895/devtool..., se:cdpVersion: 142.0.7444.163, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 59b4830f5a0763cfae852ce833cc6b3e
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62) ~[?:?]
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501) ~[?:?]
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485) ~[?:?]
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167) ~[selenium-remote-driver-4.23.0.jar:?]
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138) ~[selenium-remote-driver-4.23.0.jar:?]
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50) ~[selenium-remote-driver-4.23.0.jar:?]
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190) ~[selenium-remote-driver-4.23.0.jar:?]
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216) ~[selenium-remote-driver-4.23.0.jar:?]
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174) ~[selenium-remote-driver-4.23.0.jar:?]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:527) ~[selenium-remote-driver-4.23.0.jar:?]
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165) ~[selenium-remote-driver-4.23.0.jar:?]
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59) ~[selenium-remote-driver-4.23.0.jar:?]
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:357) ~[selenium-remote-driver-4.23.0.jar:?]
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:351) ~[selenium-remote-driver-4.23.0.jar:?]
+	at org.openqa.selenium.support.ui.ExpectedConditions$6.apply(ExpectedConditions.java:171) ~[selenium-support-4.23.0.jar:?]
+	at org.openqa.selenium.support.ui.ExpectedConditions$6.apply(ExpectedConditions.java:168) ~[selenium-support-4.23.0.jar:?]
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:203) ~[selenium-support-4.23.0.jar:?]
+	... 28 more
+2025-11-22 10:08:34.800 [main] INFO  com.example.tests.junit.booking.BookingCurrencyExtractTest - --- Attempting to open currency menu ---
+2025-11-22 10:08:34.949 [main] INFO  com.example.tests.junit.booking.BookingCurrencyExtractTest - Currency menu opened successfully
+2025-11-22 10:08:35.451 [main] INFO  com.example.tests.junit.booking.BookingCurrencyExtractTest - --- Extracting all available currencies ---
+2025-11-22 10:08:35.462 [main] WARN  com.example.tests.junit.booking.BookingCurrencyExtractTest - No currencies found in menu
+2025-11-22 10:08:35.462 [main] INFO  com.example.tests.junit.booking.BookingCurrencyExtractTest - --- Checking active currency in menu ---
+2025-11-22 10:08:35.471 [main] WARN  com.example.tests.junit.booking.BookingCurrencyExtractTest - Active currency not identified
+2025-11-22 10:08:35.471 [main] INFO  com.example.tests.junit.booking.BookingCurrencyExtractTest - Test completed successfully
+2025-11-22 10:08:35.472 [main] INFO  com.example.tests.junit.booking.BookingCurrencyExtractTest - Closing WebDriver
+2025-11-22 10:09:21.827 [main] INFO  com.example.tests.testng.people.AutomatedEngineerTest - Testing automated engineer experience
+2025-11-22 10:09:21.831 [main] INFO  com.example.tests.testng.people.AutomatedEngineerTest - Created AutomatedEngineer with experience: 7
+2025-11-22 10:09:21.842 [main] INFO  com.example.tests.testng.people.AutomatedEngineerTest - Verified engineer experience: 7
+2025-11-22 10:09:21.851 [main] INFO  com.example.tests.testng.people.AutomatedEngineerTest - Testing automated engineer name
+2025-11-22 10:09:21.851 [main] INFO  com.example.tests.testng.people.AutomatedEngineerTest - Created AutomatedEngineer with name: TestUser
+2025-11-22 10:09:21.851 [main] INFO  com.example.tests.testng.people.AutomatedEngineerTest - Verified engineer name: TestUser
+2025-11-22 10:09:21.862 [main] INFO  com.example.tests.testng.people.AutomatedEngineerTest - Testing automated engineer type with name: Eve, experience: 2
+2025-11-22 10:09:21.862 [main] INFO  com.example.tests.testng.people.AutomatedEngineerTest - Created AutomatedEngineer instance
+2025-11-22 10:09:21.862 [main] INFO  com.example.tests.testng.people.AutomatedEngineerTest - Verified engineer type: Automated
+2025-11-22 10:09:21.863 [main] INFO  com.example.tests.testng.people.AutomatedEngineerTest - Testing automated engineer type with name: Dan, experience: 6
+2025-11-22 10:09:21.863 [main] INFO  com.example.tests.testng.people.AutomatedEngineerTest - Created AutomatedEngineer instance
+2025-11-22 10:09:21.863 [main] INFO  com.example.tests.testng.people.AutomatedEngineerTest - Verified engineer type: Automated
+2025-11-22 10:09:21.864 [main] INFO  com.example.tests.testng.people.AutomatedEngineerTest - Testing automated engineer type with name: Charlie, experience: 4
+2025-11-22 10:09:21.865 [main] INFO  com.example.tests.testng.people.AutomatedEngineerTest - Created AutomatedEngineer instance
+2025-11-22 10:09:21.865 [main] INFO  com.example.tests.testng.people.AutomatedEngineerTest - Verified engineer type: Automated
+2025-11-22 10:09:21.874 [main] INFO  com.example.tests.testng.people.EngineerSuiteTest - Testing automated engineer creation
+2025-11-22 10:09:21.874 [main] INFO  com.example.tests.testng.people.EngineerSuiteTest - Created AutomatedEngineer: John with 5 years experience
+2025-11-22 10:09:21.874 [main] INFO  com.example.tests.testng.people.EngineerSuiteTest - Verified engineer is not null
+2025-11-22 10:09:21.874 [main] INFO  com.example.tests.testng.people.EngineerSuiteTest - Verified engineer type: Automated
+2025-11-22 10:09:21.876 [main] INFO  com.example.tests.testng.people.EngineerSuiteTest - Testing different engineer types
+2025-11-22 10:09:21.876 [main] INFO  com.example.tests.testng.people.EngineerSuiteTest - Created AutomatedEngineer: Auto
+2025-11-22 10:09:21.877 [main] INFO  com.example.tests.testng.people.EngineerSuiteTest - Created ManualEngineer: Manual
+2025-11-22 10:09:21.878 [main] INFO  com.example.tests.testng.people.EngineerSuiteTest - Verified different types - Automated: Automated, Manual: Manual
+2025-11-22 10:09:21.879 [main] INFO  com.example.tests.testng.people.EngineerSuiteTest - Testing engineer experience range
+2025-11-22 10:09:21.879 [main] INFO  com.example.tests.testng.people.EngineerSuiteTest - Created AutomatedEngineer: Senior with 10 years experience
+2025-11-22 10:09:21.879 [main] INFO  com.example.tests.testng.people.EngineerSuiteTest - Verified experience is non-negative: 10
+2025-11-22 10:09:21.879 [main] INFO  com.example.tests.testng.people.EngineerSuiteTest - Verified experience is within reasonable range: 10
+2025-11-22 10:09:21.881 [main] INFO  com.example.tests.testng.people.EngineerSuiteTest - Testing manual engineer creation
+2025-11-22 10:09:21.881 [main] INFO  com.example.tests.testng.people.EngineerSuiteTest - Created ManualEngineer: Jane with 3 years experience
+2025-11-22 10:09:21.881 [main] INFO  com.example.tests.testng.people.EngineerSuiteTest - Verified engineer is not null
+2025-11-22 10:09:21.882 [main] INFO  com.example.tests.testng.people.EngineerSuiteTest - Verified engineer type: Manual
+2025-11-22 10:09:21.884 [main] INFO  com.example.tests.testng.people.ManualEngineerTest - Testing manual engineer experience
+2025-11-22 10:09:21.884 [main] INFO  com.example.tests.testng.people.ManualEngineerTest - Created ManualEngineer with experience: 6
+2025-11-22 10:09:21.885 [main] INFO  com.example.tests.testng.people.ManualEngineerTest - Verified engineer experience: 6
+2025-11-22 10:09:21.886 [main] INFO  com.example.tests.testng.people.ManualEngineerTest - Testing manual engineer name
+2025-11-22 10:09:21.886 [main] INFO  com.example.tests.testng.people.ManualEngineerTest - Created ManualEngineer with name: TestUser
+2025-11-22 10:09:21.887 [main] INFO  com.example.tests.testng.people.ManualEngineerTest - Verified engineer name: TestUser
+2025-11-22 10:09:21.890 [main] INFO  com.example.tests.testng.people.ManualEngineerTest - Testing manual engineer type with name: Alice, experience: 3
+2025-11-22 10:09:21.890 [main] INFO  com.example.tests.testng.people.ManualEngineerTest - Created ManualEngineer instance
+2025-11-22 10:09:21.891 [main] INFO  com.example.tests.testng.people.ManualEngineerTest - Verified engineer type: Manual
+2025-11-22 10:09:21.892 [main] INFO  com.example.tests.testng.people.ManualEngineerTest - Testing manual engineer type with name: Bob, experience: 5
+2025-11-22 10:09:21.892 [main] INFO  com.example.tests.testng.people.ManualEngineerTest - Created ManualEngineer instance
+2025-11-22 10:09:21.892 [main] INFO  com.example.tests.testng.people.ManualEngineerTest - Verified engineer type: Manual
+2025-11-22 10:09:21.892 [main] INFO  com.example.tests.testng.people.ManualEngineerTest - Testing manual engineer type with name: Sarah, experience: 8
+2025-11-22 10:09:21.893 [main] INFO  com.example.tests.testng.people.ManualEngineerTest - Created ManualEngineer instance
+2025-11-22 10:09:21.893 [main] INFO  com.example.tests.testng.people.ManualEngineerTest - Verified engineer type: Manual
+2025-11-22 10:09:58.963 [main] INFO  com.example.tests.junit.booking.BookingCurrencyExtractTest - === Starting currency extraction test ===
+2025-11-22 10:10:00.972 [main] INFO  com.example.tests.junit.booking.BookingCurrencyExtractTest - WebDriver initialized successfully
+2025-11-22 10:10:00.972 [main] INFO  com.example.tests.junit.booking.BookingCurrencyExtractTest - Navigating to Booking.com
+2025-11-22 10:10:01.483 [main] INFO  com.example.tests.junit.booking.BookingCurrencyExtractTest - Page loaded successfully
+2025-11-22 10:10:03.881 [main] INFO  com.example.tests.junit.booking.BookingCurrencyExtractTest - Cookies accepted
+2025-11-22 10:10:09.180 [main] WARN  com.example.tests.junit.booking.BookingCurrencyExtractTest - Element By.cssSelector: button[aria-label='Dismiss sign-in info.'] not found within 5 seconds
+2025-11-22 10:10:09.181 [main] INFO  com.example.tests.junit.booking.BookingCurrencyExtractTest - --- Extracting current currency ---
+2025-11-22 10:10:09.202 [main] INFO  com.example.tests.junit.booking.BookingCurrencyExtractTest - Current currency code: 
+2025-11-22 10:10:39.727 [main] ERROR com.example.tests.junit.booking.BookingCurrencyExtractTest - Active currency element not found
+org.openqa.selenium.TimeoutException: Expected condition failed: waiting for presence of element located by: By.cssSelector: div.CurrencyPicker_currency--active (tried for 30 second(s) with 500 milliseconds interval)
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84) ~[selenium-support-4.23.0.jar:?]
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228) ~[selenium-support-4.23.0.jar:?]
+	at com.example.tests.junit.booking.BookingCurrencyExtractTest.testExtractCurrency(BookingCurrencyExtractTest.java:54) [test-classes/:?]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59) [junit-4.13.2.jar:4.13.2]
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12) [junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56) [junit-4.13.2.jar:4.13.2]
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17) [junit-4.13.2.jar:4.13.2]
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26) [junit-4.13.2.jar:4.13.2]
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27) [junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306) [junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100) [junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366) [junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103) [junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63) [junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331) [junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79) [junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329) [junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66) [junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293) [junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306) [junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413) [junit-4.13.2.jar:4.13.2]
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137) [junit-4.13.2.jar:4.13.2]
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:69) [junit-rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38) [junit-rt.jar:?]
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11) [idea_rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35) [junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:237) [junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:58) [junit-rt.jar:?]
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"css selector","selector":"div.CurrencyPicker_currency--active"}
+  (Session info: chrome=142.0.7444.163)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.23.0', revision: '4df0a231af'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [3c88db90438103caa56782ec70aaea33, findElement {value=div.CurrencyPicker_currency--active, using=css selector}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 142.0.7444.163, chrome: {chromedriverVersion: 142.0.7444.59 (4b8153ab58d3..., userDataDir: C:\Users\ILYA~1.MAR\AppData...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:2592}, goog:processID: 15964, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:2592/devtool..., se:cdpVersion: 142.0.7444.163, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 3c88db90438103caa56782ec70aaea33
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62) ~[?:?]
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501) ~[?:?]
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485) ~[?:?]
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167) ~[selenium-remote-driver-4.23.0.jar:?]
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138) ~[selenium-remote-driver-4.23.0.jar:?]
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50) ~[selenium-remote-driver-4.23.0.jar:?]
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190) ~[selenium-remote-driver-4.23.0.jar:?]
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216) ~[selenium-remote-driver-4.23.0.jar:?]
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174) ~[selenium-remote-driver-4.23.0.jar:?]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:527) ~[selenium-remote-driver-4.23.0.jar:?]
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165) ~[selenium-remote-driver-4.23.0.jar:?]
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59) ~[selenium-remote-driver-4.23.0.jar:?]
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:357) ~[selenium-remote-driver-4.23.0.jar:?]
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:351) ~[selenium-remote-driver-4.23.0.jar:?]
+	at org.openqa.selenium.support.ui.ExpectedConditions$6.apply(ExpectedConditions.java:171) ~[selenium-support-4.23.0.jar:?]
+	at org.openqa.selenium.support.ui.ExpectedConditions$6.apply(ExpectedConditions.java:168) ~[selenium-support-4.23.0.jar:?]
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:203) ~[selenium-support-4.23.0.jar:?]
+	... 28 more
+2025-11-22 10:10:39.741 [main] INFO  com.example.tests.junit.booking.BookingCurrencyExtractTest - --- Attempting to open currency menu ---
+2025-11-22 10:10:40.015 [main] INFO  com.example.tests.junit.booking.BookingCurrencyExtractTest - Currency menu opened successfully
+2025-11-22 10:10:40.520 [main] INFO  com.example.tests.junit.booking.BookingCurrencyExtractTest - --- Extracting all available currencies ---
+2025-11-22 10:10:40.540 [main] WARN  com.example.tests.junit.booking.BookingCurrencyExtractTest - No currencies found in menu
+2025-11-22 10:10:40.540 [main] INFO  com.example.tests.junit.booking.BookingCurrencyExtractTest - --- Checking active currency in menu ---
+2025-11-22 10:10:40.564 [main] WARN  com.example.tests.junit.booking.BookingCurrencyExtractTest - Active currency not identified
+2025-11-22 10:10:40.564 [main] INFO  com.example.tests.junit.booking.BookingCurrencyExtractTest - Test completed successfully
+2025-11-22 10:10:40.565 [main] INFO  com.example.tests.junit.booking.BookingCurrencyExtractTest - Closing WebDriver
+2025-11-22 10:13:00.557 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - === ТЕСТ W3SCHOOLS → GOOGLE ПОИСК ===
+
+2025-11-22 10:13:00.564 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - --- ШАГ 1: Открытие W3Schools ---
+
+2025-11-22 10:13:00.564 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - Navigating to W3Schools Java tutorial
+2025-11-22 10:13:01.654 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - ✓ Открыл https://www.w3schools.com/java/
+2025-11-22 10:13:01.908 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - ✓ Cookie согласие W3Schools закрыто
+2025-11-22 10:13:01.908 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - 
+--- ШАГ 2: Выделение слова Tutorial ---
+
+2025-11-22 10:13:01.997 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - ✓ Заголовок найден: Java Tutorial
+2025-11-22 10:13:01.998 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - ✓ Выделенный текст: "Tutorial"
+2025-11-22 10:13:01.998 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - 
+--- ШАГ 3: Переход на Google ---
+
+2025-11-22 10:13:01.998 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - Navigating to Google
+2025-11-22 10:13:02.493 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - ✓ Открыл https://www.google.com
+2025-11-22 10:13:02.524 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest -  Ищем Google cookie согласие...
+2025-11-22 10:13:02.591 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - ✓ Google cookie согласие закрыто
+2025-11-22 10:13:02.591 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - 
+--- ШАГ 4: Вставка текста в поиск ---
+
+2025-11-22 10:13:02.592 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - Finding search box
+2025-11-22 10:13:02.622 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - ✓ Строка поиска найдена
+2025-11-22 10:13:02.720 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - ✓ Кликнул на строку поиска
+2025-11-22 10:13:02.782 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - ✓ Вставлено в поиск: "Tutorial"
+2025-11-22 10:13:02.782 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - 
+--- ШАГ 5: Поиск ---
+
+2025-11-22 10:13:02.782 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - Submitting search
+2025-11-22 10:13:02.866 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - ✓ Нажата клавиша Enter
+2025-11-22 10:13:04.408 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest -  Проверяю наличие reCAPTCHA...
+2025-11-22 10:13:04.433 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - ✓ reCAPTCHA не обнаружена
+2025-11-22 10:13:04.476 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - ✓ Результаты поиска загружены
+2025-11-22 10:13:04.476 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - 
+--- ШАГ 6: Проверка результатов ---
+
+2025-11-22 10:13:04.491 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - Найдено результатов: 14
+2025-11-22 10:13:04.508 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - 1. - 
+2025-11-22 10:13:04.520 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - 2. - 
+2025-11-22 10:13:04.531 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - 3. - 
+2025-11-22 10:13:04.555 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - 4. - 
+2025-11-22 10:13:04.566 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - 5. + tutorial – wikipedia, wolna encyklopedia
+2025-11-22 10:13:04.578 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - 6. + jak zrobić dobry tutorial?
+2025-11-22 10:13:04.588 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - 7. + co to jest tutorial i jak wygląda w szkole edukacji?
+2025-11-22 10:13:04.600 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - 8. + tutorial – co to jest i jak wykorzystać go w marketingu?
+2025-11-22 10:13:04.611 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - 9. + tutoriale
+2025-11-22 10:13:04.624 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - 10. + "tutorial" po polsku - — słownik angielsko-polski
+2025-11-22 10:13:04.625 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - 
+--- РЕЗУЛЬТАТЫ ПРОВЕРКИ ---
+
+2025-11-22 10:13:04.628 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - + Валидных результатов: 6/10
+2025-11-22 10:13:04.628 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - - Невалидных результатов: 4/10
+2025-11-22 10:13:04.628 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - 
+!!! ТЕСТ ЧАСТИЧНО ПРОЙДЕН: 6 результатов содержат слово "Tutorial"
+2025-11-22 10:13:04.629 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - 
++ ТЕСТ ЗАВЕРШЕН

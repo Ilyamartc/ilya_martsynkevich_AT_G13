@@ -19,7 +19,7 @@ public class BookingCurrencyExtractTest {
     public void setUp() {
         logger.info("=== Starting currency extraction test ===");
         ChromeOptions opt = new ChromeOptions();
-        opt.addArguments("--start-maximized", "--headless");
+        opt.addArguments("--start-maximized");
         driver = new ChromeDriver(opt);
         wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         logger.info("WebDriver initialized successfully");
