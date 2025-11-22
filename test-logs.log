@@ -1,0 +1,299 @@
+2025-11-22 10:02:57.690 [main] INFO  com.example.tests.junit.people.AutomatedEngineerTest - Testing AutomatedEngineer - Name: Eve, Experience: 2
+2025-11-22 10:02:57.694 [main] INFO  com.example.tests.junit.people.AutomatedEngineerTest - Created AutomatedEngineer, checking type
+2025-11-22 10:02:57.694 [main] INFO  com.example.tests.junit.people.AutomatedEngineerTest - Test passed - Type matches: Automated
+2025-11-22 10:02:57.695 [main] INFO  com.example.tests.junit.people.AutomatedEngineerTest - Testing AutomatedEngineer - Name: Dan, Experience: 6
+2025-11-22 10:02:57.696 [main] INFO  com.example.tests.junit.people.AutomatedEngineerTest - Created AutomatedEngineer, checking type
+2025-11-22 10:02:57.696 [main] INFO  com.example.tests.junit.people.AutomatedEngineerTest - Test passed - Type matches: Automated
+2025-11-22 10:03:08.755 [main] INFO  com.example.tests.testng.people.AutomatedEngineerTest - Testing automated engineer experience
+2025-11-22 10:03:08.760 [main] INFO  com.example.tests.testng.people.AutomatedEngineerTest - Created AutomatedEngineer with experience: 7
+2025-11-22 10:03:08.771 [main] INFO  com.example.tests.testng.people.AutomatedEngineerTest - Verified engineer experience: 7
+2025-11-22 10:03:08.778 [main] INFO  com.example.tests.testng.people.AutomatedEngineerTest - Testing automated engineer name
+2025-11-22 10:03:08.778 [main] INFO  com.example.tests.testng.people.AutomatedEngineerTest - Created AutomatedEngineer with name: TestUser
+2025-11-22 10:03:08.778 [main] INFO  com.example.tests.testng.people.AutomatedEngineerTest - Verified engineer name: TestUser
+2025-11-22 10:03:08.787 [main] INFO  com.example.tests.testng.people.AutomatedEngineerTest - Testing automated engineer type with name: Eve, experience: 2
+2025-11-22 10:03:08.788 [main] INFO  com.example.tests.testng.people.AutomatedEngineerTest - Created AutomatedEngineer instance
+2025-11-22 10:03:08.788 [main] INFO  com.example.tests.testng.people.AutomatedEngineerTest - Verified engineer type: Automated
+2025-11-22 10:03:08.789 [main] INFO  com.example.tests.testng.people.AutomatedEngineerTest - Testing automated engineer type with name: Dan, experience: 6
+2025-11-22 10:03:08.789 [main] INFO  com.example.tests.testng.people.AutomatedEngineerTest - Created AutomatedEngineer instance
+2025-11-22 10:03:08.789 [main] INFO  com.example.tests.testng.people.AutomatedEngineerTest - Verified engineer type: Automated
+2025-11-22 10:03:08.791 [main] INFO  com.example.tests.testng.people.AutomatedEngineerTest - Testing automated engineer type with name: Charlie, experience: 4
+2025-11-22 10:03:08.791 [main] INFO  com.example.tests.testng.people.AutomatedEngineerTest - Created AutomatedEngineer instance
+2025-11-22 10:03:08.791 [main] INFO  com.example.tests.testng.people.AutomatedEngineerTest - Verified engineer type: Automated
+2025-11-22 10:03:08.795 [main] INFO  com.example.tests.testng.people.ManualEngineerTest - Testing manual engineer experience
+2025-11-22 10:03:08.796 [main] INFO  com.example.tests.testng.people.ManualEngineerTest - Created ManualEngineer with experience: 6
+2025-11-22 10:03:08.796 [main] INFO  com.example.tests.testng.people.ManualEngineerTest - Verified engineer experience: 6
+2025-11-22 10:03:08.798 [main] INFO  com.example.tests.testng.people.ManualEngineerTest - Testing manual engineer name
+2025-11-22 10:03:08.798 [main] INFO  com.example.tests.testng.people.ManualEngineerTest - Created ManualEngineer with name: TestUser
+2025-11-22 10:03:08.798 [main] INFO  com.example.tests.testng.people.ManualEngineerTest - Verified engineer name: TestUser
+2025-11-22 10:03:08.799 [main] INFO  com.example.tests.testng.people.ManualEngineerTest - Testing manual engineer type with name: Alice, experience: 3
+2025-11-22 10:03:08.800 [main] INFO  com.example.tests.testng.people.ManualEngineerTest - Created ManualEngineer instance
+2025-11-22 10:03:08.800 [main] INFO  com.example.tests.testng.people.ManualEngineerTest - Verified engineer type: Manual
+2025-11-22 10:03:08.801 [main] INFO  com.example.tests.testng.people.ManualEngineerTest - Testing manual engineer type with name: Bob, experience: 5
+2025-11-22 10:03:08.801 [main] INFO  com.example.tests.testng.people.ManualEngineerTest - Created ManualEngineer instance
+2025-11-22 10:03:08.801 [main] INFO  com.example.tests.testng.people.ManualEngineerTest - Verified engineer type: Manual
+2025-11-22 10:03:08.802 [main] INFO  com.example.tests.testng.people.ManualEngineerTest - Testing manual engineer type with name: Sarah, experience: 8
+2025-11-22 10:03:08.802 [main] INFO  com.example.tests.testng.people.ManualEngineerTest - Created ManualEngineer instance
+2025-11-22 10:03:08.802 [main] INFO  com.example.tests.testng.people.ManualEngineerTest - Verified engineer type: Manual
+2025-11-22 10:03:08.803 [main] INFO  com.example.tests.testng.people.EngineerSuiteTest - Testing automated engineer creation
+2025-11-22 10:03:08.804 [main] INFO  com.example.tests.testng.people.EngineerSuiteTest - Created AutomatedEngineer: John with 5 years experience
+2025-11-22 10:03:08.804 [main] INFO  com.example.tests.testng.people.EngineerSuiteTest - Verified engineer is not null
+2025-11-22 10:03:08.804 [main] INFO  com.example.tests.testng.people.EngineerSuiteTest - Verified engineer type: Automated
+2025-11-22 10:03:08.805 [main] INFO  com.example.tests.testng.people.EngineerSuiteTest - Testing different engineer types
+2025-11-22 10:03:08.805 [main] INFO  com.example.tests.testng.people.EngineerSuiteTest - Created AutomatedEngineer: Auto
+2025-11-22 10:03:08.805 [main] INFO  com.example.tests.testng.people.EngineerSuiteTest - Created ManualEngineer: Manual
+2025-11-22 10:03:08.805 [main] INFO  com.example.tests.testng.people.EngineerSuiteTest - Verified different types - Automated: Automated, Manual: Manual
+2025-11-22 10:03:08.806 [main] INFO  com.example.tests.testng.people.EngineerSuiteTest - Testing engineer experience range
+2025-11-22 10:03:08.806 [main] INFO  com.example.tests.testng.people.EngineerSuiteTest - Created AutomatedEngineer: Senior with 10 years experience
+2025-11-22 10:03:08.806 [main] INFO  com.example.tests.testng.people.EngineerSuiteTest - Verified experience is non-negative: 10
+2025-11-22 10:03:08.806 [main] INFO  com.example.tests.testng.people.EngineerSuiteTest - Verified experience is within reasonable range: 10
+2025-11-22 10:03:08.807 [main] INFO  com.example.tests.testng.people.EngineerSuiteTest - Testing manual engineer creation
+2025-11-22 10:03:08.807 [main] INFO  com.example.tests.testng.people.EngineerSuiteTest - Created ManualEngineer: Jane with 3 years experience
+2025-11-22 10:03:08.807 [main] INFO  com.example.tests.testng.people.EngineerSuiteTest - Verified engineer is not null
+2025-11-22 10:03:08.807 [main] INFO  com.example.tests.testng.people.EngineerSuiteTest - Verified engineer type: Manual
+2025-11-22 10:03:08.836 [main] INFO  com.example.tests.testng.people.EngineerSuiteTest - Testing automated engineer creation
+2025-11-22 10:03:08.836 [main] INFO  com.example.tests.testng.people.EngineerSuiteTest - Created AutomatedEngineer: John with 5 years experience
+2025-11-22 10:03:08.836 [main] INFO  com.example.tests.testng.people.EngineerSuiteTest - Verified engineer is not null
+2025-11-22 10:03:08.836 [main] INFO  com.example.tests.testng.people.EngineerSuiteTest - Verified engineer type: Automated
+2025-11-22 10:03:08.837 [main] INFO  com.example.tests.testng.people.EngineerSuiteTest - Testing manual engineer creation
+2025-11-22 10:03:08.837 [main] INFO  com.example.tests.testng.people.EngineerSuiteTest - Created ManualEngineer: Jane with 3 years experience
+2025-11-22 10:03:08.837 [main] INFO  com.example.tests.testng.people.EngineerSuiteTest - Verified engineer is not null
+2025-11-22 10:03:08.837 [main] INFO  com.example.tests.testng.people.EngineerSuiteTest - Verified engineer type: Manual
+2025-11-22 10:03:08.845 [main] INFO  com.example.tests.testng.people.EngineerSuiteTest - Testing different engineer types
+2025-11-22 10:03:08.845 [main] INFO  com.example.tests.testng.people.EngineerSuiteTest - Created AutomatedEngineer: Auto
+2025-11-22 10:03:08.845 [main] INFO  com.example.tests.testng.people.EngineerSuiteTest - Created ManualEngineer: Manual
+2025-11-22 10:03:08.845 [main] INFO  com.example.tests.testng.people.EngineerSuiteTest - Verified different types - Automated: Automated, Manual: Manual
+2025-11-22 10:03:08.846 [main] INFO  com.example.tests.testng.people.EngineerSuiteTest - Testing engineer experience range
+2025-11-22 10:03:08.846 [main] INFO  com.example.tests.testng.people.EngineerSuiteTest - Created AutomatedEngineer: Senior with 10 years experience
+2025-11-22 10:03:08.846 [main] INFO  com.example.tests.testng.people.EngineerSuiteTest - Verified experience is non-negative: 10
+2025-11-22 10:03:08.846 [main] INFO  com.example.tests.testng.people.EngineerSuiteTest - Verified experience is within reasonable range: 10
+2025-11-22 10:04:09.977 [main] INFO  com.example.stepdefinitions.EngineerSteps - Initializing engineer management system
+2025-11-22 10:04:09.979 [main] INFO  com.example.stepdefinitions.EngineerSteps - Engineer list cleared
+2025-11-22 10:04:09.990 [main] INFO  com.example.stepdefinitions.EngineerSteps - Setting engineer name: Eve
+2025-11-22 10:04:09.991 [main] INFO  com.example.stepdefinitions.EngineerSteps - Setting engineer experience: 2 years
+2025-11-22 10:04:09.991 [main] INFO  com.example.stepdefinitions.EngineerSteps - Creating automated engineer: Eve with 2 years experience
+2025-11-22 10:04:09.991 [main] INFO  com.example.stepdefinitions.EngineerSteps - Automated engineer created successfully
+2025-11-22 10:04:09.992 [main] INFO  com.example.stepdefinitions.EngineerSteps - Verifying engineer type is: Automated
+2025-11-22 10:04:09.998 [main] INFO  com.example.stepdefinitions.EngineerSteps - Engineer type verification passed
+2025-11-22 10:04:09.999 [main] INFO  com.example.stepdefinitions.EngineerSteps - Verifying engineer name is: Eve
+2025-11-22 10:04:09.999 [main] INFO  com.example.stepdefinitions.EngineerSteps - Engineer name verification passed
+2025-11-22 10:04:09.999 [main] INFO  com.example.stepdefinitions.EngineerSteps - Verifying engineer experience is: 2 years
+2025-11-22 10:04:09.999 [main] INFO  com.example.stepdefinitions.EngineerSteps - Engineer experience verification passed
+2025-11-22 10:04:10.009 [main] INFO  com.example.stepdefinitions.EngineerSteps - Initializing engineer management system
+2025-11-22 10:04:10.009 [main] INFO  com.example.stepdefinitions.EngineerSteps - Engineer list cleared
+2025-11-22 10:04:10.009 [main] INFO  com.example.stepdefinitions.EngineerSteps - Setting engineer name: Dan
+2025-11-22 10:04:10.009 [main] INFO  com.example.stepdefinitions.EngineerSteps - Setting engineer experience: 6 years
+2025-11-22 10:04:10.010 [main] INFO  com.example.stepdefinitions.EngineerSteps - Creating automated engineer: Dan with 6 years experience
+2025-11-22 10:04:10.010 [main] INFO  com.example.stepdefinitions.EngineerSteps - Automated engineer created successfully
+2025-11-22 10:04:10.010 [main] INFO  com.example.stepdefinitions.EngineerSteps - Verifying engineer type is: Automated
+2025-11-22 10:04:10.010 [main] INFO  com.example.stepdefinitions.EngineerSteps - Engineer type verification passed
+2025-11-22 10:04:10.014 [main] INFO  com.example.stepdefinitions.EngineerSteps - Initializing engineer management system
+2025-11-22 10:04:10.014 [main] INFO  com.example.stepdefinitions.EngineerSteps - Engineer list cleared
+2025-11-22 10:04:10.015 [main] INFO  com.example.stepdefinitions.EngineerSteps - Setting engineer name: Eve
+2025-11-22 10:04:10.015 [main] INFO  com.example.stepdefinitions.EngineerSteps - Setting engineer experience: 2 years
+2025-11-22 10:04:10.016 [main] INFO  com.example.stepdefinitions.EngineerSteps - Creating automated engineer: Eve with 2 years experience
+2025-11-22 10:04:10.016 [main] INFO  com.example.stepdefinitions.EngineerSteps - Automated engineer created successfully
+2025-11-22 10:04:10.016 [main] INFO  com.example.stepdefinitions.EngineerSteps - Verifying engineer type is: Automated
+2025-11-22 10:04:10.016 [main] INFO  com.example.stepdefinitions.EngineerSteps - Engineer type verification passed
+2025-11-22 10:04:10.016 [main] INFO  com.example.stepdefinitions.EngineerSteps - Verifying engineer name is: Eve
+2025-11-22 10:04:10.016 [main] INFO  com.example.stepdefinitions.EngineerSteps - Engineer name verification passed
+2025-11-22 10:04:10.017 [main] INFO  com.example.stepdefinitions.EngineerSteps - Verifying engineer experience is: 2 years
+2025-11-22 10:04:10.017 [main] INFO  com.example.stepdefinitions.EngineerSteps - Engineer experience verification passed
+2025-11-22 10:04:10.021 [main] INFO  com.example.stepdefinitions.EngineerSteps - Initializing engineer management system
+2025-11-22 10:04:10.021 [main] INFO  com.example.stepdefinitions.EngineerSteps - Engineer list cleared
+2025-11-22 10:04:10.022 [main] INFO  com.example.stepdefinitions.EngineerSteps - Setting engineer name: Dan
+2025-11-22 10:04:10.022 [main] INFO  com.example.stepdefinitions.EngineerSteps - Setting engineer experience: 6 years
+2025-11-22 10:04:10.023 [main] INFO  com.example.stepdefinitions.EngineerSteps - Creating automated engineer: Dan with 6 years experience
+2025-11-22 10:04:10.023 [main] INFO  com.example.stepdefinitions.EngineerSteps - Automated engineer created successfully
+2025-11-22 10:04:10.023 [main] INFO  com.example.stepdefinitions.EngineerSteps - Verifying engineer type is: Automated
+2025-11-22 10:04:10.023 [main] INFO  com.example.stepdefinitions.EngineerSteps - Engineer type verification passed
+2025-11-22 10:04:10.023 [main] INFO  com.example.stepdefinitions.EngineerSteps - Verifying engineer name is: Dan
+2025-11-22 10:04:10.023 [main] INFO  com.example.stepdefinitions.EngineerSteps - Engineer name verification passed
+2025-11-22 10:04:10.024 [main] INFO  com.example.stepdefinitions.EngineerSteps - Verifying engineer experience is: 6 years
+2025-11-22 10:04:10.024 [main] INFO  com.example.stepdefinitions.EngineerSteps - Engineer experience verification passed
+2025-11-22 10:04:10.028 [main] INFO  com.example.stepdefinitions.EngineerSteps - Initializing engineer management system
+2025-11-22 10:04:10.028 [main] INFO  com.example.stepdefinitions.EngineerSteps - Engineer list cleared
+2025-11-22 10:04:10.028 [main] INFO  com.example.stepdefinitions.EngineerSteps - Setting engineer name: Charlie
+2025-11-22 10:04:10.029 [main] INFO  com.example.stepdefinitions.EngineerSteps - Setting engineer experience: 4 years
+2025-11-22 10:04:10.037 [main] INFO  com.example.stepdefinitions.EngineerSteps - Creating automated engineer: Charlie with 4 years experience
+2025-11-22 10:04:10.037 [main] INFO  com.example.stepdefinitions.EngineerSteps - Automated engineer created successfully
+2025-11-22 10:04:10.038 [main] INFO  com.example.stepdefinitions.EngineerSteps - Verifying engineer type is: Automated
+2025-11-22 10:04:10.038 [main] INFO  com.example.stepdefinitions.EngineerSteps - Engineer type verification passed
+2025-11-22 10:04:10.038 [main] INFO  com.example.stepdefinitions.EngineerSteps - Verifying engineer name is: Charlie
+2025-11-22 10:04:10.039 [main] INFO  com.example.stepdefinitions.EngineerSteps - Engineer name verification passed
+2025-11-22 10:04:10.039 [main] INFO  com.example.stepdefinitions.EngineerSteps - Verifying engineer experience is: 4 years
+2025-11-22 10:04:10.039 [main] INFO  com.example.stepdefinitions.EngineerSteps - Engineer experience verification passed
+2025-11-22 10:04:10.042 [main] INFO  com.example.stepdefinitions.EngineerSteps - Initializing engineer management system
+2025-11-22 10:04:10.043 [main] INFO  com.example.stepdefinitions.EngineerSteps - Engineer list cleared
+2025-11-22 10:04:10.043 [main] INFO  com.example.stepdefinitions.EngineerSteps - Setting engineer name: Alex
+2025-11-22 10:04:10.043 [main] INFO  com.example.stepdefinitions.EngineerSteps - Setting engineer experience: 8 years
+2025-11-22 10:04:10.043 [main] INFO  com.example.stepdefinitions.EngineerSteps - Creating automated engineer: Alex with 8 years experience
+2025-11-22 10:04:10.043 [main] INFO  com.example.stepdefinitions.EngineerSteps - Automated engineer created successfully
+2025-11-22 10:04:10.044 [main] INFO  com.example.stepdefinitions.EngineerSteps - Verifying engineer type is: Automated
+2025-11-22 10:04:10.044 [main] INFO  com.example.stepdefinitions.EngineerSteps - Engineer type verification passed
+2025-11-22 10:04:10.044 [main] INFO  com.example.stepdefinitions.EngineerSteps - Verifying engineer name is: Alex
+2025-11-22 10:04:10.044 [main] INFO  com.example.stepdefinitions.EngineerSteps - Engineer name verification passed
+2025-11-22 10:04:10.044 [main] INFO  com.example.stepdefinitions.EngineerSteps - Verifying engineer experience is: 8 years
+2025-11-22 10:04:10.045 [main] INFO  com.example.stepdefinitions.EngineerSteps - Engineer experience verification passed
+2025-11-22 10:04:10.048 [main] INFO  com.example.stepdefinitions.EngineerSteps - Initializing engineer management system
+2025-11-22 10:04:10.048 [main] INFO  com.example.stepdefinitions.EngineerSteps - Engineer list cleared
+2025-11-22 10:04:10.052 [main] INFO  com.example.stepdefinitions.EngineerSteps - Creating automated engineer: TestAuto with 5 years experience
+2025-11-22 10:04:10.052 [main] INFO  com.example.stepdefinitions.EngineerSteps - Automated engineer created successfully
+2025-11-22 10:04:10.053 [main] INFO  com.example.stepdefinitions.EngineerSteps - Verifying engineer is not null
+2025-11-22 10:04:10.053 [main] INFO  com.example.stepdefinitions.EngineerSteps - Engineer null check passed
+2025-11-22 10:04:10.053 [main] INFO  com.example.stepdefinitions.EngineerSteps - Verifying engineer type is: Automated
+2025-11-22 10:04:10.053 [main] INFO  com.example.stepdefinitions.EngineerSteps - Engineer type verification passed
+2025-11-22 10:04:10.059 [main] INFO  com.example.stepdefinitions.EngineerSteps - Creating automated engineer: Auto with 5 years experience
+2025-11-22 10:04:10.059 [main] INFO  com.example.stepdefinitions.EngineerSteps - Automated engineer created successfully
+2025-11-22 10:04:10.059 [main] INFO  com.example.stepdefinitions.EngineerSteps - Creating manual engineer: Manual with 5 years experience
+2025-11-22 10:04:10.060 [main] INFO  com.example.stepdefinitions.EngineerSteps - Manual engineer created successfully
+2025-11-22 10:04:10.060 [main] INFO  com.example.stepdefinitions.EngineerSteps - Verifying automated engineer type is: Automated
+2025-11-22 10:04:10.060 [main] INFO  com.example.stepdefinitions.EngineerSteps - Automated engineer type verification passed
+2025-11-22 10:04:10.060 [main] INFO  com.example.stepdefinitions.EngineerSteps - Verifying manual engineer type is: Manual
+2025-11-22 10:04:10.061 [main] INFO  com.example.stepdefinitions.EngineerSteps - Manual engineer type verification passed
+2025-11-22 10:04:10.061 [main] INFO  com.example.stepdefinitions.EngineerSteps - Verifying automated and manual engineer types are different
+2025-11-22 10:04:10.061 [main] INFO  com.example.stepdefinitions.EngineerSteps - Engineer types verification passed
+2025-11-22 10:04:10.071 [main] INFO  com.example.stepdefinitions.EngineerSteps - Loading engineers from data table
+2025-11-22 10:04:10.074 [main] INFO  com.example.stepdefinitions.EngineerSteps - Added automated engineer: Eve with 2 years experience
+2025-11-22 10:04:10.074 [main] INFO  com.example.stepdefinitions.EngineerSteps - Added manual engineer: Alice with 3 years experience
+2025-11-22 10:04:10.074 [main] INFO  com.example.stepdefinitions.EngineerSteps - Added automated engineer: Dan with 6 years experience
+2025-11-22 10:04:10.074 [main] INFO  com.example.stepdefinitions.EngineerSteps - Added manual engineer: Bob with 5 years experience
+2025-11-22 10:04:10.074 [main] INFO  com.example.stepdefinitions.EngineerSteps - Loaded 4 engineers total
+2025-11-22 10:04:10.079 [main] INFO  com.example.stepdefinitions.EngineerSteps - Verifying count of automated engineers is: 2
+2025-11-22 10:04:10.080 [main] INFO  com.example.stepdefinitions.EngineerSteps - Automated engineers count verification passed
+2025-11-22 10:04:10.081 [main] INFO  com.example.stepdefinitions.EngineerSteps - Verifying count of manual engineers is: 2
+2025-11-22 10:04:10.082 [main] INFO  com.example.stepdefinitions.EngineerSteps - Manual engineers count verification passed
+2025-11-22 10:04:10.082 [main] INFO  com.example.stepdefinitions.EngineerSteps - Verifying all engineers have valid types
+2025-11-22 10:04:10.082 [main] INFO  com.example.stepdefinitions.EngineerSteps - All engineers have valid types
+2025-11-22 10:04:10.090 [main] INFO  com.example.stepdefinitions.EngineerSteps - Initializing engineer management system
+2025-11-22 10:04:10.091 [main] INFO  com.example.stepdefinitions.EngineerSteps - Engineer list cleared
+2025-11-22 10:04:10.091 [main] INFO  com.example.stepdefinitions.EngineerSteps - Setting engineer name: Alice
+2025-11-22 10:04:10.091 [main] INFO  com.example.stepdefinitions.EngineerSteps - Setting engineer experience: 3 years
+2025-11-22 10:04:10.092 [main] INFO  com.example.stepdefinitions.EngineerSteps - Creating manual engineer: Alice with 3 years experience
+2025-11-22 10:04:10.092 [main] INFO  com.example.stepdefinitions.EngineerSteps - Manual engineer created successfully
+2025-11-22 10:04:10.092 [main] INFO  com.example.stepdefinitions.EngineerSteps - Verifying engineer type is: Manual
+2025-11-22 10:04:10.092 [main] INFO  com.example.stepdefinitions.EngineerSteps - Engineer type verification passed
+2025-11-22 10:04:10.093 [main] INFO  com.example.stepdefinitions.EngineerSteps - Verifying engineer name is: Alice
+2025-11-22 10:04:10.093 [main] INFO  com.example.stepdefinitions.EngineerSteps - Engineer name verification passed
+2025-11-22 10:04:10.093 [main] INFO  com.example.stepdefinitions.EngineerSteps - Verifying engineer experience is: 3 years
+2025-11-22 10:04:10.093 [main] INFO  com.example.stepdefinitions.EngineerSteps - Engineer experience verification passed
+2025-11-22 10:04:10.096 [main] INFO  com.example.stepdefinitions.EngineerSteps - Initializing engineer management system
+2025-11-22 10:04:10.096 [main] INFO  com.example.stepdefinitions.EngineerSteps - Engineer list cleared
+2025-11-22 10:04:10.097 [main] INFO  com.example.stepdefinitions.EngineerSteps - Setting engineer name: Bob
+2025-11-22 10:04:10.097 [main] INFO  com.example.stepdefinitions.EngineerSteps - Setting engineer experience: 5 years
+2025-11-22 10:04:10.097 [main] INFO  com.example.stepdefinitions.EngineerSteps - Creating manual engineer: Bob with 5 years experience
+2025-11-22 10:04:10.097 [main] INFO  com.example.stepdefinitions.EngineerSteps - Manual engineer created successfully
+2025-11-22 10:04:10.098 [main] INFO  com.example.stepdefinitions.EngineerSteps - Verifying engineer type is: Manual
+2025-11-22 10:04:10.098 [main] INFO  com.example.stepdefinitions.EngineerSteps - Engineer type verification passed
+2025-11-22 10:04:10.102 [main] INFO  com.example.stepdefinitions.EngineerSteps - Initializing engineer management system
+2025-11-22 10:04:10.102 [main] INFO  com.example.stepdefinitions.EngineerSteps - Engineer list cleared
+2025-11-22 10:04:10.103 [main] INFO  com.example.stepdefinitions.EngineerSteps - Setting engineer name: Alice
+2025-11-22 10:04:10.103 [main] INFO  com.example.stepdefinitions.EngineerSteps - Setting engineer experience: 3 years
+2025-11-22 10:04:10.104 [main] INFO  com.example.stepdefinitions.EngineerSteps - Creating manual engineer: Alice with 3 years experience
+2025-11-22 10:04:10.104 [main] INFO  com.example.stepdefinitions.EngineerSteps - Manual engineer created successfully
+2025-11-22 10:04:10.105 [main] INFO  com.example.stepdefinitions.EngineerSteps - Verifying engineer type is: Manual
+2025-11-22 10:04:10.105 [main] INFO  com.example.stepdefinitions.EngineerSteps - Engineer type verification passed
+2025-11-22 10:04:10.105 [main] INFO  com.example.stepdefinitions.EngineerSteps - Verifying engineer name is: Alice
+2025-11-22 10:04:10.105 [main] INFO  com.example.stepdefinitions.EngineerSteps - Engineer name verification passed
+2025-11-22 10:04:10.105 [main] INFO  com.example.stepdefinitions.EngineerSteps - Verifying engineer experience is: 3 years
+2025-11-22 10:04:10.106 [main] INFO  com.example.stepdefinitions.EngineerSteps - Engineer experience verification passed
+2025-11-22 10:04:10.109 [main] INFO  com.example.stepdefinitions.EngineerSteps - Initializing engineer management system
+2025-11-22 10:04:10.109 [main] INFO  com.example.stepdefinitions.EngineerSteps - Engineer list cleared
+2025-11-22 10:04:10.109 [main] INFO  com.example.stepdefinitions.EngineerSteps - Setting engineer name: Bob
+2025-11-22 10:04:10.109 [main] INFO  com.example.stepdefinitions.EngineerSteps - Setting engineer experience: 5 years
+2025-11-22 10:04:10.110 [main] INFO  com.example.stepdefinitions.EngineerSteps - Creating manual engineer: Bob with 5 years experience
+2025-11-22 10:04:10.110 [main] INFO  com.example.stepdefinitions.EngineerSteps - Manual engineer created successfully
+2025-11-22 10:04:10.110 [main] INFO  com.example.stepdefinitions.EngineerSteps - Verifying engineer type is: Manual
+2025-11-22 10:04:10.110 [main] INFO  com.example.stepdefinitions.EngineerSteps - Engineer type verification passed
+2025-11-22 10:04:10.110 [main] INFO  com.example.stepdefinitions.EngineerSteps - Verifying engineer name is: Bob
+2025-11-22 10:04:10.110 [main] INFO  com.example.stepdefinitions.EngineerSteps - Engineer name verification passed
+2025-11-22 10:04:10.110 [main] INFO  com.example.stepdefinitions.EngineerSteps - Verifying engineer experience is: 5 years
+2025-11-22 10:04:10.110 [main] INFO  com.example.stepdefinitions.EngineerSteps - Engineer experience verification passed
+2025-11-22 10:04:10.113 [main] INFO  com.example.stepdefinitions.EngineerSteps - Initializing engineer management system
+2025-11-22 10:04:10.113 [main] INFO  com.example.stepdefinitions.EngineerSteps - Engineer list cleared
+2025-11-22 10:04:10.113 [main] INFO  com.example.stepdefinitions.EngineerSteps - Setting engineer name: Sarah
+2025-11-22 10:04:10.114 [main] INFO  com.example.stepdefinitions.EngineerSteps - Setting engineer experience: 8 years
+2025-11-22 10:04:10.114 [main] INFO  com.example.stepdefinitions.EngineerSteps - Creating manual engineer: Sarah with 8 years experience
+2025-11-22 10:04:10.114 [main] INFO  com.example.stepdefinitions.EngineerSteps - Manual engineer created successfully
+2025-11-22 10:04:10.114 [main] INFO  com.example.stepdefinitions.EngineerSteps - Verifying engineer type is: Manual
+2025-11-22 10:04:10.114 [main] INFO  com.example.stepdefinitions.EngineerSteps - Engineer type verification passed
+2025-11-22 10:04:10.114 [main] INFO  com.example.stepdefinitions.EngineerSteps - Verifying engineer name is: Sarah
+2025-11-22 10:04:10.116 [main] INFO  com.example.stepdefinitions.EngineerSteps - Engineer name verification passed
+2025-11-22 10:04:10.116 [main] INFO  com.example.stepdefinitions.EngineerSteps - Verifying engineer experience is: 8 years
+2025-11-22 10:04:10.116 [main] INFO  com.example.stepdefinitions.EngineerSteps - Engineer experience verification passed
+2025-11-22 10:04:10.119 [main] INFO  com.example.stepdefinitions.EngineerSteps - Initializing engineer management system
+2025-11-22 10:04:10.119 [main] INFO  com.example.stepdefinitions.EngineerSteps - Engineer list cleared
+2025-11-22 10:04:10.119 [main] INFO  com.example.stepdefinitions.EngineerSteps - Setting engineer name: Mike
+2025-11-22 10:04:10.119 [main] INFO  com.example.stepdefinitions.EngineerSteps - Setting engineer experience: 10 years
+2025-11-22 10:04:10.120 [main] INFO  com.example.stepdefinitions.EngineerSteps - Creating manual engineer: Mike with 10 years experience
+2025-11-22 10:04:10.120 [main] INFO  com.example.stepdefinitions.EngineerSteps - Manual engineer created successfully
+2025-11-22 10:04:10.120 [main] INFO  com.example.stepdefinitions.EngineerSteps - Verifying engineer type is: Manual
+2025-11-22 10:04:10.120 [main] INFO  com.example.stepdefinitions.EngineerSteps - Engineer type verification passed
+2025-11-22 10:04:10.120 [main] INFO  com.example.stepdefinitions.EngineerSteps - Verifying engineer name is: Mike
+2025-11-22 10:04:10.120 [main] INFO  com.example.stepdefinitions.EngineerSteps - Engineer name verification passed
+2025-11-22 10:04:10.121 [main] INFO  com.example.stepdefinitions.EngineerSteps - Verifying engineer experience is: 10 years
+2025-11-22 10:04:10.121 [main] INFO  com.example.stepdefinitions.EngineerSteps - Engineer experience verification passed
+2025-11-22 10:04:10.124 [main] INFO  com.example.stepdefinitions.EngineerSteps - Initializing engineer management system
+2025-11-22 10:04:10.124 [main] INFO  com.example.stepdefinitions.EngineerSteps - Engineer list cleared
+2025-11-22 10:04:10.125 [main] INFO  com.example.stepdefinitions.EngineerSteps - Creating manual engineer: TestManual with 4 years experience
+2025-11-22 10:04:10.125 [main] INFO  com.example.stepdefinitions.EngineerSteps - Manual engineer created successfully
+2025-11-22 10:04:10.125 [main] INFO  com.example.stepdefinitions.EngineerSteps - Verifying engineer is not null
+2025-11-22 10:04:10.125 [main] INFO  com.example.stepdefinitions.EngineerSteps - Engineer null check passed
+2025-11-22 10:04:10.126 [main] INFO  com.example.stepdefinitions.EngineerSteps - Verifying engineer type is: Manual
+2025-11-22 10:04:10.126 [main] INFO  com.example.stepdefinitions.EngineerSteps - Engineer type verification passed
+2025-11-22 10:04:55.415 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - === ТЕСТ W3SCHOOLS → GOOGLE ПОИСК ===
+
+2025-11-22 10:04:55.423 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - --- ШАГ 1: Открытие W3Schools ---
+
+2025-11-22 10:04:55.423 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - Navigating to W3Schools Java tutorial
+2025-11-22 10:04:56.634 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - ✓ Открыл https://www.w3schools.com/java/
+2025-11-22 10:04:56.772 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - ✓ Cookie согласие W3Schools закрыто
+2025-11-22 10:04:56.773 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - 
+--- ШАГ 2: Выделение слова Tutorial ---
+
+2025-11-22 10:04:56.961 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - ✓ Заголовок найден: Java Tutorial
+2025-11-22 10:04:56.961 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - ✓ Выделенный текст: "Tutorial"
+2025-11-22 10:04:56.962 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - 
+--- ШАГ 3: Переход на Google ---
+
+2025-11-22 10:04:56.962 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - Navigating to Google
+2025-11-22 10:04:57.449 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - ✓ Открыл https://www.google.com
+2025-11-22 10:04:57.467 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest -  Ищем Google cookie согласие...
+2025-11-22 10:04:57.535 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - ✓ Google cookie согласие закрыто
+2025-11-22 10:04:57.535 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - 
+--- ШАГ 4: Вставка текста в поиск ---
+
+2025-11-22 10:04:57.536 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - Finding search box
+2025-11-22 10:04:57.561 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - ✓ Строка поиска найдена
+2025-11-22 10:04:57.675 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - ✓ Кликнул на строку поиска
+2025-11-22 10:04:57.732 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - ✓ Вставлено в поиск: "Tutorial"
+2025-11-22 10:04:57.732 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - 
+--- ШАГ 5: Поиск ---
+
+2025-11-22 10:04:57.732 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - Submitting search
+2025-11-22 10:04:57.770 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - ✓ Нажата клавиша Enter
+2025-11-22 10:04:59.304 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest -  Проверяю наличие reCAPTCHA...
+2025-11-22 10:04:59.321 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - ✓ reCAPTCHA не обнаружена
+2025-11-22 10:04:59.341 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - ✓ Результаты поиска загружены
+2025-11-22 10:04:59.343 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - 
+--- ШАГ 6: Проверка результатов ---
+
+2025-11-22 10:04:59.354 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - Найдено результатов: 14
+2025-11-22 10:04:59.369 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - 1. - 
+2025-11-22 10:04:59.381 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - 2. - 
+2025-11-22 10:04:59.395 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - 3. - 
+2025-11-22 10:04:59.408 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - 4. - 
+2025-11-22 10:04:59.427 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - 5. + tutorial – wikipedia, wolna encyklopedia
+2025-11-22 10:04:59.441 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - 6. + jak zrobić dobry tutorial?
+2025-11-22 10:04:59.455 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - 7. + co to jest tutorial i jak wygląda w szkole edukacji?
+2025-11-22 10:04:59.466 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - 8. + tutorial – co to jest i jak wykorzystać go w marketingu?
+2025-11-22 10:04:59.478 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - 9. + tutoriale
+2025-11-22 10:04:59.486 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - 10. + "tutorial" po polsku - — słownik angielsko-polski
+2025-11-22 10:04:59.486 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - 
+--- РЕЗУЛЬТАТЫ ПРОВЕРКИ ---
+
+2025-11-22 10:04:59.489 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - + Валидных результатов: 6/10
+2025-11-22 10:04:59.490 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - - Невалидных результатов: 4/10
+2025-11-22 10:04:59.490 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - 
+!!! ТЕСТ ЧАСТИЧНО ПРОЙДЕН: 6 результатов содержат слово "Tutorial"
+2025-11-22 10:04:59.490 [main] INFO  com.example.tests.junit.booking.W3SchoolsGoogleTest - 
++ ТЕСТ ЗАВЕРШЕН

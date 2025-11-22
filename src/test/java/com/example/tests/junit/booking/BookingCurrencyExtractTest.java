@@ -1,5 +1,7 @@
 package com.example.tests.junit.booking;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -9,128 +11,137 @@ import org.openqa.selenium.support.ui.*;
 import java.time.Duration;
 
 public class BookingCurrencyExtractTest {
+    private static final Logger logger = LogManager.getLogger(BookingCurrencyExtractTest.class);
     private WebDriver driver;
     private WebDriverWait wait;
 
     @Before
     public void setUp() {
+        logger.info("=== Starting currency extraction test ===");
         ChromeOptions opt = new ChromeOptions();
         opt.addArguments("--start-maximized", "--headless");
         driver = new ChromeDriver(opt);
         wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-        System.out.println("=== ИЗВЛЕЧЕНИЕ ВАЛЮТЫ ИЗ BOOKING ===\n");
+        logger.info("WebDriver initialized successfully");
     }
 
     @Test
     public void testExtractCurrency() {
-        driver.get("https://www.booking.com");
-        System.out.println("✓ Открыл Booking.com");
-
-        // Принять куки
-        waitAndClickWithTimeout(By.id("onetrust-accept-btn-handler"), 10, "✓ Куки приняты");
-        
-        // Закрыть окно Genius
-        waitAndClickWithTimeout(By.cssSelector("button[aria-label='Dismiss sign-in info.']"), 5, "✓ Окно Genius закрыто");
-
-        System.out.println("\n--- ТЕКУЩАЯ ВАЛЮТА ---\n");
-
-        // Извлечение текущей валюты (метод 1 - по классу)
         try {
-            WebElement currencySpan = wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("span.ca2ca5203b")));
-            String currencyCode = currencySpan.getText().trim();
-            System.out.println("✓ Текущая валюта (код): " + currencyCode);
-        } catch (TimeoutException e) {
-            System.out.println("⚠ Span с классом ca2ca5203b не найден");
-        }
+            logger.info("Navigating to Booking.com");
+            driver.get("https://www.booking.com");
+            logger.info("Page loaded successfully");
 
-        // Извлечение активной валюты (метод 2 - по active классу)
-        try {
-            WebElement activeCurrency = wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("div.CurrencyPicker_currency--active")));
-            String activeCurrencyCode = activeCurrency.getText().trim();
-            System.out.println("✓ Активная валюта (из скрытого меню): " + activeCurrencyCode);
-        } catch (TimeoutException e) {
-            System.out.println("⚠ Активная валюта не найдена");
-        }
+            // Принять куки
+            waitAndClickWithTimeout(By.id("onetrust-accept-btn-handler"), 10, "Cookies accepted");
+            
+            // Закрыть окно Genius
+            waitAndClickWithTimeout(By.cssSelector("button[aria-label='Dismiss sign-in info.']"), 5, "Genius popup closed");
 
-        System.out.println("\n--- ПОПЫТКА ОТКРЫТЬ МЕНЮ ВАЛЮТ ---\n");
+            logger.info("--- Extracting current currency ---");
 
-        // Открытие меню валют - используем более гибкий поиск
-        boolean currencyMenuOpened = false;
-        By[] currencyButtonLocators = {
-            By.xpath("//button[contains(@aria-label, 'currency')]"),
-            By.xpath("//button[contains(@class, 'CurrencyPicker')]"),
-            By.xpath("//button[@data-testid='header-currency']"),
-            By.cssSelector("button[aria-label*='currency']"),
-            By.xpath("//div[@class='Header__right']//button[1]"),
-            By.xpath("//button[.//span[contains(@class, 'ca2ca5203b')]]")
-        };
-
-        for (By locator : currencyButtonLocators) {
+            // Извлечение текущей валюты (метод 1 - по классу)
             try {
-                java.util.List<WebElement> elements = driver.findElements(locator);
-                if (!elements.isEmpty() && elements.get(0).isDisplayed()) {
-                    elements.get(0).click();
-                    currencyMenuOpened = true;
-                    System.out.println("✓ Меню валют открыто");
-                    
-                    // Ждём загрузки списка валют
-                    try {
-                        Thread.sleep(500);
-                    } catch (InterruptedException ie) {
-                        Thread.currentThread().interrupt();
+                WebElement currencySpan = wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("span.ca2ca5203b")));
+                String currencyCode = currencySpan.getText().trim();
+                logger.info("Current currency code: {}", currencyCode);
+            } catch (TimeoutException e) {
+                logger.error("Currency span with class ca2ca5203b not found", e);
+            }
+
+            // Извлечение активной валюты (метод 2 - по active классу)
+            try {
+                WebElement activeCurrency = wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("div.CurrencyPicker_currency--active")));
+                String activeCurrencyCode = activeCurrency.getText().trim();
+                logger.info("Active currency from hidden menu: {}", activeCurrencyCode);
+            } catch (TimeoutException e) {
+                logger.error("Active currency element not found", e);
+            }
+
+            logger.info("--- Attempting to open currency menu ---");
+
+            // Открытие меню валют - используем более гибкий поиск
+            boolean currencyMenuOpened = false;
+            By[] currencyButtonLocators = {
+                By.xpath("//button[contains(@aria-label, 'currency')]"),
+                By.xpath("//button[contains(@class, 'CurrencyPicker')]"),
+                By.xpath("//button[@data-testid='header-currency']"),
+                By.cssSelector("button[aria-label*='currency']"),
+                By.xpath("//div[@class='Header__right']//button[1]"),
+                By.xpath("//button[.//span[contains(@class, 'ca2ca5203b')]]")
+            };
+
+            for (By locator : currencyButtonLocators) {
+                try {
+                    java.util.List<WebElement> elements = driver.findElements(locator);
+                    if (!elements.isEmpty() && elements.get(0).isDisplayed()) {
+                        elements.get(0).click();
+                        currencyMenuOpened = true;
+                        logger.info("Currency menu opened successfully");
+                        
+                        // Ждём загрузки списка валют
+                        try {
+                            Thread.sleep(500);
+                        } catch (InterruptedException ie) {
+                            Thread.currentThread().interrupt();
+                        }
+                        break;
                     }
-                    break;
-                }
-            } catch (Exception e) {
-                // Пробуем следующий локатор
-            }
-        }
-
-        if (!currencyMenuOpened) {
-            System.out.println("⚠ Кнопка меню валют не найдена - используем уже полученную валюту");
-        }
-
-        System.out.println("\n--- ВСЕ ДОСТУПНЫЕ ВАЛЮТЫ ---\n");
-
-        // Получение всех доступных валют
-        java.util.List<WebElement> currencyOptions = driver.findElements(By.cssSelector("div.CurrencyPicker_currency"));
-
-        if (currencyOptions.isEmpty()) {
-            System.out.println("⚠ Валюты не найдены в меню");
-        } else {
-            System.out.println("Найдено " + currencyOptions.size() + " валют(ы):\n");
-
-            for (int i = 0; i < Math.min(currencyOptions.size(), 15); i++) {
-                String currencyText = currencyOptions.get(i).getText().trim();
-                boolean isActive = currencyOptions.get(i).getAttribute("class").contains("active");
-                String activeMarker = isActive ? " ⭐ АКТИВНАЯ" : "";
-
-                if (!currencyText.isEmpty()) {
-                    System.out.println((i + 1) + ". " + currencyText + activeMarker);
+                } catch (Exception e) {
+                    logger.debug("Failed to open menu with locator: {}", locator);
                 }
             }
 
-            if (currencyOptions.size() > 15) {
-                System.out.println("... и ещё " + (currencyOptions.size() - 15) + " валют(ы)");
+            if (!currencyMenuOpened) {
+                logger.warn("Currency menu button not found - using already obtained currency");
             }
+
+            logger.info("--- Extracting all available currencies ---");
+
+            // Получение всех доступных валют
+            java.util.List<WebElement> currencyOptions = driver.findElements(By.cssSelector("div.CurrencyPicker_currency"));
+
+            if (currencyOptions.isEmpty()) {
+                logger.warn("No currencies found in menu");
+            } else {
+                logger.info("Found {} currencies", currencyOptions.size());
+
+                for (int i = 0; i < Math.min(currencyOptions.size(), 15); i++) {
+                    String currencyText = currencyOptions.get(i).getText().trim();
+                    boolean isActive = currencyOptions.get(i).getAttribute("class").contains("active");
+                    String activeMarker = isActive ? " (ACTIVE)" : "";
+
+                    if (!currencyText.isEmpty()) {
+                        logger.info("{}. {}{}", (i + 1), currencyText, activeMarker);
+                    }
+                }
+
+                if (currencyOptions.size() > 15) {
+                    logger.info("... and {} more currencies", (currencyOptions.size() - 15));
+                }
+            }
+
+            logger.info("--- Checking active currency in menu ---");
+
+            WebElement activeInMenu = getElementIfPresent(By.cssSelector("div.CurrencyPicker_currency--active"));
+            if (activeInMenu != null) {
+                String activeText = activeInMenu.getText().trim();
+                logger.info("Active currency in menu: {}", activeText);
+            } else {
+                logger.warn("Active currency not identified");
+            }
+
+            logger.info("Test completed successfully");
+        } catch (Exception e) {
+            logger.error("Test failed with error", e);
+            throw e;
         }
-
-        System.out.println("\n--- АКТИВНАЯ ВАЛЮТА В МЕНЮ ---\n");
-
-        WebElement activeInMenu = getElementIfPresent(By.cssSelector("div.CurrencyPicker_currency--active"));
-        if (activeInMenu != null) {
-            String activeText = activeInMenu.getText().trim();
-            System.out.println("✓ Активная валюта: " + activeText);
-        } else {
-            System.out.println("⚠ Активная валюта не определена");
-        }
-
-        System.out.println("\n✅ ТЕСТ ЗАВЕРШЕН");
     }
 
     @After
     public void tearDown() {
         if (driver != null) {
+            logger.info("Closing WebDriver");
             driver.quit();
         }
     }
@@ -141,9 +152,9 @@ public class BookingCurrencyExtractTest {
             WebElement element = new WebDriverWait(driver, Duration.ofSeconds(timeoutSeconds))
                     .until(ExpectedConditions.elementToBeClickable(locator));
             element.click();
-            System.out.println(successMessage);
+            logger.info(successMessage);
         } catch (TimeoutException e) {
-            System.out.println("⚠ Элемент " + locator + " не найден за " + timeoutSeconds + " сек");
+            logger.warn("Element {} not found within {} seconds", locator, timeoutSeconds);
         }
     }
 
@@ -152,6 +163,7 @@ public class BookingCurrencyExtractTest {
             java.util.List<WebElement> elements = driver.findElements(locator);
             return elements.isEmpty() ? null : elements.get(0);
         } catch (Exception e) {
+            logger.error("Error getting element: {}", locator, e);
             return null;
         }
     }

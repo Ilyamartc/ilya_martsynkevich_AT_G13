@@ -1,5 +1,7 @@
 package com.example.tests.junit.booking;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -9,6 +11,7 @@ import org.openqa.selenium.support.ui.*;
 import java.time.Duration;
 
 public class DemoQASelectMenuTest {
+    private static final Logger logger = LogManager.getLogger(DemoQASelectMenuTest.class);
     private WebDriver driver;
     private WebDriverWait wait;
     private JavascriptExecutor js;
@@ -20,34 +23,35 @@ public class DemoQASelectMenuTest {
         driver = new ChromeDriver(opt);
         wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         js = (JavascriptExecutor) driver;
-        System.out.println("=== ТЕСТ DEMOQA SELECT MENU ===\n");
+        logger.info("=== ТЕСТ DEMOQA SELECT MENU ===\n");
     }
 
     @Test
     public void testSelectMenuInteractions() {
+        logger.info("Navigating to DemoQA Select Menu page");
         driver.get("https://demoqa.com/select-menu");
-        System.out.println("--- ШАГ 1: Открытие DemoQA Select Menu ---\n");
-        System.out.println("✓ Открыл https://demoqa.com/select-menu");
+        logger.info("--- ШАГ 1: Открытие DemoQA Select Menu ---\n");
+        logger.info("✓ Открыл https://demoqa.com/select-menu");
 
         js.executeScript("window.scrollTo(0, 0);");
 
-        System.out.println("\n--- ШАГ 2: Select Value ---\n");
+        logger.info("\n--- ШАГ 2: Select Value ---\n");
         selectFromReactSelect("#withOptGroup", "Group 1, option 1");
 
-        System.out.println("\n--- ШАГ 3: Select One ---\n");
+        logger.info("\n--- ШАГ 3: Select One ---\n");
         selectFromReactSelect("#selectOne", "Mrs.");
 
-        System.out.println("\n--- ШАГ 4: Old Select Menu ---\n");
+        logger.info("\n--- ШАГ 4: Old Select Menu ---\n");
         selectOldStyleDropdown("oldSelectMenu", "Red");
 
-        System.out.println("\n--- ШАГ 5: Multiselect Dropdown ---\n");
+        logger.info("\n--- ШАГ 5: Multiselect Dropdown ---\n");
         selectMultiselectDropdown();
 
-        System.out.println("\n--- ШАГ 6: Standard Multi Select ---\n");
+        logger.info("\n--- ШАГ 6: Standard Multi Select ---\n");
         selectStandardMultiSelect("cars", "Volvo");
 
-        System.out.println("\n+ ВСЕ ВЫПАДАЮЩИЕ СПИСКИ УСПЕШНО ЗАПОЛНЕНЫ!");
-        System.out.println("\n+ ТЕСТ ЗАВЕРШЕН");
+        logger.info("\n+ ВСЕ ВЫПАДАЮЩИЕ СПИСКИ УСПЕШНО ЗАПОЛНЕНЫ!");
+        logger.info("\n+ ТЕСТ ЗАВЕРШЕН");
     }
 
     @After
@@ -58,31 +62,31 @@ public class DemoQASelectMenuTest {
     }
 
     private void selectFromReactSelect(String selector, String value) {
-        System.out.println(" Открываю выпадающий список");
+        logger.info(" Открываю выпадающий список");
 
         WebElement selectElement = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(selector)));
         selectElement.click();
-        System.out.println("✓ Выпадающий список открыт");
+        logger.info("✓ Выпадающий список открыт");
 
         wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//div[contains(@class, 'option')]")));
 
         By optionLocator = By.xpath("//div[contains(@class, 'option') and contains(text(), '" + value + "')]");
         WebElement option = wait.until(ExpectedConditions.elementToBeClickable(optionLocator));
         option.click();
-        System.out.println("✓ Выбран: " + value);
+        logger.info("✓ Выбран: " + value);
     }
 
     private void selectOldStyleDropdown(String id, String value) {
-        System.out.println(" Выбираю значение из Old Select Menu");
+        logger.info(" Выбираю значение из Old Select Menu");
 
         WebElement selectElement = wait.until(ExpectedConditions.presenceOfElementLocated(By.id(id)));
         Select select = new Select(selectElement);
         select.selectByVisibleText(value);
-        System.out.println("✓ Выбран: " + value);
+        logger.info("✓ Выбран: " + value);
     }
 
     private void selectMultiselectDropdown() {
-        System.out.println(" Выбираю значение из Multiselect Dropdown");
+        logger.info(" Выбираю значение из Multiselect Dropdown");
 
         js.executeScript("window.scrollBy(0, 500);");
 
@@ -90,7 +94,7 @@ public class DemoQASelectMenuTest {
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
+            logger.error("Thread interrupted during sleep", e);
         }
 
         WebElement multiSelect = null;
@@ -109,7 +113,7 @@ public class DemoQASelectMenuTest {
                 java.util.List<WebElement> elements = driver.findElements(locator);
                 if (!elements.isEmpty() && elements.get(0).isDisplayed()) {
                     multiSelect = elements.get(0);
-                    System.out.println("+ Найден multiselect контейнер");
+                    logger.info("+ Найден multiselect контейнер");
                     break;
                 }
             } catch (Exception e) {
@@ -125,19 +129,19 @@ public class DemoQASelectMenuTest {
                 if (!options.isEmpty()) {
                     // Выбираем первый доступный опцион
                     select.selectByIndex(1);
-                    System.out.println("✓ Выбран: " + options.get(1).getText());
+                    logger.info("✓ Выбран: " + options.get(1).getText());
                     return;
                 }
             } catch (Exception e1) {
                 // Если это не стандартный select, пытаемся кликнуть
                 try {
                     multiSelect.click();
-                    System.out.println("+ Multiselect dropdown открыт");
+                    logger.info("+ Multiselect dropdown открыт");
 
                     try {
                         Thread.sleep(500);
                     } catch (InterruptedException e) {
-                        Thread.currentThread().interrupt();
+                        logger.error("Thread interrupted during sleep", e);
                     }
 
                     By[] optionLocators = {
@@ -156,25 +160,25 @@ public class DemoQASelectMenuTest {
                                 js.executeScript("arguments[0].scrollIntoView(true);", optionToSelect);
                                 js.executeScript("arguments[0].click();", optionToSelect);
                                 String optionText = optionToSelect.getText();
-                                System.out.println("✓ Выбран: " + optionText);
+                                logger.info("✓ Выбран: " + optionText);
                                 return;
                             }
                         } catch (Exception e) {
                             // Продолжаем поиск следующего локатора
                         }
                     }
-                    System.out.println("!!! Не удалось выбрать опцию");
+                    logger.info("!!! Не удалось выбрать опцию");
                 } catch (Exception e) {
-                    System.out.println("!!! Ошибка при работе с multiselect: " + e.getMessage());
+                    logger.error("!!! Ошибка при работе с multiselect: " + e.getMessage(), e);
                 }
             }
         } else {
-            System.out.println("!!! Multiselect dropdown не найден");
+            logger.info("!!! Multiselect dropdown не найден");
         }
     }
 
     private void selectStandardMultiSelect(String id, String value) {
-        System.out.println(" Выбираю значение из Standard Multi Select");
+        logger.info(" Выбираю значение из Standard Multi Select");
 
         js.executeScript("window.scrollBy(0, 300);");
 
@@ -183,6 +187,6 @@ public class DemoQASelectMenuTest {
         WebElement selectElement = driver.findElement(By.id(id));
         Select select = new Select(selectElement);
         select.selectByVisibleText(value);
-        System.out.println("✓ Выбран: " + value);
+        logger.info("✓ Выбран: " + value);
     }
 }

@@ -1,5 +1,7 @@
 package com.example.tests.junit.booking;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -11,6 +13,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public class BookingParisTest {
+    private static final Logger logger = LogManager.getLogger(BookingParisTest.class);
     private WebDriver driver;
     private WebDriverWait wait;
     private JavascriptExecutor js;
@@ -24,7 +27,7 @@ public class BookingParisTest {
         wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         js = (JavascriptExecutor) driver;
         dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        System.out.println("=== ТЕСТ BOOKING PARIS (5 ЗВЕЗД) ===\n");
+        logger.info("=== ТЕСТ BOOKING PARIS (5 ЗВЕЗД) ===\n");
     }
 
     @Test
@@ -35,95 +38,105 @@ public class BookingParisTest {
         String checkInDateString = checkInDate.format(dateFormatter);
         String checkOutDateString = checkOutDate.format(dateFormatter);
 
-        System.out.println("--- РАСЧЕТ ДАТ ---");
-        System.out.println("  Заезд: " + checkInDateString);
-        System.out.println("  Выезд: " + checkOutDateString);
-        System.out.println("--------------------\n");
+        logger.info("--- РАСЧЕТ ДАТ ---");
+        logger.info("  Заезд: " + checkInDateString);
+        logger.info("  Выезд: " + checkOutDateString);
+        logger.info("--------------------\n");
 
+        logger.info("Navigating to Booking.com");
         driver.get("https://www.booking.com");
-        System.out.println("Открыл Booking.com");
+        logger.info("Открыл Booking.com");
 
         waitAndClickWithTimeout(By.id("onetrust-accept-btn-handler"), 10, "Куки приняты");
         waitAndClickWithTimeout(By.cssSelector("button[aria-label='Dismiss sign-in info.']"), 5, "Окно Genius закрыто");
 
         // Выбор города
+        logger.info("Selecting city: Paris");
         WebElement input = driver.findElement(By.cssSelector("input[placeholder='Where are you going?']"));
         input.click();
         input.sendKeys(Keys.CONTROL + "a", Keys.DELETE);
         input.sendKeys("Paris");
         wait.until(ExpectedConditions.elementToBeClickable(
-                By.xpath("//div[contains(@class,'efbfd2b849')]//div[text()='Paris']/..")
-        )).click();
-        System.out.println("ПАРИЖ ВЫБРАН!");
+                By.xpath("//div[contains(@class,'efbfd2b849')]//div[text()='Paris']/.."))
+        ).click();
+        logger.info("ПАРИЖ ВЫБРАН!");
 
         // Выбор дат
+        logger.info("Selecting check-in date");
         WebElement dayIn = wait.until(ExpectedConditions.elementToBeClickable(
                 By.cssSelector("[data-date='" + checkInDateString + "']")
         ));
         dayIn.click();
-        System.out.println("Дата заезда (" + checkInDateString + ") — НАЖАТА!");
+        logger.info("Дата заезда (" + checkInDateString + ") — НАЖАТА!");
 
+        logger.info("Selecting check-out date");
         WebElement dayOut = wait.until(ExpectedConditions.elementToBeClickable(
                 By.cssSelector("[data-date='" + checkOutDateString + "']")
         ));
         dayOut.click();
-        System.out.println("Дата отъезда (" + checkOutDateString + ") — НАЖАТА!");
-        System.out.println("\nДАТЫ ВЫБРАНЫ: " + checkInDateString + " – " + checkOutDateString);
+        logger.info("Дата отъезда (" + checkOutDateString + ") — НАЖАТА!");
+        logger.info("\nДАТЫ ВЫБРАНЫ: " + checkInDateString + " – " + checkOutDateString);
 
         // Конфигурация гостей и номеров
+        logger.info("Opening occupancy configuration");
         WebElement occupancyField = wait.until(ExpectedConditions.elementToBeClickable(
                 By.cssSelector("button[data-testid='occupancy-config']")
         ));
         occupancyField.click();
-        System.out.println("Модальное окно гостей/номеров ОТКРЫТО!");
+        logger.info("Модальное окно гостей/номеров ОТКРЫТО!");
 
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[data-testid='occupancy-popup']")));
-        System.out.println("Контейнер гостей прогружен.");
+        logger.info("Контейнер гостей прогружен.");
 
         // Увеличение количества взрослых
+        logger.info("Selecting 4 adults");
         By adultsIncreaseLocator = By.xpath(
                 "//label[text()='Adults']/ancestor::div[contains(@class,'e484bb5b7a')]/descendant::button[last()]"
         );
         WebElement adultsPlusButton = wait.until(ExpectedConditions.elementToBeClickable(adultsIncreaseLocator));
         adultsPlusButton.click();
         adultsPlusButton.click();
-        System.out.println("Взрослых: 4 выбрано.");
+        logger.info("Взрослых: 4 выбрано.");
 
         // Увеличение количества номеров
+        logger.info("Selecting 2 rooms");
         By roomsIncreaseLocator = By.xpath(
                 "//label[text()='Rooms']/ancestor::div[contains(@class,'e484bb5b7a')]/descendant::button[last()]"
         );
         WebElement roomsPlusButton = wait.until(ExpectedConditions.elementToBeClickable(roomsIncreaseLocator));
         roomsPlusButton.click();
-        System.out.println("Номеров: 2 выбрано.");
+        logger.info("Номеров: 2 выбрано.");
 
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button/span[text()='Done']"))).click();
-        System.out.println("Нажата кнопка 'Done'.");
+        logger.info("Нажата кнопка 'Done'.");
 
         // Поиск
+        logger.info("Submitting search");
         WebElement searchButton = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button[type='submit']")));
         searchButton.click();
-        System.out.println("\nНажата кнопка 'Search'!");
+        logger.info("\nНажата кнопка 'Search'!");
 
-        System.out.println("Ожидание прогрузки первой карточки отеля...");
+        logger.info("Ожидание прогрузки первой карточки отеля...");
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[data-testid='property-card']")));
-        System.out.println("Карточки отелей прогружены.");
+        logger.info("Карточки отелей прогружены.");
 
         // Применение фильтра 5 звезд
+        logger.info("Applying 5 stars filter");
         By fiveStarsFilterLocator = By.xpath("//div[@data-filters-group='class']//div[text()='5 stars']");
         WebElement fiveStarsFilter = wait.until(ExpectedConditions.presenceOfElementLocated(fiveStarsFilterLocator));
 
         js.executeScript("arguments[0].scrollIntoView(true);", fiveStarsFilter);
-        System.out.println("Прокрутка к фильтру '5 stars' выполнена.");
+        logger.info("Прокрутка к фильтру '5 stars' выполнена.");
 
         js.executeScript("arguments[0].click();", fiveStarsFilter);
-        System.out.println("Выбран фильтр: 5 звезд!");
+        logger.info("Выбран фильтр: 5 звезд!");
 
-        System.out.println("Ожидание завершения AJAX-загрузки после применения фильтра...");
+        logger.info("Ожидание завершения AJAX-загрузки после применения фильтра...");
         waitForLoaderDisappear();
-        System.out.println("AJAX-загрузка завершена. Фильтр 5 звезд применен.");
+        logger.info("AJAX-загрузка завершена. Фильтр 5 звезд применен.");
 
         // Применение сортировки по рейтингу
+        logger.info("Applying sorting by rating");
         wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.cssSelector("[data-testid='property-card']")));
 
         By currentSortLocator = By.xpath("//span[contains(@class,'a9918d47bf') and contains(text(), 'Sort by:')]/..");
@@ -134,21 +147,21 @@ public class BookingParisTest {
         try {
             Thread.sleep(500);
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            logger.error("Thread interrupted during sleep", e);
         }
         js.executeScript("arguments[0].click();", currentSortDisplay);
-        System.out.println("Нажата текущая сортировка, открыто выпадающее меню.");
+        logger.info("Нажата текущая сортировка, открыто выпадающее меню.");
 
         WebElement ratingLowToHighOption = wait.until(ExpectedConditions.elementToBeClickable(
                 By.cssSelector("button[data-id='class_asc']")
         ));
         ratingLowToHighOption.click();
-        System.out.println("Выбрана сортировка: Рейтинг объекта (от низкого к высокому).");
+        logger.info("Выбрана сортировка: Рейтинг объекта (от низкого к высокому).");
 
-        System.out.println("Ожидание завершения AJAX-загрузки после сортировки...");
+        logger.info("Ожидание завершения AJAX-загрузки после сортировки...");
         waitForLoaderDisappear();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[data-testid='property-card']")));
-        System.out.println("Сортировка завершена, результаты загружены.");
+        logger.info("Сортировка завершена, результаты загружены.");
 
         // Проверка
         By assertionLocator = By.xpath(
@@ -158,25 +171,25 @@ public class BookingParisTest {
         boolean assertionPassed = isElementPresent(assertionLocator, 5);
 
         if (assertionPassed) {
-            System.out.println("\n✅ ПРОВЕРКА УСПЕШНА: Первый отель в списке имеет рейтинг 5 звезд!");
+            logger.info("\n✅ ПРОВЕРКА УСПЕШНА: Первый отель в списке имеет рейтинг 5 звезд!");
         } else {
             WebElement firstHotelName = getElementIfPresent(By.xpath("(//div[@data-testid='property-card'])[1]//div[@data-testid='title']"));
-            System.err.println("\n❌ ПРОВЕРКА НЕУДАЧНА: Первый отель не имеет ожидаемого рейтинга 5 звезд.");
+            logger.error("\n❌ ПРОВЕРКА НЕУДАЧНА: Первый отель не имеет ожидаемого рейтинга 5 звезд.");
             if (firstHotelName != null) {
-                System.err.println("Имя первого отеля: " + firstHotelName.getText());
+                logger.error("Имя первого отеля: " + firstHotelName.getText());
             }
 
             WebElement filterChecked = getElementIfPresent(By.xpath("//div[@data-filters-group='class']//div[text()='5 stars']/ancestor::*[@aria-checked='true']"));
             if (filterChecked != null) {
-                System.err.println("(Но фильтр 5 звезд на боковой панели остается активным)");
+                logger.error("(Но фильтр 5 звезд на боковой панели остается активным)");
             } else {
-                System.err.println("(Фильтр 5 звезд на боковой панели, кажется, сбросился)");
+                logger.error("(Фильтр 5 звезд на боковой панели, кажется, сбросился)");
             }
         }
 
         Assert.assertTrue("Первый отель должен иметь рейтинг 5 звезд", assertionPassed);
 
-        System.out.println("\n--- ФИНАЛ СЦЕНАРИЯ ТЕСТА ---");
+        logger.info("\n--- ФИНАЛ СЦЕНАРИЯ ТЕСТА ---");
     }
 
     @After
@@ -190,7 +203,7 @@ public class BookingParisTest {
         WebDriverWait shortWait = new WebDriverWait(driver, Duration.ofSeconds(timeoutSeconds));
         try {
             shortWait.until(ExpectedConditions.elementToBeClickable(locator)).click();
-            System.out.println(message);
+            logger.info(message);
         } catch (TimeoutException e) {
             // Элемент не найден - допустимо
         }
