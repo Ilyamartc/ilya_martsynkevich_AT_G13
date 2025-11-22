@@ -23,7 +23,7 @@ public class W3SchoolsGoogleTest {
         ChromeOptions opt = new ChromeOptions();
         opt.addArguments("--start-maximized");
         opt.addArguments("--disable-blink-features=AutomationControlled");
-        opt.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
+        opt.setExperimentalOption("excludeSwitches", new String[] { "enable-automation" });
         opt.setExperimentalOption("useAutomationExtension", false);
 
         driver = new ChromeDriver(opt);
@@ -59,7 +59,8 @@ public class W3SchoolsGoogleTest {
         driver.get("https://www.google.com");
         logger.info("Opened https://www.google.com");
 
-        wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//input[@name='q'] | //textarea[@name='q']")));
+        wait.until(ExpectedConditions
+                .presenceOfAllElementsLocatedBy(By.xpath("//input[@name='q'] | //textarea[@name='q']")));
 
         closeGoogleCookieConsent();
 
@@ -82,7 +83,8 @@ public class W3SchoolsGoogleTest {
         searchBox.sendKeys(Keys.ENTER);
         logger.info("Pressed Enter key");
 
-        wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//h3 | //div[@data-sokoban-container]")));
+        wait.until(
+                ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//h3 | //div[@data-sokoban-container]")));
 
         checkAndHandleRecaptcha();
 
@@ -256,8 +258,7 @@ public class W3SchoolsGoogleTest {
                         } else {
                             WebElement parent = (WebElement) js.executeScript(
                                     "return arguments[0].closest('button') || arguments[0].closest('[role=\"button\"]');",
-                                    googleCookieButton
-                            );
+                                    googleCookieButton);
 
                             if (parent != null) {
                                 js.executeScript("arguments[0].click();", parent);

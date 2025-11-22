@@ -27,8 +27,8 @@ public class AutomatedEngineerTest {
     @Parameterized.Parameters
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][] {
-                {"Eve", 2, "Automated"},
-                {"Dan", 6, "Automated"}
+                { "Eve", 2, "Automated" },
+                { "Dan", 6, "Automated" }
         });
     }
 

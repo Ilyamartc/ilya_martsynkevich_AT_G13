@@ -100,155 +100,19 @@
                 </configuration>
             </plugin>
 
-            <!-- Surefire Plugin для запуска тестов -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.2.5</version>
                 <configuration>
-                    <useSystemClassLoader>false</useSystemClassLoader>
-                    <!-- По умолчанию запускаются все JUnit и TestNG тесты -->
                     <includes>
-                        <include>**/*Test.java</include>
-                        <include>**/*Tests.java</include>
+                        <include>**/junit/**/*Test.java</include>
+                        <include>**/testng/**/*Test.java</include>
+                        <include>**/runners/*Runner.java</include>
                     </includes>
                 </configuration>
             </plugin>
         </plugins>
     </build>
-
-    <!-- Профили для запуска разных типов тестов -->
-    <profiles>
-        <!-- Профиль для JUnit тестов -->
-        <profile>
-            <id>junit</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-surefire-plugin</artifactId>
-                        <version>3.2.5</version>
-                        <configuration>
-                            <includes>
-                                <include>**/junit/**/*Test.java</include>
-                            </includes>
-                            <testNGArtifactName>none:none</testNGArtifactName>
-                        </configuration>
-                        <dependencies>
-                            <dependency>
-                                <groupId>org.apache.maven.surefire</groupId>
-                                <artifactId>surefire-junit47</artifactId>
-                                <version>3.2.5</version>
-                            </dependency>
-                        </dependencies>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-
-        <!-- Профиль для TestNG тестов -->
-        <profile>
-            <id>testng</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-surefire-plugin</artifactId>
-                        <version>3.2.5</version>
-                        <configuration>
-                            <suiteXmlFiles>
-                                <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
-                            </suiteXmlFiles>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-
-        <!-- Профиль для Cucumber тестов -->
-        <profile>
-            <id>cucumber</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-surefire-plugin</artifactId>
-                        <version>3.2.5</version>
-                        <configuration>
-                            <includes>
-                                <include>**/runners/*Runner.java</include>
-                            </includes>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-
-        <!-- Профиль для Selenium тестов -->
-        <profile>
-            <id>selenium</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-surefire-plugin</artifactId>
-                        <version>3.2.5</version>
-                        <configuration>
-                            <includes>
-                                <include>**/selenium/**/*Test.java</include>
-                            </includes>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-
-        <!-- Профиль для всех тестов -->
-        <profile>
-            <id>all-tests</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-surefire-plugin</artifactId>
-                        <version>3.2.5</version>
-                        <executions>
-                            <!-- JUnit тесты -->
-                            <execution>
-                                <id>junit-tests</id>
-                                <phase>test</phase>
-                                <goals>
-                                    <goal>test</goal>
-                                </goals>
-                                <configuration>
-                                    <includes>
-                                        <include>**/junit/**/*Test.java</include>
-                                    </includes>
-                                    <testNGArtifactName>none:none</testNGArtifactName>
-                                </configuration>
-                            </execution>
-                            <!-- TestNG и Cucumber тесты -->
-                            <execution>
-                                <id>testng-cucumber-tests</id>
-                                <phase>test</phase>
-                                <goals>
-                                    <goal>test</goal>
-                                </goals>
-                                <configuration>
-                                    <includes>
-                                        <include>**/testng/**/*Test.java</include>
-                                        <include>**/runners/*Runner.java</include>
-                                    </includes>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
 
 </project>

@@ -27,8 +27,8 @@ public class ManualEngineerTest {
     @Parameterized.Parameters
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][] {
-                {"Alice", 3, "Manual"},
-                {"Bob", 5, "Manual"}
+                { "Alice", 3, "Manual" },
+                { "Bob", 5, "Manual" }
         });
     }
 

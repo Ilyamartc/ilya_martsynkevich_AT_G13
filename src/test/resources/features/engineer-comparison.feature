@@ -12,11 +12,11 @@ Feature: Engineer Comparison
 
   Scenario: Verify both engineer types can coexist
     Given I have the following engineers:
-      | type      | name    | experience |
-      | Automated | Eve     | 2          |
-      | Manual    | Alice   | 3          |
-      | Automated | Dan     | 6          |
-      | Manual    | Bob     | 5          |
+      | type      | name  | experience |
+      | Automated | Eve   | 2          |
+      | Manual    | Alice | 3          |
+      | Automated | Dan   | 6          |
+      | Manual    | Bob   | 5          |
     Then I should have 2 automated engineers
     And I should have 2 manual engineers
     And all engineers should have valid types

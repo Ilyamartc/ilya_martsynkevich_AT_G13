@@ -49,21 +49,18 @@ public class BookingLondonTest {
         input.sendKeys("London");
 
         wait.until(ExpectedConditions.elementToBeClickable(
-                By.xpath("//div[contains(@class,'efbfd2b849')]//div[text()='London']/..")
-        )).click();
+                By.xpath("//div[contains(@class,'efbfd2b849')]//div[text()='London']/.."))).click();
         logger.info("City LONDON selected");
 
         String checkInDateString = checkInDate.format(formatter);
         String checkOutDateString = checkOutDate.format(formatter);
 
         WebElement dayIn = wait.until(ExpectedConditions.elementToBeClickable(
-                By.cssSelector("[data-date='" + checkInDateString + "']")
-        ));
+                By.cssSelector("[data-date='" + checkInDateString + "']")));
         dayIn.click();
 
         WebElement dayOut = wait.until(ExpectedConditions.elementToBeClickable(
-                By.cssSelector("[data-date='" + checkOutDateString + "']")
-        ));
+                By.cssSelector("[data-date='" + checkOutDateString + "']")));
         dayOut.click();
         logger.info("Dates selected: " + checkInDateString + " – " + checkOutDateString);
 
@@ -79,7 +76,8 @@ public class BookingLondonTest {
 
         while (hotelCards.size() < 10 && hotelCards.size() > 0) {
             js.executeScript("window.scrollBy(0, 500);");
-            wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.cssSelector("[data-testid='property-card']")));
+            wait.until(
+                    ExpectedConditions.presenceOfAllElementsLocatedBy(By.cssSelector("[data-testid='property-card']")));
             hotelCards = driver.findElements(By.cssSelector("[data-testid='property-card']"));
         }
 
