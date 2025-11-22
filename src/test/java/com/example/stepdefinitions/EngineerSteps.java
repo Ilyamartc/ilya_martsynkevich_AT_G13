@@ -16,9 +16,9 @@ import java.util.Map;
 import static org.testng.Assert.*;
 
 public class EngineerSteps {
-    
+
     private static final Logger logger = LogManager.getLogger(EngineerSteps.class);
-    
+
     private String engineerName;
     private int engineerExperience;
     private Engineer currentEngineer;
@@ -140,12 +140,12 @@ public class EngineerSteps {
         logger.info("Loading engineers from data table");
         List<Map<String, String>> rows = dataTable.asMaps(String.class, String.class);
         engineerList.clear();
-        
+
         for (Map<String, String> row : rows) {
             String type = row.get("type");
             String name = row.get("name");
             int experience = Integer.parseInt(row.get("experience"));
-            
+
             if ("Automated".equals(type)) {
                 engineerList.add(new AutomatedEngineer(name, experience));
                 logger.info("Added automated engineer: {} with {} years experience", name, experience);

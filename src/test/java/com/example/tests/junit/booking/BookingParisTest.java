@@ -56,29 +56,25 @@ public class BookingParisTest {
         input.sendKeys(Keys.CONTROL + "a", Keys.DELETE);
         input.sendKeys("Paris");
         wait.until(ExpectedConditions.elementToBeClickable(
-                By.xpath("//div[contains(@class,'efbfd2b849')]//div[text()='Paris']/..")
-        )).click();
+                By.xpath("//div[contains(@class,'efbfd2b849')]//div[text()='Paris']/.."))).click();
         logger.info("PARIS SELECTED!");
 
         logger.info("Selecting check-in date");
         WebElement dayIn = wait.until(ExpectedConditions.elementToBeClickable(
-                By.cssSelector("[data-date='" + checkInDateString + "']")
-        ));
+                By.cssSelector("[data-date='" + checkInDateString + "']")));
         dayIn.click();
         logger.info("Check-in date (" + checkInDateString + ") clicked!");
 
         logger.info("Selecting check-out date");
         WebElement dayOut = wait.until(ExpectedConditions.elementToBeClickable(
-                By.cssSelector("[data-date='" + checkOutDateString + "']")
-        ));
+                By.cssSelector("[data-date='" + checkOutDateString + "']")));
         dayOut.click();
         logger.info("Check-out date (" + checkOutDateString + ") clicked!");
         logger.info("DATES SELECTED: " + checkInDateString + " – " + checkOutDateString);
 
         logger.info("Opening occupancy configuration");
         WebElement occupancyField = wait.until(ExpectedConditions.elementToBeClickable(
-                By.cssSelector("button[data-testid='occupancy-config']")
-        ));
+                By.cssSelector("button[data-testid='occupancy-config']")));
         occupancyField.click();
         logger.info("Guests/rooms modal OPENED!");
 
@@ -87,8 +83,7 @@ public class BookingParisTest {
 
         logger.info("Selecting 4 adults");
         By adultsIncreaseLocator = By.xpath(
-                "//label[text()='Adults']/ancestor::div[contains(@class,'e484bb5b7a')]/descendant::button[last()]"
-        );
+                "//label[text()='Adults']/ancestor::div[contains(@class,'e484bb5b7a')]/descendant::button[last()]");
         WebElement adultsPlusButton = wait.until(ExpectedConditions.elementToBeClickable(adultsIncreaseLocator));
         adultsPlusButton.click();
         adultsPlusButton.click();
@@ -96,8 +91,7 @@ public class BookingParisTest {
 
         logger.info("Selecting 2 rooms");
         By roomsIncreaseLocator = By.xpath(
-                "//label[text()='Rooms']/ancestor::div[contains(@class,'e484bb5b7a')]/descendant::button[last()]"
-        );
+                "//label[text()='Rooms']/ancestor::div[contains(@class,'e484bb5b7a')]/descendant::button[last()]");
         WebElement roomsPlusButton = wait.until(ExpectedConditions.elementToBeClickable(roomsIncreaseLocator));
         roomsPlusButton.click();
         logger.info("Rooms: 2 selected");
@@ -106,7 +100,8 @@ public class BookingParisTest {
         logger.info("Done button clicked");
 
         logger.info("Submitting search");
-        WebElement searchButton = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button[type='submit']")));
+        WebElement searchButton = wait
+                .until(ExpectedConditions.elementToBeClickable(By.cssSelector("button[type='submit']")));
         searchButton.click();
         logger.info("Search button clicked!");
 
@@ -133,7 +128,7 @@ public class BookingParisTest {
 
         By currentSortLocator = By.xpath("//span[contains(@class,'a9918d47bf') and contains(text(), 'Sort by:')]/..");
         WebElement currentSortDisplay = wait.until(ExpectedConditions.presenceOfElementLocated(currentSortLocator));
-        
+
         js.executeScript("arguments[0].scrollIntoView({block: 'center'});", currentSortDisplay);
         try {
             Thread.sleep(500);
@@ -144,8 +139,7 @@ public class BookingParisTest {
         logger.info("Clicked current sort, dropdown menu opened");
 
         WebElement ratingLowToHighOption = wait.until(ExpectedConditions.elementToBeClickable(
-                By.cssSelector("button[data-id='class_asc']")
-        ));
+                By.cssSelector("button[data-id='class_asc']")));
         ratingLowToHighOption.click();
         logger.info("Selected sorting: Property rating (low to high)");
 
@@ -155,21 +149,22 @@ public class BookingParisTest {
         logger.info("Sorting complete, results loaded");
 
         By assertionLocator = By.xpath(
-                "(//div[@data-testid='property-card'])[1]//div[@aria-label='5 out of 5']"
-        );
+                "(//div[@data-testid='property-card'])[1]//div[@aria-label='5 out of 5']");
 
         boolean assertionPassed = isElementPresent(assertionLocator, 5);
 
         if (assertionPassed) {
             logger.info("CHECK SUCCESSFUL: First hotel in list has 5 stars rating!");
         } else {
-            WebElement firstHotelName = getElementIfPresent(By.xpath("(//div[@data-testid='property-card'])[1]//div[@data-testid='title']"));
+            WebElement firstHotelName = getElementIfPresent(
+                    By.xpath("(//div[@data-testid='property-card'])[1]//div[@data-testid='title']"));
             logger.error("CHECK FAILED: First hotel does not have expected 5 stars rating");
             if (firstHotelName != null) {
                 logger.error("First hotel name: " + firstHotelName.getText());
             }
 
-            WebElement filterChecked = getElementIfPresent(By.xpath("//div[@data-filters-group='class']//div[text()='5 stars']/ancestor::*[@aria-checked='true']"));
+            WebElement filterChecked = getElementIfPresent(By.xpath(
+                    "//div[@data-filters-group='class']//div[text()='5 stars']/ancestor::*[@aria-checked='true']"));
             if (filterChecked != null) {
                 logger.error("(But 5 stars filter on sidebar remains active)");
             } else {

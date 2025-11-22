@@ -33,13 +33,15 @@ public class BookingCurrencyExtractTest {
             logger.info("Page loaded successfully");
 
             waitAndClickWithTimeout(By.id("onetrust-accept-btn-handler"), 10, "Cookies accepted");
-            
-            waitAndClickWithTimeout(By.cssSelector("button[aria-label='Dismiss sign-in info.']"), 5, "Genius popup closed");
+
+            waitAndClickWithTimeout(By.cssSelector("button[aria-label='Dismiss sign-in info.']"), 5,
+                    "Genius popup closed");
 
             logger.info("--- Extracting current currency ---");
 
             try {
-                WebElement currencySpan = wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("span.ca2ca5203b")));
+                WebElement currencySpan = wait
+                        .until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("span.ca2ca5203b")));
                 String currencyCode = currencySpan.getText().trim();
                 logger.info("Current currency code: {}", currencyCode);
             } catch (TimeoutException e) {
@@ -47,7 +49,8 @@ public class BookingCurrencyExtractTest {
             }
 
             try {
-                WebElement activeCurrency = wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("div.CurrencyPicker_currency--active")));
+                WebElement activeCurrency = wait.until(ExpectedConditions
+                        .presenceOfElementLocated(By.cssSelector("div.CurrencyPicker_currency--active")));
                 String activeCurrencyCode = activeCurrency.getText().trim();
                 logger.info("Active currency from hidden menu: {}", activeCurrencyCode);
             } catch (TimeoutException e) {
@@ -58,12 +61,12 @@ public class BookingCurrencyExtractTest {
 
             boolean currencyMenuOpened = false;
             By[] currencyButtonLocators = {
-                By.xpath("//button[contains(@aria-label, 'currency')]"),
-                By.xpath("//button[contains(@class, 'CurrencyPicker')]"),
-                By.xpath("//button[@data-testid='header-currency']"),
-                By.cssSelector("button[aria-label*='currency']"),
-                By.xpath("//div[@class='Header__right']//button[1]"),
-                By.xpath("//button[.//span[contains(@class, 'ca2ca5203b')]]")
+                    By.xpath("//button[contains(@aria-label, 'currency')]"),
+                    By.xpath("//button[contains(@class, 'CurrencyPicker')]"),
+                    By.xpath("//button[@data-testid='header-currency']"),
+                    By.cssSelector("button[aria-label*='currency']"),
+                    By.xpath("//div[@class='Header__right']//button[1]"),
+                    By.xpath("//button[.//span[contains(@class, 'ca2ca5203b')]]")
             };
 
             for (By locator : currencyButtonLocators) {
@@ -73,7 +76,7 @@ public class BookingCurrencyExtractTest {
                         elements.get(0).click();
                         currencyMenuOpened = true;
                         logger.info("Currency menu opened successfully");
-                        
+
                         try {
                             Thread.sleep(500);
                         } catch (InterruptedException ie) {
@@ -92,7 +95,8 @@ public class BookingCurrencyExtractTest {
 
             logger.info("--- Extracting all available currencies ---");
 
-            java.util.List<WebElement> currencyOptions = driver.findElements(By.cssSelector("div.CurrencyPicker_currency"));
+            java.util.List<WebElement> currencyOptions = driver
+                    .findElements(By.cssSelector("div.CurrencyPicker_currency"));
 
             if (currencyOptions.isEmpty()) {
                 logger.warn("No currencies found in menu");
