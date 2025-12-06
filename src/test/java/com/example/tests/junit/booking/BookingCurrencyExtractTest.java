@@ -1,4 +1,4 @@
-package com.example.tests.junit.booking;
+﻿package com.example.tests.junit.booking;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -29,7 +29,7 @@ public class BookingCurrencyExtractTest {
     public void testExtractCurrency() {
         try {
             logger.info("Navigating to Booking.com");
-            driver.get("https://www.booking.com");
+            driver.get("https:
             logger.info("Page loaded successfully");
 
             waitAndClickWithTimeout(By.id("onetrust-accept-btn-handler"), 10, "Cookies accepted");
@@ -61,12 +61,12 @@ public class BookingCurrencyExtractTest {
 
             boolean currencyMenuOpened = false;
             By[] currencyButtonLocators = {
-                    By.xpath("//button[contains(@aria-label, 'currency')]"),
-                    By.xpath("//button[contains(@class, 'CurrencyPicker')]"),
-                    By.xpath("//button[@data-testid='header-currency']"),
+                    By.xpath("
+                    By.xpath("
+                    By.xpath("
                     By.cssSelector("button[aria-label*='currency']"),
-                    By.xpath("//div[@class='Header__right']//button[1]"),
-                    By.xpath("//button[.//span[contains(@class, 'ca2ca5203b')]]")
+                    By.xpath("
+                    By.xpath("
             };
 
             for (By locator : currencyButtonLocators) {
@@ -143,7 +143,7 @@ public class BookingCurrencyExtractTest {
         }
     }
 
-    // Вспомогательные методы
+    
     private void waitAndClickWithTimeout(By locator, int timeoutSeconds, String successMessage) {
         try {
             WebElement element = new WebDriverWait(driver, Duration.ofSeconds(timeoutSeconds))
@@ -165,3 +165,4 @@ public class BookingCurrencyExtractTest {
         }
     }
 }
+

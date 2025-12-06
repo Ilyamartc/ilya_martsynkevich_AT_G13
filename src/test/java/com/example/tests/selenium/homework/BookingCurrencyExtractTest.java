@@ -1,4 +1,4 @@
-package com.example.tests.selenium.homework;
+﻿package com.example.tests.selenium.homework;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -17,7 +17,7 @@ public class BookingCurrencyExtractTest {
 
         System.out.println("=== ИЗВЛЕЧЕНИЕ ВАЛЮТЫ ИЗ BOOKING ===\n");
 
-        d.get("https://www.booking.com");
+        d.get("https:
         System.out.println("✓ Открыл Booking.com");
 
         waitAndClickWithTimeout(d, w, By.id("onetrust-accept-btn-handler"), 10, "✓ Куки приняты");
@@ -58,9 +58,9 @@ public class BookingCurrencyExtractTest {
             System.out.println("⚠ Активная валюта не найдена");
         }
 
-        System.out.println("\n--- ОТКРЫТИЕ МЕНЮ ВАЛЮТ ---\n");
+        System.out.println("\n--- Opening МЕНЮ ВАЛЮТ ---\n");
 
-        By currencyButtonLocator = By.xpath("//button[contains(@aria-label, 'currency')]");
+        By currencyButtonLocator = By.xpath("
         WebElement currencyButton = w.until(ExpectedConditions.elementToBeClickable(currencyButtonLocator));
         currencyButton.click();
         System.out.println("✓ Меню валют открыто");
@@ -101,7 +101,7 @@ public class BookingCurrencyExtractTest {
             System.out.println("⚠ Активная валюта не определена");
         }
 
-        System.out.println("\n✅ ТЕСТ ЗАВЕРШЕН");
+        System.out.println("\n✅ TEST ЗАВЕРШЕН");
 
         d.quit();
     }

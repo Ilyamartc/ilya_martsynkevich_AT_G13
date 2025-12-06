@@ -1,0 +1,18 @@
+{
+  "recipename": "Borsch",
+  "ingredlist": [
+    {
+      "itemdescription": "beef",
+      "quantity": 150
+    },
+    {
+      "itemdescription": "beetroots",
+      "quantity": 4
+    },
+    {
+      "itemdescription": "potatoes",
+      "quantity": 3
+    }
+  ],
+  "preptime": 120
+}

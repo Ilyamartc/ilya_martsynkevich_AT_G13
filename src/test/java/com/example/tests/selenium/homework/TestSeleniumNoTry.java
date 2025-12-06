@@ -1,4 +1,4 @@
-package com.example.tests.selenium.homework;
+﻿package com.example.tests.selenium.homework;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.*;
@@ -13,10 +13,10 @@ public class TestSeleniumNoTry {
         WebDriver driver = new ChromeDriver(options);
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-        driver.get("https://www.google.com/");
+        driver.get("https:
 
-        if (driver.findElements(By.xpath("//button[contains(.,'Zaakceptuj wszystko')]")).size() > 0) {
-            driver.findElement(By.xpath("//button[contains(.,'Zaakceptuj wszystko')]")).click();
+        if (driver.findElements(By.xpath("
+            driver.findElement(By.xpath("
         }
 
         WebElement search = wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("q")));
@@ -24,13 +24,14 @@ public class TestSeleniumNoTry {
 
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("wob_wc")));
 
-        if (driver.findElements(By.xpath("//div[contains(text(),'Jutro')]")).size() > 0) {
-            driver.findElement(By.xpath("//div[contains(text(),'Jutro')]")).click();
+        if (driver.findElements(By.xpath("
+            driver.findElement(By.xpath("
         }
 
-        WebElement temp = driver.findElement(By.xpath("//*[contains(@aria-label,'12:00') or contains(text(),'12:00')]"));
+        WebElement temp = driver.findElement(By.xpath("
         System.out.println("Температура завтра в 12:00: " + temp.getAttribute("aria-label"));
 
         driver.quit();
     }
 }
+

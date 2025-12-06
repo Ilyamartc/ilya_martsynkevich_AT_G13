@@ -6,10 +6,11 @@ public class List8 {
         int min = array[0];
         for(int num:array){
             if(num < min){
-                min = num; // -- найти минимальный элемент массива и вывести результат в консоль
+                min = num; 
             }
         }
         System.out.print("Minimum number is " + min);
         System.out.println();
     }
 }
+

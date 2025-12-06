@@ -1,4 +1,4 @@
-package com.example.tests.junit.booking;
+﻿package com.example.tests.junit.booking;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -44,7 +44,7 @@ public class BookingParisTest {
         logger.info("--------------------");
 
         logger.info("Navigating to Booking.com");
-        driver.get("https://www.booking.com");
+        driver.get("https:
         logger.info("Opened Booking.com");
 
         waitAndClickWithTimeout(By.id("onetrust-accept-btn-handler"), 10, "Cookies accepted");
@@ -56,7 +56,7 @@ public class BookingParisTest {
         input.sendKeys(Keys.CONTROL + "a", Keys.DELETE);
         input.sendKeys("Paris");
         wait.until(ExpectedConditions.elementToBeClickable(
-                By.xpath("//div[contains(@class,'efbfd2b849')]//div[text()='Paris']/.."))).click();
+                By.xpath("
         logger.info("PARIS SELECTED!");
 
         logger.info("Selecting check-in date");
@@ -83,7 +83,7 @@ public class BookingParisTest {
 
         logger.info("Selecting 4 adults");
         By adultsIncreaseLocator = By.xpath(
-                "//label[text()='Adults']/ancestor::div[contains(@class,'e484bb5b7a')]/descendant::button[last()]");
+                "
         WebElement adultsPlusButton = wait.until(ExpectedConditions.elementToBeClickable(adultsIncreaseLocator));
         adultsPlusButton.click();
         adultsPlusButton.click();
@@ -91,12 +91,12 @@ public class BookingParisTest {
 
         logger.info("Selecting 2 rooms");
         By roomsIncreaseLocator = By.xpath(
-                "//label[text()='Rooms']/ancestor::div[contains(@class,'e484bb5b7a')]/descendant::button[last()]");
+                "
         WebElement roomsPlusButton = wait.until(ExpectedConditions.elementToBeClickable(roomsIncreaseLocator));
         roomsPlusButton.click();
         logger.info("Rooms: 2 selected");
 
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button/span[text()='Done']"))).click();
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("
         logger.info("Done button clicked");
 
         logger.info("Submitting search");
@@ -110,7 +110,7 @@ public class BookingParisTest {
         logger.info("Hotel cards loaded");
 
         logger.info("Applying 5 stars filter");
-        By fiveStarsFilterLocator = By.xpath("//div[@data-filters-group='class']//div[text()='5 stars']");
+        By fiveStarsFilterLocator = By.xpath("
         WebElement fiveStarsFilter = wait.until(ExpectedConditions.presenceOfElementLocated(fiveStarsFilterLocator));
 
         js.executeScript("arguments[0].scrollIntoView(true);", fiveStarsFilter);
@@ -126,7 +126,7 @@ public class BookingParisTest {
         logger.info("Applying sorting by rating");
         wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.cssSelector("[data-testid='property-card']")));
 
-        By currentSortLocator = By.xpath("//span[contains(@class,'a9918d47bf') and contains(text(), 'Sort by:')]/..");
+        By currentSortLocator = By.xpath("
         WebElement currentSortDisplay = wait.until(ExpectedConditions.presenceOfElementLocated(currentSortLocator));
 
         js.executeScript("arguments[0].scrollIntoView({block: 'center'});", currentSortDisplay);
@@ -149,7 +149,7 @@ public class BookingParisTest {
         logger.info("Sorting complete, results loaded");
 
         By assertionLocator = By.xpath(
-                "(//div[@data-testid='property-card'])[1]//div[@aria-label='5 out of 5']");
+                "(
 
         boolean assertionPassed = isElementPresent(assertionLocator, 5);
 
@@ -157,14 +157,14 @@ public class BookingParisTest {
             logger.info("CHECK SUCCESSFUL: First hotel in list has 5 stars rating!");
         } else {
             WebElement firstHotelName = getElementIfPresent(
-                    By.xpath("(//div[@data-testid='property-card'])[1]//div[@data-testid='title']"));
+                    By.xpath("(
             logger.error("CHECK FAILED: First hotel does not have expected 5 stars rating");
             if (firstHotelName != null) {
                 logger.error("First hotel name: " + firstHotelName.getText());
             }
 
             WebElement filterChecked = getElementIfPresent(By.xpath(
-                    "//div[@data-filters-group='class']//div[text()='5 stars']/ancestor::*[@aria-checked='true']"));
+                    "
             if (filterChecked != null) {
                 logger.error("(But 5 stars filter on sidebar remains active)");
             } else {
@@ -190,7 +190,7 @@ public class BookingParisTest {
             shortWait.until(ExpectedConditions.elementToBeClickable(locator)).click();
             logger.info(message);
         } catch (TimeoutException e) {
-            // Элемент не найден - допустимо
+            
         }
     }
 
@@ -223,3 +223,4 @@ public class BookingParisTest {
         }
     }
 }
+

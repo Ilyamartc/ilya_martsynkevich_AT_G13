@@ -1,4 +1,4 @@
-package com.example.tests.selenium.homework;
+﻿package com.example.tests.selenium.homework;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -31,7 +31,7 @@ public class BookingParisTest1 {
         System.out.println("  Выезд: " + checkOutDateString);
         System.out.println("--------------------");
 
-        d.get("https://www.booking.com");
+        d.get("https:
         System.out.println("Открыл Booking.com");
 
         waitAndClickWithTimeout(d, w, By.id("onetrust-accept-btn-handler"), 10, "Куки приняты");
@@ -43,7 +43,7 @@ public class BookingParisTest1 {
         input.sendKeys(Keys.CONTROL + "a", Keys.DELETE);
         input.sendKeys("Paris");
         w.until(ExpectedConditions.elementToBeClickable(
-                By.xpath("//div[contains(@class,'efbfd2b849')]//div[text()='Paris']/..")
+                By.xpath("
         )).click();
         System.out.println("ПАРИЖ ВЫБРАН! Календарь открыт.");
 
@@ -72,11 +72,11 @@ public class BookingParisTest1 {
         System.out.println("Контейнер гостей прогружен.");
 
         By adultsIncreaseLocator = By.xpath(
-                "//label[text()='Adults']/ancestor::div[contains(@class,'e484bb5b7a')]/descendant::button[last()]"
+                "
         );
 
         By roomsIncreaseLocator = By.xpath(
-                "//label[text()='Rooms']/ancestor::div[contains(@class,'e484bb5b7a')]/descendant::button[last()]"
+                "
         );
 
         WebElement adultsPlusButton = w.until(ExpectedConditions.elementToBeClickable(adultsIncreaseLocator));
@@ -88,7 +88,7 @@ public class BookingParisTest1 {
         roomsPlusButton.click();
         System.out.println("Номеров: 2 выбрано.");
 
-        w.until(ExpectedConditions.elementToBeClickable(By.xpath("//button/span[text()='Done']"))).click();
+        w.until(ExpectedConditions.elementToBeClickable(By.xpath("
         System.out.println("Нажата кнопка 'Done'.");
 
         WebElement searchButton = w.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button[type='submit']")));
@@ -99,7 +99,7 @@ public class BookingParisTest1 {
         w.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[data-testid='property-card']")));
         System.out.println("Карточки отелей прогружены.");
 
-        By fiveStarsFilterLocator = By.xpath("//div[@data-filters-group='class']//div[text()='5 stars']");
+        By fiveStarsFilterLocator = By.xpath("
         WebElement fiveStarsFilter = w.until(ExpectedConditions.presenceOfElementLocated(fiveStarsFilterLocator));
 
         js.executeScript("arguments[0].scrollIntoView(true);", fiveStarsFilter);
@@ -114,7 +114,7 @@ public class BookingParisTest1 {
 
         Thread.sleep(1000);
 
-        By currentSortLocator = By.xpath("//span[contains(@class,'a9918d47bf') and contains(text(), 'Sort by:')]/..");
+        By currentSortLocator = By.xpath("
         WebElement currentSortDisplay = w.until(ExpectedConditions.elementToBeClickable(currentSortLocator));
         currentSortDisplay.click();
         System.out.println("Нажата текущая сортировка, открыто выпадающее меню.");
@@ -133,7 +133,7 @@ public class BookingParisTest1 {
         Thread.sleep(1000);
 
         By assertionLocator = By.xpath(
-                "(//div[@data-testid='property-card'])[1]//div[@aria-label='5 out of 5']"
+                "(
         );
 
         boolean assertionPassed = isElementPresent(d, assertionLocator, 5);
@@ -141,13 +141,13 @@ public class BookingParisTest1 {
         if (assertionPassed) {
             System.out.println("\n✅ ПРОВЕРКА УСПЕШНА: Первый отель в списке имеет рейтинг 5 звезд!");
         } else {
-            WebElement firstHotelName = getElementIfPresent(d, By.xpath("(//div[@data-testid='property-card'])[1]//div[@data-testid='title']"));
+            WebElement firstHotelName = getElementIfPresent(d, By.xpath("(
             System.err.println("\n❌ ПРОВЕРКА НЕУДАЧНА: Первый отель не имеет ожидаемого рейтинга 5 звезд.");
             if (firstHotelName != null) {
                 System.err.println("Имя первого отеля: " + firstHotelName.getText());
             }
 
-            WebElement filterChecked = getElementIfPresent(d, By.xpath("//div[@data-filters-group='class']//div[text()='5 stars']/ancestor::*[@aria-checked='true']"));
+            WebElement filterChecked = getElementIfPresent(d, By.xpath("
             if (filterChecked != null) {
                 System.err.println("(Но фильтр 5 звезд на боковой панели остается активным)");
             } else {
@@ -155,7 +155,7 @@ public class BookingParisTest1 {
             }
         }
 
-        System.out.println("\n--- ФИНАЛ СЦЕНАРИЯ ТЕСТА ---");
+        System.out.println("\n--- ФИНАЛ СЦЕНАРИЯ TESTА ---");
         d.quit();
     }
 

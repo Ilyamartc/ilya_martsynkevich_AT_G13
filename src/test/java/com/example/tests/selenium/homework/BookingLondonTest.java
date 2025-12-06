@@ -1,4 +1,4 @@
-package com.example.tests.selenium.homework;
+﻿package com.example.tests.selenium.homework;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -19,9 +19,9 @@ public class BookingLondonTest {
         WebDriverWait w = new WebDriverWait(d, Duration.ofSeconds(30));
         JavascriptExecutor js = (JavascriptExecutor) d;
 
-        System.out.println("=== ТЕСТ BOOKING LONDON ===\n");
+        System.out.println("=== TEST BOOKING LONDON ===\n");
 
-        d.get("https://www.booking.com");
+        d.get("https:
         System.out.println("✓ Открыл Booking.com");
 
         waitAndClickWithTimeout(d, w, By.id("onetrust-accept-btn-handler"), 10, "✓ Куки приняты");
@@ -38,7 +38,7 @@ public class BookingLondonTest {
         input.sendKeys("London");
 
         w.until(ExpectedConditions.elementToBeClickable(
-                By.xpath("//div[contains(@class,'efbfd2b849')]//div[text()='London']/..")
+                By.xpath("
         )).click();
         System.out.println("✓ Город LONDON выбран");
 
@@ -80,11 +80,11 @@ public class BookingLondonTest {
             return;
         }
 
-        WebElement tenthHotel = hotelCards.get(9); // 10-й отель (0-индексация)
+        WebElement tenthHotel = hotelCards.get(9); 
         js.executeScript("arguments[0].scrollIntoView(true);", tenthHotel);
         System.out.println("✓ Прокручен к 10-му отелю");
 
-        Thread.sleep(500); // Небольшая пауза для стабильности
+        Thread.sleep(500); 
 
         js.executeScript("arguments[0].style.backgroundColor = 'green';", tenthHotel);
         System.out.println("✓ Фон 10-го отеля изменен на ЗЕЛЕНЫЙ");
@@ -98,7 +98,7 @@ public class BookingLondonTest {
         String screenshotPath = takeScreenshot(d);
         System.out.println("✓ Скриншот сохранён: " + screenshotPath);
 
-        System.out.println("\n=== ТЕСТ ЗАВЕРШЕН УСПЕШНО ===");
+        System.out.println("\n=== TEST ЗАВЕРШЕН УСПЕШНО ===");
 
         d.quit();
     }
@@ -109,7 +109,7 @@ public class BookingLondonTest {
             shortWait.until(ExpectedConditions.elementToBeClickable(locator)).click();
             System.out.println(message);
         } catch (TimeoutException e) {
-            // Элемент не найден - это допустимо
+            
         }
     }
 

@@ -1,4 +1,4 @@
-package com.example.tests.junit.booking;
+﻿package com.example.tests.junit.booking;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -33,7 +33,7 @@ public class BookingPragueRatingTest {
     @Test
     public void testPragueHotelRating() {
         logger.info("Navigating to Booking.com");
-        driver.get("https://www.booking.com");
+        driver.get("https:
         logger.info("Opened Booking.com");
 
         waitAndClickWithTimeout(By.id("onetrust-accept-btn-handler"), 10, "Cookies accepted");
@@ -49,7 +49,7 @@ public class BookingPragueRatingTest {
         input.sendKeys("Prague");
 
         wait.until(ExpectedConditions.elementToBeClickable(
-                By.xpath("//div[contains(@class,'efbfd2b849')]//div[text()='Prague']/.."))).click();
+                By.xpath("
         logger.info("Prague selected");
 
         LocalDate today = LocalDate.now();
@@ -79,12 +79,12 @@ public class BookingPragueRatingTest {
 
         WebElement adultsIncreaseButton = wait.until(ExpectedConditions.elementToBeClickable(
                 By.xpath(
-                        "//label[text()='Adults']/ancestor::div[contains(@class,'e484bb5b7a')]/descendant::button[last()]")));
+                        "
         adultsIncreaseButton.click();
         logger.info("Adults: 2");
         logger.info("Rooms: 1");
 
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button/span[text()='Done']"))).click();
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("
         logger.info("Parameters set");
 
         logger.info("Submitting search");
@@ -99,7 +99,7 @@ public class BookingPragueRatingTest {
         wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.cssSelector("[data-testid='property-card']")));
 
         logger.info("Opening sort menu");
-        By sortByLocator = By.xpath("//span[contains(text(), 'Sort by')]");
+        By sortByLocator = By.xpath("
         WebElement sortByElement = wait.until(ExpectedConditions.presenceOfElementLocated(sortByLocator));
 
         js.executeScript("arguments[0].scrollIntoView({block: 'center'});", sortByElement);
@@ -121,11 +121,11 @@ public class BookingPragueRatingTest {
 
         logger.info("Searching for rating sort option");
         By[] ratingLocators = {
-                By.xpath("//button[contains(text(), 'rating')]"),
-                By.xpath("//button[contains(text(), 'Rating')]"),
-                By.xpath("//*[contains(text(), 'Property rating')]"),
-                By.xpath("//button[@data-id='class']"),
-                By.xpath("//button[contains(@data-id, 'class')]"),
+                By.xpath("
+                By.xpath("
+                By.xpath("
+                By.xpath("
+                By.xpath("
                 By.cssSelector("button[data-id*='class']")
         };
 
@@ -169,7 +169,7 @@ public class BookingPragueRatingTest {
         logger.info("First hotel: " + hotelName);
 
         WebElement ratingElement = getElementIfPresent(firstHotelCard,
-                By.xpath(".//div[contains(@class, 'f63b14ab7a')]"));
+                By.xpath(".
 
         double hotelRating = 0.0;
         if (ratingElement != null) {
@@ -210,7 +210,7 @@ public class BookingPragueRatingTest {
 
             try {
                 wait.until(
-                        ExpectedConditions.presenceOfElementLocated(By.xpath("//div[contains(@class, 'f63b14ab7a')]")));
+                        ExpectedConditions.presenceOfElementLocated(By.xpath("
             } catch (Exception e) {
                 logger.info("Hotel page element not found");
             }
@@ -219,11 +219,11 @@ public class BookingPragueRatingTest {
         }
 
         WebElement pageRatingElement = getElementIfPresent(
-                By.xpath("//div[contains(@class, 'f63b14ab7a') and contains(@class, 'dff2e52086')]"));
+                By.xpath("
 
         if (pageRatingElement == null) {
             pageRatingElement = getElementIfPresent(
-                    By.xpath("//div[contains(@class, 'f63b14ab7a')]"));
+                    By.xpath("
         }
 
         double pageRating = 0.0;
@@ -273,7 +273,7 @@ public class BookingPragueRatingTest {
             shortWait.until(ExpectedConditions.elementToBeClickable(locator)).click();
             logger.info(message);
         } catch (TimeoutException e) {
-            // Элемент не найден - допустимо
+            
         }
     }
 
@@ -304,3 +304,4 @@ public class BookingPragueRatingTest {
         }
     }
 }
+

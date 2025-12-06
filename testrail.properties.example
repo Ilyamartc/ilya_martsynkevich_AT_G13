@@ -1,0 +1,20 @@
+# TestRail Integration Configuration
+# Rename this file to testrail.properties and update with your actual values
+
+# TestRail URL (without trailing slash)
+testrail.url=https://your-company.testrail.io
+
+# TestRail credentials
+testrail.username=your-email@company.com
+testrail.password=your-password-or-api-key
+
+# Project configuration
+testrail.project.id=1
+testrail.suite.id=1
+
+# Optional settings
+testrail.milestone.id=
+testrail.assignedto.id=
+
+# Enable/disable TestRail integration
+testrail.enabled=true

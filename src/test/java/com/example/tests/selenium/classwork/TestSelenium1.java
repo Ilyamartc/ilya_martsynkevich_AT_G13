@@ -1,4 +1,4 @@
-package com.example.tests.selenium.classwork;
+﻿package com.example.tests.selenium.classwork;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.*;
@@ -17,11 +17,11 @@ public class TestSelenium1 {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         try {
-            driver.get("https://www.google.com/?hl=pl");
+            driver.get("https:
 
             try {
                 WebElement accept = wait.until(ExpectedConditions.elementToBeClickable(
-                        By.xpath("//button[contains(.,'Zaakceptuj wszystko')]")));
+                        By.xpath("
                 accept.click();
             } catch (Exception e) {
                 System.out.println("Cookies окно не появилось");
@@ -35,7 +35,7 @@ public class TestSelenium1 {
 
             try {
                 WebElement tomorrow = wait.until(ExpectedConditions.elementToBeClickable(
-                        By.xpath("//div[contains(text(),'Jutro')]")));
+                        By.xpath("
                 tomorrow.click();
             } catch (TimeoutException e) {
                 System.out.println("Не найден элемент 'Jutro' — Google показывает погоду иначе");
@@ -43,7 +43,7 @@ public class TestSelenium1 {
 
             WebElement tempAtNoon = null;
             try {
-                tempAtNoon = driver.findElement(By.xpath("//*[contains(@aria-label,'12:00') or contains(text(),'12:00')]"));
+                tempAtNoon = driver.findElement(By.xpath("
                 String label = tempAtNoon.getAttribute("aria-label");
                 System.out.println("Температура завтра в 12:00: " + label);
             } catch (NoSuchElementException e) {
@@ -57,3 +57,4 @@ public class TestSelenium1 {
         }
     }
 }
+

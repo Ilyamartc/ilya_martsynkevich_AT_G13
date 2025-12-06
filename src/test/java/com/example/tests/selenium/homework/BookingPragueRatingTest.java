@@ -1,4 +1,4 @@
-package com.example.tests.selenium.homework;
+﻿package com.example.tests.selenium.homework;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -18,9 +18,9 @@ public class BookingPragueRatingTest {
         WebDriverWait w = new WebDriverWait(d, Duration.ofSeconds(30));
         JavascriptExecutor js = (JavascriptExecutor) d;
 
-        System.out.println("=== ТЕСТ BOOKING PRAGUE (РЕЙТИНГ) ===\n");
+        System.out.println("=== TEST BOOKING PRAGUE (РЕЙТИНГ) ===\n");
 
-        d.get("https://www.booking.com");
+        d.get("https:
         System.out.println("✓ Открыл Booking.com");
 
         waitAndClickWithTimeout(d, w, By.id("onetrust-accept-btn-handler"), 10, "✓ Куки приняты");
@@ -39,7 +39,7 @@ public class BookingPragueRatingTest {
         input.sendKeys("Prague");
 
         w.until(ExpectedConditions.elementToBeClickable(
-                By.xpath("//div[contains(@class,'efbfd2b849')]//div[text()='Prague']/..")
+                By.xpath("
         )).click();
         System.out.println("✓ Прага выбрана");
 
@@ -70,14 +70,14 @@ public class BookingPragueRatingTest {
         w.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[data-testid='occupancy-popup']")));
 
         WebElement adultsIncreaseButton = w.until(ExpectedConditions.elementToBeClickable(
-                By.xpath("//label[text()='Adults']/ancestor::div[contains(@class,'e484bb5b7a')]/descendant::button[last()]")
+                By.xpath("
         ));
         adultsIncreaseButton.click();
         System.out.println("✓ Взрослых: 2");
 
         System.out.println("✓ Номеров: 1");
 
-        w.until(ExpectedConditions.elementToBeClickable(By.xpath("//button/span[text()='Done']"))).click();
+        w.until(ExpectedConditions.elementToBeClickable(By.xpath("
         System.out.println("✓ Параметры установлены");
 
         w.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button[type='submit']"))).click();
@@ -90,7 +90,7 @@ public class BookingPragueRatingTest {
 
         Thread.sleep(1500);
 
-        By sortByLocator = By.xpath("//span[contains(text(), 'Sort by')]");
+        By sortByLocator = By.xpath("
         WebElement sortByElement = w.until(ExpectedConditions.presenceOfElementLocated(sortByLocator));
 
         js.executeScript("arguments[0].scrollIntoView(true);", sortByElement);
@@ -102,12 +102,12 @@ public class BookingPragueRatingTest {
 
         Thread.sleep(800);
 
-        By ratingHighToLowLocator = By.xpath("//button[contains(text(), 'rating') or contains(text(), 'Rating')]");
+        By ratingHighToLowLocator = By.xpath("
         java.util.List<WebElement> options = d.findElements(ratingHighToLowLocator);
 
         if (options.isEmpty()) {
-            // Альтернативный поиск
-            By alternativeLocator = By.xpath("//*[contains(text(), 'Property rating')]");
+            
+            By alternativeLocator = By.xpath("
             options = d.findElements(alternativeLocator);
         }
 
@@ -135,7 +135,7 @@ public class BookingPragueRatingTest {
         System.out.println("✓ Первый отель: " + hotelName);
 
         WebElement ratingElement = getElementIfPresent(firstHotelCard,
-                By.xpath(".//div[contains(@class, 'f63b14ab7a')]"));
+                By.xpath(".
 
         double hotelRating = 0.0;
         if (ratingElement != null) {
@@ -168,11 +168,11 @@ public class BookingPragueRatingTest {
         }
 
         WebElement pageRatingElement = getElementIfPresent(d,
-                By.xpath("//div[contains(@class, 'f63b14ab7a') and contains(@class, 'dff2e52086')]"));
+                By.xpath("
 
         if (pageRatingElement == null) {
             pageRatingElement = getElementIfPresent(d,
-                    By.xpath("//div[contains(@class, 'f63b14ab7a')]"));
+                    By.xpath("
         }
 
         double pageRating = 0.0;
@@ -193,9 +193,9 @@ public class BookingPragueRatingTest {
         System.out.println("\n--- РЕЗУЛЬТАТ ПРОВЕРКИ ---\n");
 
         if (pageRating >= 9.0) {
-            System.out.println("✅ ТЕСТ ПРОЙДЕН: Рейтинг отеля " + pageRating + " >= 9.0");
+            System.out.println("✅ TEST ПРОЙДЕН: Рейтинг отеля " + pageRating + " >= 9.0");
         } else if (pageRating > 0) {
-            System.err.println("❌ ТЕСТ НЕ ПРОЙДЕН: Рейтинг отеля " + pageRating + " < 9.0");
+            System.err.println("❌ TEST НЕ ПРОЙДЕН: Рейтинг отеля " + pageRating + " < 9.0");
         } else {
             System.err.println("⚠ НЕ УДАЛОСЬ ПРОВЕРИТЬ: Рейтинг не найден");
         }
@@ -203,7 +203,7 @@ public class BookingPragueRatingTest {
         System.out.println("\nОтель: " + hotelName);
         System.out.println("Рейтинг: " + (pageRating > 0 ? pageRating : "Не найден"));
 
-        System.out.println("\n✅ ТЕСТ ЗАВЕРШЕН");
+        System.out.println("\n✅ TEST ЗАВЕРШЕН");
 
         d.quit();
     }
@@ -220,7 +220,7 @@ public class BookingPragueRatingTest {
         }
     }
 
-    // Вспомогательный метод для ожидания и клика
+    
     private static void waitAndClickWithTimeout(WebDriver d, WebDriverWait w, By locator, int timeoutSeconds, String message) {
         WebDriverWait shortWait = new WebDriverWait(d, Duration.ofSeconds(timeoutSeconds));
         try {

@@ -1,4 +1,4 @@
-package com.example.tests.junit.booking;
+﻿package com.example.tests.junit.booking;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -29,9 +29,9 @@ public class DemoQASelectMenuTest {
     @Test
     public void testSelectMenuInteractions() {
         logger.info("Navigating to DemoQA Select Menu page");
-        driver.get("https://demoqa.com/select-menu");
+        driver.get("https:
         logger.info("--- STEP 1: Opening DemoQA Select Menu ---");
-        logger.info("Opened https://demoqa.com/select-menu");
+        logger.info("Opened https:
 
         js.executeScript("window.scrollTo(0, 0);");
 
@@ -62,31 +62,31 @@ public class DemoQASelectMenuTest {
     }
 
     private void selectFromReactSelect(String selector, String value) {
-        logger.info(" Открываю выпадающий список");
+        logger.info(" Opening dropdown list");
 
         WebElement selectElement = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(selector)));
         selectElement.click();
-        logger.info("✓ Выпадающий список открыт");
+        logger.info("✓ Dropdown list opened");
 
-        wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//div[contains(@class, 'option')]")));
+        wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("
 
-        By optionLocator = By.xpath("//div[contains(@class, 'option') and contains(text(), '" + value + "')]");
+        By optionLocator = By.xpath("
         WebElement option = wait.until(ExpectedConditions.elementToBeClickable(optionLocator));
         option.click();
-        logger.info("✓ Выбран: " + value);
+        logger.info("✓ Selected: " + value);
     }
 
     private void selectOldStyleDropdown(String id, String value) {
-        logger.info(" Выбираю значение из Old Select Menu");
+        logger.info(" Selecting value from Old Select Menu");
 
         WebElement selectElement = wait.until(ExpectedConditions.presenceOfElementLocated(By.id(id)));
         Select select = new Select(selectElement);
         select.selectByVisibleText(value);
-        logger.info("✓ Выбран: " + value);
+        logger.info("✓ Selected: " + value);
     }
 
     private void selectMultiselectDropdown() {
-        logger.info(" Выбираю значение из Multiselect Dropdown");
+        logger.info(" Selecting value from Multiselect Dropdown");
 
         js.executeScript("window.scrollBy(0, 500);");
 
@@ -98,12 +98,12 @@ public class DemoQASelectMenuTest {
 
         WebElement multiSelect = null;
         By[] multiSelectLocators = {
-                By.xpath("//select[@id='cars' or @multiple]"),
+                By.xpath("
                 By.cssSelector(".multiselect"),
-                By.xpath("//div[contains(@class, 'multiselect')]"),
-                By.xpath("//div[@id='multiSelectDropdown' or @id='multiSelectDropdown_wrapper']"),
-                By.xpath("//div[contains(@class, 'ms-parent')]"),
-                By.xpath("(//div[contains(@class, 'custom-select')])[3]")
+                By.xpath("
+                By.xpath("
+                By.xpath("
+                By.xpath("(
         };
 
         for (By locator : multiSelectLocators) {
@@ -139,11 +139,11 @@ public class DemoQASelectMenuTest {
                     }
 
                     By[] optionLocators = {
-                            By.xpath("//li[@class='ms-elem-selectable'][1]"),
-                            By.xpath("//a[@class='optionLabelLeft']"),
-                            By.xpath("//label[contains(@class, 'ms-elem-selectable')]"),
-                            By.xpath("//div[contains(@class, 'ms-select-all')]"),
-                            By.xpath("//option[1]")
+                            By.xpath("
+                            By.xpath("
+                            By.xpath("
+                            By.xpath("
+                            By.xpath("
                     };
 
                     for (By locator : optionLocators) {
@@ -183,3 +183,4 @@ public class DemoQASelectMenuTest {
         logger.info("Selected: " + value);
     }
 }
+

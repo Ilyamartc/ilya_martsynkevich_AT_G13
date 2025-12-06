@@ -1,10 +1,22 @@
-### IntelliJ IDEA ###
-out/
-!**/src/main/**/out/
-!**/src/test/**/out/
-target
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
 
-### Eclipse ###
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# VS Code
+.vscode/
+
+# Eclipse
 .apt_generated
 .classpath
 .factorypath
@@ -13,18 +25,40 @@ target
 .springBeans
 .sts4-cache
 bin/
-!**/src/main/**/bin/
-!**/src/test/**/bin/
 
-### NetBeans ###
+# NetBeans
 /nbproject/private/
 /nbbuild/
 /dist/
 /nbdist/
 /.nb-gradle/
 
-### VS Code ###
-.vscode/
+# Test results and reports
+test-output/
+test-logs.log
+*.log
+allure-results/
+surefire-reports/
 
-### Mac OS ###
+# TestNG
+testng-stub.xml
+
+# Selenium
+*.ser
+
+# OS specific
 .DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*~
+
+# PowerShell scripts (project specific)
+*.ps1
+
+# Properties files with sensitive data
+*.properties
+!*.properties.example
